@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>510</x>
+      <y>190</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Banking Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>680</x>
+      <y>190</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Bank Management</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>600</x>
+      <y>300</y>
+      <w>120</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Banking Tellers</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>840</x>
+      <y>130</y>
+      <w>630</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>Managers have access to all information on all accounts.  They can credit or debit any account.  Finally they manage the loan accounts.  Each month they initiate the process that sends the bills out to the credit card and mortgage accounts.  They also initiate the process that sends out the roll over notices for CDs.  Further they set the interest rates paid monthly on checking and savings.
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>390</x>
+      <y>430</y>
+      <w>530</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>The banking tellers have access to the following information on all accounts; account balances, recent debits (checks honored by the account, payments made to credit cards, etc), account status (current or behind).  Tellers can credit any account (except saving CDs.  They can also debit checking and saving accounts (i.e. providing cash to the customer).  Further tellers can transfer monies from a checking to a saving account and vice versa.  
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>10</x>
+      <y>150</y>
+      <w>430</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>These customers essentially make withdrawals/deposits from the banking system.  This is done through ATM cards, paper deposits or use of their credit cards. 
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>360</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>200</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>200</y>
+      <w>140</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
