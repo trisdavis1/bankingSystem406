@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1183</x>
-      <y>161</y>
+      <x>1176</x>
+      <y>196</y>
       <w>182</w>
       <h>133</h>
     </coordinates>
@@ -21,8 +21,8 @@ or use of their credit cards.</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>1974</x>
-      <y>238</y>
-      <w>112</w>
+      <y>273</y>
+      <w>98</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>Bank Management</panel_attributes>
@@ -31,8 +31,8 @@ or use of their credit cards.</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1442</x>
-      <y>455</y>
+      <x>1435</x>
+      <y>490</y>
       <w>84</w>
       <h>77</h>
     </coordinates>
@@ -42,8 +42,8 @@ or use of their credit cards.</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>2065</x>
-      <y>182</y>
+      <x>2058</x>
+      <y>217</y>
       <w>133</w>
       <h>63</h>
     </coordinates>
@@ -54,8 +54,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1036</x>
-      <y>217</y>
+      <x>1029</x>
+      <y>252</y>
       <w>133</w>
       <h>56</h>
     </coordinates>
@@ -66,8 +66,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1484</x>
-      <y>476</y>
+      <x>1477</x>
+      <y>511</y>
       <w>77</w>
       <h>77</h>
     </coordinates>
@@ -77,8 +77,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2044</x>
-      <y>252</y>
+      <x>2037</x>
+      <y>287</y>
       <w>70</w>
       <h>56</h>
     </coordinates>
@@ -88,8 +88,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1162</x>
-      <y>175</y>
+      <x>1155</x>
+      <y>210</y>
       <w>105</w>
       <h>70</h>
     </coordinates>
@@ -100,8 +100,8 @@ style=wordwrap</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>644</x>
-      <y>616</y>
-      <w>511</w>
+      <y>651</y>
+      <w>497</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>Savings accounts.
@@ -117,8 +117,8 @@ the CDs automatically roll over. </panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>0</x>
-      <y>455</y>
-      <w>490</w>
+      <y>490</y>
+      <w>476</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>“Gold/Diamond” account. 
@@ -133,8 +133,8 @@ The rate is flexible in that it changes on a daily basis and is 0.5*(the rate on
     <id>UMLActor</id>
     <coordinates>
       <x>546</x>
-      <y>448</y>
-      <w>686</w>
+      <y>483</y>
+      <w>672</w>
       <h>168</h>
     </coordinates>
     <panel_attributes>Checking accounts.
@@ -151,8 +151,8 @@ There is no minimum balance to be maintained for this account.
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>273</x>
-      <y>385</y>
+      <x>266</x>
+      <y>420</y>
       <w>511</w>
       <h>105</h>
     </coordinates>
@@ -169,8 +169,8 @@ The services consist of the following;
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>287</x>
-      <y>595</y>
+      <x>280</x>
+      <y>630</y>
       <w>343</w>
       <h>147</h>
     </coordinates>
@@ -183,8 +183,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>462</x>
-      <y>798</y>
+      <x>455</x>
+      <y>833</y>
       <w>644</w>
       <h>245</h>
     </coordinates>
@@ -203,8 +203,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1253</x>
-      <y>714</y>
+      <x>1246</x>
+      <y>749</y>
       <w>196</w>
       <h>140</h>
     </coordinates>
@@ -218,8 +218,8 @@ ATM Cards.  Holders of accounts in the bank may have ATM cards for withdrawal.  
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1414</x>
-      <y>196</y>
+      <x>1407</x>
+      <y>231</y>
       <w>126</w>
       <h>56</h>
     </coordinates>
@@ -230,8 +230,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>896</x>
-      <y>280</y>
+      <x>889</x>
+      <y>315</y>
       <w>119</w>
       <h>56</h>
     </coordinates>
@@ -244,8 +244,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>903</x>
-      <y>350</y>
+      <x>896</x>
+      <y>385</y>
       <w>168</w>
       <h>63</h>
     </coordinates>
@@ -258,8 +258,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1288</x>
-      <y>175</y>
+      <x>1281</x>
+      <y>210</y>
       <w>161</w>
       <h>42</h>
     </coordinates>
@@ -269,8 +269,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1463</x>
-      <y>245</y>
+      <x>1456</x>
+      <y>280</y>
       <w>84</w>
       <h>133</h>
     </coordinates>
@@ -281,8 +281,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1008</x>
-      <y>238</y>
+      <x>1001</x>
+      <y>273</y>
       <w>84</w>
       <h>84</h>
     </coordinates>
@@ -293,8 +293,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1099</x>
-      <y>266</y>
+      <x>1092</x>
+      <y>301</y>
       <w>189</w>
       <h>182</h>
     </coordinates>
@@ -305,8 +305,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1036</x>
-      <y>259</y>
+      <x>1029</x>
+      <y>294</y>
       <w>77</w>
       <h>112</h>
     </coordinates>
@@ -317,8 +317,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1652</x>
-      <y>497</y>
+      <x>1645</x>
+      <y>532</y>
       <w>252</w>
       <h>112</h>
     </coordinates>
@@ -329,8 +329,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1456</x>
-      <y>539</y>
+      <x>1449</x>
+      <y>574</y>
       <w>182</w>
       <h>63</h>
     </coordinates>
@@ -341,8 +341,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1575</x>
-      <y>441</y>
+      <x>1568</x>
+      <y>476</y>
       <w>203</w>
       <h>63</h>
     </coordinates>
@@ -353,8 +353,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1386</x>
-      <y>364</y>
+      <x>1379</x>
+      <y>399</y>
       <w>175</w>
       <h>77</h>
     </coordinates>
@@ -365,8 +365,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1211</x>
-      <y>427</y>
+      <x>1204</x>
+      <y>462</y>
       <w>231</w>
       <h>77</h>
     </coordinates>
@@ -380,8 +380,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1582</x>
-      <y>364</y>
+      <x>1575</x>
+      <y>399</y>
       <w>189</w>
       <h>77</h>
     </coordinates>
@@ -392,8 +392,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1435</x>
-      <y>455</y>
+      <x>1428</x>
+      <y>490</y>
       <w>56</w>
       <h>42</h>
     </coordinates>
@@ -403,8 +403,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1484</x>
-      <y>455</y>
+      <x>1477</x>
+      <y>490</y>
       <w>105</w>
       <h>35</h>
     </coordinates>
@@ -414,8 +414,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1491</x>
-      <y>399</y>
+      <x>1484</x>
+      <y>434</y>
       <w>105</w>
       <h>77</h>
     </coordinates>
@@ -425,8 +425,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1491</x>
-      <y>476</y>
+      <x>1484</x>
+      <y>511</y>
       <w>175</w>
       <h>84</h>
     </coordinates>
@@ -436,8 +436,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1463</x>
-      <y>434</y>
+      <x>1456</x>
+      <y>469</y>
       <w>35</w>
       <h>35</h>
     </coordinates>
@@ -447,8 +447,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1974</x>
-      <y>119</y>
+      <x>1967</x>
+      <y>154</y>
       <w>140</w>
       <h>63</h>
     </coordinates>
@@ -459,8 +459,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>2100</x>
-      <y>266</y>
+      <x>2093</x>
+      <y>301</y>
       <w>119</w>
       <h>63</h>
     </coordinates>
@@ -471,8 +471,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1946</x>
-      <y>336</y>
+      <x>1939</x>
+      <y>371</y>
       <w>161</w>
       <h>91</h>
     </coordinates>
@@ -483,8 +483,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1813</x>
-      <y>238</y>
+      <x>1806</x>
+      <y>273</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -495,8 +495,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1806</x>
-      <y>161</y>
+      <x>1799</x>
+      <y>196</y>
       <w>147</w>
       <h>70</h>
     </coordinates>
@@ -507,8 +507,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2037</x>
-      <y>210</y>
+      <x>2030</x>
+      <y>245</y>
       <w>42</w>
       <h>49</h>
     </coordinates>
@@ -518,8 +518,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1946</x>
-      <y>189</y>
+      <x>1939</x>
+      <y>224</y>
       <w>84</w>
       <h>70</h>
     </coordinates>
@@ -529,8 +529,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2023</x>
-      <y>175</y>
+      <x>2016</x>
+      <y>210</y>
       <w>21</w>
       <h>70</h>
     </coordinates>
@@ -540,8 +540,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1946</x>
-      <y>252</y>
+      <x>1939</x>
+      <y>287</y>
       <w>84</w>
       <h>35</h>
     </coordinates>
@@ -551,8 +551,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2023</x>
-      <y>301</y>
+      <x>2016</x>
+      <y>336</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
