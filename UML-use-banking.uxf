@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>510</x>
-      <y>190</y>
-      <w>140</w>
-      <h>110</h>
+      <x>1281</x>
+      <y>175</y>
+      <w>182</w>
+      <h>133</h>
     </coordinates>
-    <panel_attributes>Banking Customer</panel_attributes>
+    <panel_attributes>Banking Customer
+These customers essentially make 
+withdrawals/deposits from 
+the banking system.  This is done 
+through ATM cards, paper deposits 
+or use of their credit cards.</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>680</x>
-      <y>190</y>
-      <w>160</w>
-      <h>110</h>
+      <x>1435</x>
+      <y>280</y>
+      <w>112</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Bank Management</panel_attributes>
     <additional_attributes/>
@@ -26,10 +31,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>600</x>
-      <y>300</y>
-      <w>120</w>
-      <h>110</h>
+      <x>1379</x>
+      <y>357</y>
+      <w>84</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes>Banking Tellers</panel_attributes>
     <additional_attributes/>
@@ -37,10 +42,10 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>840</x>
-      <y>130</y>
-      <w>630</w>
-      <h>170</h>
+      <x>1547</x>
+      <y>238</y>
+      <w>441</w>
+      <h>119</h>
     </coordinates>
     <panel_attributes>Managers have access to all information on all accounts.  They can credit or debit any account.  Finally they manage the loan accounts.  Each month they initiate the process that sends the bills out to the credit card and mortgage accounts.  They also initiate the process that sends out the roll over notices for CDs.  Further they set the interest rates paid monthly on checking and savings.
 style=wordwrap</panel_attributes>
@@ -49,10 +54,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
-      <y>430</y>
-      <w>530</w>
-      <h>220</h>
+      <x>1232</x>
+      <y>462</y>
+      <w>371</w>
+      <h>154</h>
     </coordinates>
     <panel_attributes>The banking tellers have access to the following information on all accounts; account balances, recent debits (checks honored by the account, payments made to credit cards, etc), account status (current or behind).  Tellers can credit any account (except saving CDs.  They can also debit checking and saving accounts (i.e. providing cash to the customer).  Further tellers can transfer monies from a checking to a saving account and vice versa.  
 style=wordwrap</panel_attributes>
@@ -61,33 +66,33 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>10</x>
-      <y>150</y>
-      <w>430</w>
-      <h>130</h>
+      <x>1085</x>
+      <y>273</y>
+      <w>133</w>
+      <h>56</h>
     </coordinates>
-    <panel_attributes>These customers essentially make withdrawals/deposits from the banking system.  This is done through ATM cards, paper deposits or use of their credit cards. 
+    <panel_attributes>make withdrawal from the banking system
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>650</x>
-      <y>360</y>
-      <w>30</w>
-      <h>90</h>
+      <x>1414</x>
+      <y>420</y>
+      <w>21</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>780</x>
-      <y>200</y>
-      <w>80</w>
-      <h>40</h>
+      <x>1505</x>
+      <y>287</y>
+      <w>56</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;20.0;60.0;20.0</additional_attributes>
@@ -95,12 +100,246 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>200</y>
-      <w>140</w>
-      <h>40</h>
+      <x>1211</x>
+      <y>189</y>
+      <w>154</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>200.0;10.0;10.0;135.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>644</x>
+      <y>609</y>
+      <w>511</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Savings accounts.
+These are simple savings accounts.  Customers can add or withdraw money from them at any time.
+The accounts earn a fixed interest rate that is compounded daily.
+The bank also has CDs.
+These have a fixed rate of return for a specified period of time.
+The bank has a penalty for withdrawal before the time is complete and after customer notification,
+the CDs automatically roll over. </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>0</x>
+      <y>448</y>
+      <w>490</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>“Gold/Diamond” account. 
+This type account maintains a minimum balance of $1000.0.
+There is no charge for transactions against this account if the minimum balance is maintained.
+The account also earns interest on the average balance in the account.
+The rate is flexible in that it changes on a daily basis and is 0.5*(the rate on the savings account).
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>525</x>
+      <y>441</y>
+      <w>686</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>Checking accounts.
+There are two types of checking accounts.
+The “That’s My Bank” account.
+In this account, the customer’s are charged 0.50 per transaction.
+A transaction is considered both a deposit and a withdrawal.
+Monthly transfers (for home mortgages, payment of bills, or movement of money to other accounts) can be made from the TMB account.
+These cost 0.75 per transaction.
+There is no minimum balance to be maintained for this account.  
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>273</x>
+      <y>378</y>
+      <w>511</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>
+for both accounts, the bank offers services and penalties.
+The services consist of the following; 
+	a). Stop Payment. 
+		In the context of a stop payment, the account owner calls the bank and gives them a check number.
+		The bank will not pay the check with the stop payment number.
+		There is a $15.00 charge for this service.  
+	       </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>287</x>
+      <y>588</y>
+      <w>343</w>
+      <h>147</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=red
+Overdrafts.  The bank frowns on overdrafts.  In case of an overdraft, the bank returns the check unpaid and charges the account with a $20 overdraft fee.  The bank offers a protection for overdrafts.  Customers having Savings accounts can use them as backup to the checking accounts.  In this case, an overdraft will not occur if there is enough money in the savings account to cover the check.  The banking system will remove the correct amount of money from the savings account deposit it in the checking account and then honor the check.  This is done at no cost to the customer.  The customer must however specify the “overdraft” backup account.  
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>462</x>
+      <y>791</y>
+      <w>644</w>
+      <h>245</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=yellow
+3. Loans.  The bank maintains three different kinds of loan accounts;
+
+a. The long term Mortgage loan.  This loan is of either the 15/30-year type.  These loans are fixed rate, fixed payment plan.  The bank receives these loans on a monthly basis.  If loan payment is late (beyond a given due date) the bank adds a $75 dollar late fee to that month’s payment.  Extra payments maybe made on loans at anytime, however no amount maybe added to the loan.  If a payment is missed, the account is flagged as a problem account.
+
+b.  The short term loan.  This is a loan of approx. 5 years for things like cars.  The short-term loan has the same characteristics as the long-term loan. 
+
+c. Credit Cards.  The bank has a credit card system it supports.  In this type of loan, debits against the loan are made with each credit card purchase.  For each CC account there is a limit on the credit available for that account.  So each purchase is checked to determine if it will bring the account balance over the limit.  If not the purchase (and the debit on the account) are authorized.  A record of each purchase is maintained.  CC bills are sent on the first of each month, payable by the 10’Th.  Each bill consists of a finance charge and a total of the charges incurred that month.  The account holder can pay the entire account off each month in which case there will be no finance charge.  Payments can be credited to the bill at anytime throughout the month.  The finance charge is calculated on the average balance of the bill through out the month.
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>1253</x>
+      <y>707</y>
+      <w>196</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Note..
+bg=blue
+style=wordwrap
+ATM Cards.  Holders of accounts in the bank may have ATM cards for withdrawal.  ATM cards apply only to checking accounts and to simple savings accounts.  Holders are not allowed to withdraw more that the account is worth.  Further they are allowed to make no more than two ATM withdrawals per day.  
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1099</x>
+      <y>182</y>
+      <w>126</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>make deposit to the banking system
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>903</x>
+      <y>182</y>
+      <w>168</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>use paper deposit
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>938</x>
+      <y>259</y>
+      <w>77</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>use ATM card
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1106</x>
+      <y>350</y>
+      <w>168</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>use their credit card 
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1008</x>
+      <y>273</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>120.0;20.0;13.0;15.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1064</x>
+      <y>196</y>
+      <w>49</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>50.0;20.0;10.0;25.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>910</x>
+      <y>343</y>
+      <w>168</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>use paper slip
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1071</x>
+      <y>294</y>
+      <w>28</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>20.0;10.0;10.0;115.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1148</x>
+      <y>315</y>
+      <w>56</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>60.0;50.0;10.0;15.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1218</x>
+      <y>182</y>
+      <w>147</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>190.0;10.0;10.0;35.0</additional_attributes>
   </element>
 </diagram>
