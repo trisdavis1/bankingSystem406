@@ -4,9 +4,9 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1183</x>
-      <y>161</y>
-      <w>182</w>
+      <x>1708</x>
+      <y>98</y>
+      <w>168</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>Banking Customer
@@ -20,9 +20,9 @@ or use of their credit cards.</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1974</x>
-      <y>238</y>
-      <w>112</w>
+      <x>2499</x>
+      <y>175</y>
+      <w>98</w>
       <h>77</h>
     </coordinates>
     <panel_attributes>Bank Management</panel_attributes>
@@ -31,8 +31,8 @@ or use of their credit cards.</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>1442</x>
-      <y>455</y>
+      <x>1960</x>
+      <y>392</y>
       <w>84</w>
       <h>77</h>
     </coordinates>
@@ -42,8 +42,8 @@ or use of their credit cards.</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>2065</x>
-      <y>182</y>
+      <x>2583</x>
+      <y>119</y>
       <w>133</w>
       <h>63</h>
     </coordinates>
@@ -54,8 +54,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1036</x>
-      <y>217</y>
+      <x>1554</x>
+      <y>154</y>
       <w>133</w>
       <h>56</h>
     </coordinates>
@@ -66,19 +66,19 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1484</x>
-      <y>476</y>
-      <w>77</w>
-      <h>77</h>
+      <x>2002</x>
+      <y>413</y>
+      <w>56</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;90.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;60.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2044</x>
-      <y>252</y>
+      <x>2562</x>
+      <y>189</y>
       <w>70</w>
       <h>56</h>
     </coordinates>
@@ -88,8 +88,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1162</x>
-      <y>175</y>
+      <x>1680</x>
+      <y>112</y>
       <w>105</w>
       <h>70</h>
     </coordinates>
@@ -99,9 +99,9 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>644</x>
-      <y>616</y>
-      <w>511</w>
+      <x>1197</x>
+      <y>553</y>
+      <w>441</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>Savings accounts.
@@ -116,9 +116,9 @@ the CDs automatically roll over. </panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>0</x>
-      <y>455</y>
-      <w>490</w>
+      <x>861</x>
+      <y>308</y>
+      <w>434</w>
       <h>133</h>
     </coordinates>
     <panel_attributes>“Gold/Diamond” account. 
@@ -132,9 +132,9 @@ The rate is flexible in that it changes on a daily basis and is 0.5*(the rate on
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>546</x>
-      <y>448</y>
-      <w>686</w>
+      <x>1106</x>
+      <y>385</y>
+      <w>602</w>
       <h>168</h>
     </coordinates>
     <panel_attributes>Checking accounts.
@@ -151,10 +151,10 @@ There is no minimum balance to be maintained for this account.
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>273</x>
-      <y>385</y>
-      <w>511</w>
-      <h>105</h>
+      <x>0</x>
+      <y>560</y>
+      <w>217</w>
+      <h>133</h>
     </coordinates>
     <panel_attributes>
 for both accounts, the bank offers services and penalties.
@@ -163,28 +163,31 @@ The services consist of the following;
 		In the context of a stop payment, the account owner calls the bank and gives them a check number.
 		The bank will not pay the check with the stop payment number.
 		There is a $15.00 charge for this service.  
-	       </panel_attributes>
+style=wordwrap
+layer=-1
+group=2</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>287</x>
-      <y>595</y>
+      <x>77</x>
+      <y>1001</y>
       <w>343</w>
       <h>147</h>
     </coordinates>
     <panel_attributes>Note..
 bg=red
 Overdrafts.  The bank frowns on overdrafts.  In case of an overdraft, the bank returns the check unpaid and charges the account with a $20 overdraft fee.  The bank offers a protection for overdrafts.  Customers having Savings accounts can use them as backup to the checking accounts.  In this case, an overdraft will not occur if there is enough money in the savings account to cover the check.  The banking system will remove the correct amount of money from the savings account deposit it in the checking account and then honor the check.  This is done at no cost to the customer.  The customer must however specify the “overdraft” backup account.  
-style=wordwrap</panel_attributes>
+style=wordwrap
+group=1</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>462</x>
-      <y>798</y>
+      <x>1183</x>
+      <y>784</y>
       <w>644</w>
       <h>245</h>
     </coordinates>
@@ -203,8 +206,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>1253</x>
-      <y>714</y>
+      <x>406</x>
+      <y>602</y>
       <w>196</w>
       <h>140</h>
     </coordinates>
@@ -212,14 +215,15 @@ style=wordwrap</panel_attributes>
 bg=blue
 style=wordwrap
 ATM Cards.  Holders of accounts in the bank may have ATM cards for withdrawal.  ATM cards apply only to checking accounts and to simple savings accounts.  Holders are not allowed to withdraw more that the account is worth.  Further they are allowed to make no more than two ATM withdrawals per day.  
-</panel_attributes>
+
+group=3</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1414</x>
-      <y>196</y>
+      <x>1932</x>
+      <y>133</y>
       <w>126</w>
       <h>56</h>
     </coordinates>
@@ -230,8 +234,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>896</x>
-      <y>280</y>
+      <x>1414</x>
+      <y>217</y>
       <w>119</w>
       <h>56</h>
     </coordinates>
@@ -244,8 +248,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>903</x>
-      <y>350</y>
+      <x>1421</x>
+      <y>287</y>
       <w>168</w>
       <h>63</h>
     </coordinates>
@@ -258,8 +262,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1288</x>
-      <y>175</y>
+      <x>1806</x>
+      <y>112</y>
       <w>161</w>
       <h>42</h>
     </coordinates>
@@ -269,21 +273,9 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1463</x>
-      <y>245</y>
-      <w>84</w>
-      <h>133</h>
-    </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>40.0;170.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1008</x>
-      <y>238</y>
-      <w>84</w>
+      <x>1526</x>
+      <y>175</y>
+      <w>77</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
@@ -293,8 +285,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1099</x>
-      <y>266</y>
+      <x>1617</x>
+      <y>203</y>
       <w>189</w>
       <h>182</h>
     </coordinates>
@@ -305,9 +297,9 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1036</x>
-      <y>259</y>
-      <w>77</w>
+      <x>1554</x>
+      <y>196</y>
+      <w>70</w>
       <h>112</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
@@ -317,20 +309,20 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1652</x>
-      <y>497</y>
-      <w>252</w>
-      <h>112</h>
+      <x>2163</x>
+      <y>448</y>
+      <w>168</w>
+      <h>77</h>
     </coordinates>
-    <panel_attributes>access recent debits (checks honored by the account, payments made to credit cards, etc), account status (current or behind). 
+    <panel_attributes>access recent debits (checks honored by the account, payments made to credit cards, etc) 
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1456</x>
-      <y>539</y>
+      <x>1953</x>
+      <y>483</y>
       <w>182</w>
       <h>63</h>
     </coordinates>
@@ -341,8 +333,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1575</x>
-      <y>441</y>
+      <x>2093</x>
+      <y>385</y>
       <w>203</w>
       <h>63</h>
     </coordinates>
@@ -353,20 +345,23 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1386</x>
-      <y>364</y>
+      <x>1904</x>
+      <y>301</y>
       <w>175</w>
       <h>77</h>
     </coordinates>
-    <panel_attributes>credit any account (except saving CDs. 
+    <panel_attributes>credit any account (except saving CDs)
+-- 
+extension point:
+in person
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1211</x>
-      <y>427</y>
+      <x>1729</x>
+      <y>364</y>
       <w>231</w>
       <h>77</h>
     </coordinates>
@@ -380,8 +375,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1582</x>
-      <y>364</y>
+      <x>2100</x>
+      <y>301</y>
       <w>189</w>
       <h>77</h>
     </coordinates>
@@ -392,8 +387,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1435</x>
-      <y>455</y>
+      <x>1953</x>
+      <y>392</y>
       <w>56</w>
       <h>42</h>
     </coordinates>
@@ -403,19 +398,19 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1484</x>
-      <y>455</y>
+      <x>2002</x>
+      <y>399</y>
       <w>105</w>
-      <h>35</h>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;130.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1491</x>
-      <y>399</y>
+      <x>2009</x>
+      <y>336</y>
       <w>105</w>
       <h>77</h>
     </coordinates>
@@ -425,19 +420,19 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1491</x>
-      <y>476</y>
-      <w>175</w>
-      <h>84</h>
+      <x>2009</x>
+      <y>413</y>
+      <w>168</w>
+      <h>98</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;230.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;220.0;120.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1463</x>
-      <y>434</y>
+      <x>1981</x>
+      <y>371</y>
       <w>35</w>
       <h>35</h>
     </coordinates>
@@ -447,8 +442,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1974</x>
-      <y>119</y>
+      <x>2492</x>
+      <y>56</y>
       <w>140</w>
       <h>63</h>
     </coordinates>
@@ -459,8 +454,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>2100</x>
-      <y>266</y>
+      <x>2618</x>
+      <y>203</y>
       <w>119</w>
       <h>63</h>
     </coordinates>
@@ -471,8 +466,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1946</x>
-      <y>336</y>
+      <x>2464</x>
+      <y>273</y>
       <w>161</w>
       <h>91</h>
     </coordinates>
@@ -483,8 +478,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1813</x>
-      <y>238</y>
+      <x>2331</x>
+      <y>175</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -495,8 +490,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1806</x>
-      <y>161</y>
+      <x>2324</x>
+      <y>98</y>
       <w>147</w>
       <h>70</h>
     </coordinates>
@@ -507,8 +502,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2037</x>
-      <y>210</y>
+      <x>2555</x>
+      <y>147</y>
       <w>42</w>
       <h>49</h>
     </coordinates>
@@ -518,8 +513,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1946</x>
-      <y>189</y>
+      <x>2464</x>
+      <y>126</y>
       <w>84</w>
       <h>70</h>
     </coordinates>
@@ -529,8 +524,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2023</x>
-      <y>175</y>
+      <x>2541</x>
+      <y>112</y>
       <w>21</w>
       <h>70</h>
     </coordinates>
@@ -540,8 +535,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1946</x>
-      <y>252</y>
+      <x>2464</x>
+      <y>189</y>
       <w>84</w>
       <h>35</h>
     </coordinates>
@@ -551,12 +546,573 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>2023</x>
-      <y>301</y>
+      <x>2541</x>
+      <y>238</y>
       <w>21</w>
       <h>49</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>371</x>
+      <y>770</y>
+      <w>98</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>*Overdraft process*
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>245</x>
+      <y>938</y>
+      <w>105</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>returns the check unpaid
+style=wordwrap
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>420</x>
+      <y>840</y>
+      <w>175</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>check if saving has enough money
+style=wordwrap
+--
+extension points:
+has a protection for overdrafts.
+customer has a Savings accounts
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>210</x>
+      <y>833</y>
+      <w>161</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>returns the check unpaid
+charges the account with a $20 overdraft fee
+style=wordwrap
+--
+extension points:
+no protection
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>476</x>
+      <y>1155</y>
+      <w>77</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>honor the check.
+style=wordwrap
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>427</x>
+      <y>952</y>
+      <w>168</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>remove the correct amount of money from the savings account
+--
+extension points:
+enough money in savings
+style=wordwrap
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>469</x>
+      <y>1078</y>
+      <w>91</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>deposit it in the checking account
+style=wordwrap
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>322</x>
+      <y>798</y>
+      <w>70</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=1</panel_attributes>
+    <additional_attributes>13.0;60.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>791</y>
+      <w>84</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=1</panel_attributes>
+    <additional_attributes>70.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>287</x>
+      <y>910</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=1</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>924</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=1</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1722</x>
+      <y>0</y>
+      <w>126</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>specify the “overdraft” backup account.  
+
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1785</x>
+      <y>63</y>
+      <w>21</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;10.0;45.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>1050</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=1</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>1127</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=1</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>238</x>
+      <y>525</y>
+      <w>84</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>*Stop Payment*
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>210</x>
+      <y>658</y>
+      <w>140</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>The bank will not pay the check with the stop payment number.
+style=wordwrap
+bg=white
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>231</x>
+      <y>742</y>
+      <w>98</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes> add $15.00 charge to account.  
+style=wordwrap
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>189</x>
+      <y>574</y>
+      <w>175</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>the account owner calls the bank and gives them a check number.
+bg=white
+style=wordwrap
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>273</x>
+      <y>546</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=2</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>273</x>
+      <y>630</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=2</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>273</x>
+      <y>714</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=2</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1981</x>
+      <y>182</y>
+      <w>77</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>40.0;170.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>1806</x>
+      <y>469</y>
+      <w>140</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>access account status (current or past)
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1904</x>
+      <y>427</y>
+      <w>91</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>110.0;10.0;10.0;58.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>525</x>
+      <y>294</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>*Use ATM card*
+*for withdraw*
+style=autoresize
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>399</x>
+      <y>518</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>return error message
+--
+extension point:
+no account, too little, or too many withdraws
+style=wordwrap
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>609</x>
+      <y>427</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>check requested amount against account worth
+--
+extension point:
+they do
+style=wordwrap
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>511</x>
+      <y>357</y>
+      <w>119</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>check if they have a checking or simple saving account
+style=wordwrap
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>602</x>
+      <y>532</y>
+      <w>154</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>check that they have not withdrew twice today
+--
+extension point:
+enough
+style=wordwrap
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>602</x>
+      <y>637</y>
+      <w>147</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>release money to ATM and debit from account
+--
+extension point:
+have not
+style=wordwrap
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>651</x>
+      <y>784</y>
+      <w>42</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>ATM
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>630</x>
+      <y>742</y>
+      <w>84</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>give cash
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>763</y>
+      <w>21</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>602</y>
+      <w>63</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>497</y>
+      <w>63</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>707</y>
+      <w>63</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>392</y>
+      <w>84</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;180.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>623</x>
+      <y>385</y>
+      <w>77</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>90.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>322</y>
+      <w>63</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>462</y>
+      <w>147</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;80.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>539</x>
+      <y>546</y>
+      <w>77</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;40.0</additional_attributes>
   </element>
 </diagram>
