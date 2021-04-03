@@ -2,9 +2,7 @@
     public class CheckMenu {  
     public static void main(String[] args) {  
     JFrame checkFrame=new JFrame();//creating instance of JFrame  
-              
-    
-   
+          
     JCheckBox stopPaymentCheck=new JCheckBox("Stop Payment");  
     stopPaymentCheck.setBounds(130,0,150, 40);//x axis, y axis, width, height 
     checkFrame.add(stopPaymentCheck);//adding button in JFrame  
@@ -48,7 +46,5 @@
     checkFrame.setSize(400,500);//400 width and 500 height  
     checkFrame.setLayout(null);//using no layout managers  
     checkFrame.setVisible(true);//making the frame visible  
-
-
     }  
     }  
