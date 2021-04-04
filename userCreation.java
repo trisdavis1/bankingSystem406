@@ -3,9 +3,9 @@
     public static void main(String[] args) {  
     JFrame checkFrame=new JFrame();//creating instance of JFrame  
     
-    JLabel sslabel=new JLabel("SS");  
-    sslabel.setBounds(30,10,100, 40);//x axis, y axis, width, height 
-    checkFrame.add(sslabel);//adding button in JFrame
+    JLabel ssLabel=new JLabel("SS");  
+    ssLabel.setBounds(30,10,100, 40);//x axis, y axis, width, height 
+    checkFrame.add(ssLabel);//adding button in JFrame
 
     JTextField ssTextBox=new JTextField(null);  
     ssTextBox.setBounds(130,10,100, 40);//x axis, y axis, width, height 
@@ -66,5 +66,5 @@
     checkFrame.setSize(400,500);//400 width and 500 height  
     checkFrame.setLayout(null);//using no layout managers  
     checkFrame.setVisible(true);//making the frame visible  
-    }  
-    }  
+    }
+}
