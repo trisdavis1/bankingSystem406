@@ -1,16 +1,15 @@
-    import java.text.Format;
-
-import javax.swing.*;  
+    package Menus;
+    import javax.swing.*;  
     public class accountView {  
     public static void main(String[] args) {  
     JFrame accountFrame=new JFrame();//creating instance of JFrame  
-    accountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    accountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
     
-    JLabel Title=new JLabel("Account View");
+    JLabel Title=new JLabel("Account View");//Title
     Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
     accountFrame.add(Title);//adding button in JFrame
     
-    int sectionTop=60;
+    int sectionTop=60;//where main section starts
     JLabel ssLabel=new JLabel("User SS");  
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     accountFrame.add(ssLabel);//adding button in JFrame

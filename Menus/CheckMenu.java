@@ -1,3 +1,4 @@
+    package Menus;
     import javax.swing.*;  
     public class CheckMenu {  
     public static void main(String[] args) {  
