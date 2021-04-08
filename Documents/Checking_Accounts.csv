@@ -1,0 +1,21 @@
+﻿Customer_ID,Account_Number,Account_Type,Current_Balance,Backup_Account,Backup_Acc_Number,Overdarafts,Date_Opened
+423453245114,1,Gold/Diamond,1200.63,1,To be filled in later,0,12/15/2007
+3456534251805,2,Gold/Diamond,4568.96,1,To be filled in later,3,6/26/2001
+4231488942109,3,TMB,475.12,0,To be filled in later,0,5/8/2012
+6778790134305,4,TMB,45.36,1,To be filled in later,1,9/12/2020
+345599870221,5,Gold/Diamond,78541.52,0,To be filled in later,2,1/23/2021
+423567890335,6,TMB,250245.37,1,To be filled in later,1,6/5/2009
+3458123321402,7,Gold/Diamond,87562.89,0,To be filled in later,0,7/12/2002
+3458799122105,8,Gold/Diamond,5478.24,0,To be filled in later,1,9/18/2000
+4231689451801,9,TMB,450216.95,0,To be filled in later,0,3/15/2011
+2354457892508,10,TMB,4587.57,0,To be filled in later,0,4/16/2008
+4367892134156,11,Gold/Diamond,8562.1,1,To be filled in later,2,3/14/2021
+2334356561525,12,Gold/Diamond,852.61,1,To be filled in later,1,7/26/2006
+4356787878902,13,TMB,7561.02,0,To be filled in later,1,2/3/2012
+5634329131532,14,TMB,654.89,1,To be filled in later,0,4/16/2005
+345679898703,15,Gold/Diamond,5420.69,1,To be filled in later,2,6/6/1999
+423453245114,16,TMB,4242.42,0,To be filled in later,0,1/3/2015
+345599870221,17,Gold/Diamond,8888.88,0,To be filled in later,1,3/17/2007
+4367892134156,18,Gold/Diamond,86753.09,1,To be filled in later,0,5/18/2016
+3458123321402,19,TMB,745.12,1,To be filled in later,0,5/26/2017
+5634329131532,20,TMB,8965.09,0,To be filled in later,0,8/19/2003
