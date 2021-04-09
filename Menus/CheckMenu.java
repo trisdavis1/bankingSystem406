@@ -1,7 +1,7 @@
     package Menus;
     import javax.swing.*;  
     public class CheckMenu {  
-    public static void main(String[] args) {  
+    public void create() {  
     JFrame checkFrame=new JFrame();//creating instance of JFrame  
     checkFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
