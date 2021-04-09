@@ -1,9 +1,9 @@
     package Menus;
     import javax.swing.*;  
     public class userCreation {  
-    public static void main(String[] args) {  
+    public void create() {  
     JFrame Frame=new JFrame();//creating instance of JFrame  
-    Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
     JLabel Title=new JLabel("User Creation");  
     Title.setBounds(100,5,100, 40);//x axis, y axis, width, height 

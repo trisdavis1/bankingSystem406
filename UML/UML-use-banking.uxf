@@ -1611,21 +1611,9 @@ style=wordwrap</panel_attributes>
     <panel_attributes>ask if they want to close account or convert into "That's my Bank" account
 --
 extension point:
-it would be
+it will drop under min
 style=wordwrap</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1048</x>
-      <y>424</y>
-      <w>72</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;include&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -1725,26 +1713,26 @@ extension point:
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1832</x>
-      <y>960</y>
+      <x>1840</x>
+      <y>968</y>
       <w>64</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;40.0;60.0;10.0</additional_attributes>
+    <additional_attributes>50.0;10.0;20.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1784</x>
-      <y>920</y>
-      <w>112</w>
+      <x>1824</x>
+      <y>912</y>
+      <w>80</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;120.0;40.0</additional_attributes>
+    <additional_attributes>80.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -1776,8 +1764,8 @@ account</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>1056</x>
-      <y>864</y>
+      <x>1072</x>
+      <y>856</y>
       <w>136</w>
       <h>104</h>
     </coordinates>
@@ -1791,14 +1779,14 @@ transfer</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1120</x>
+      <x>1128</x>
       <y>704</y>
       <w>80</w>
-      <h>176</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;200.0;20.0;10.0</additional_attributes>
+    <additional_attributes>20.0;190.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -2471,5 +2459,17 @@ payment missed</panel_attributes>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
     <additional_attributes>60.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1040</x>
+      <y>424</y>
+      <w>80</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;20.0;50.0</additional_attributes>
   </element>
 </diagram>

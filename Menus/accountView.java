@@ -1,9 +1,10 @@
     package Menus;
     import javax.swing.*;  
     public class accountView {  
-    public static void main(String[] args) {  
+    accountCreation something = new accountCreation();
+    public void create() {  
     JFrame accountFrame=new JFrame();//creating instance of JFrame  
-    accountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
+    accountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
     
     JLabel Title=new JLabel("Account View");//Title
     Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
