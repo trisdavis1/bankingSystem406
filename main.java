@@ -7,7 +7,7 @@ import java.util.List;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        File loanFile = new File("bankingSystem406/Database Files/Loans.txt");
+        File loanFile = new File("../bankingSystem406/Database Files/Loans.txt");
         List<LoanAccount> loanAccounts = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(loanFile))) {
