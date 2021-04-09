@@ -1,26 +1,24 @@
     package Menus;
-    import javax.swing.*;  
+    import javax.swing.*; 
     public class Menu{  
     
     public static void main(String[] args) {  
         accountCreation aC = new accountCreation();
-        aC.create();
+        aC.open();
 
         accountView aV= new accountView();
-        aV.create();
+        aV.open();
 
         CheckMenu cM= new CheckMenu();
-        cM.create();
+        cM.open();
 
         Payment pM= new Payment();
-        pM.create();
+        pM.open();
 
         userCreation uC = new userCreation();
-        uC.create();
+        uC.open();
 
         userView uV= new userView();
-        uV.create();
-        
-        
+        uV.open();
     }
 }

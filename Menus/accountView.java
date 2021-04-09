@@ -2,7 +2,7 @@
     import javax.swing.*;  
     public class accountView {  
     accountCreation something = new accountCreation();
-    public void create() {  
+    public void open() {  
     JFrame accountFrame=new JFrame();//creating instance of JFrame  
     accountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
     

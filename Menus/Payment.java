@@ -1,7 +1,7 @@
     package Menus;
     import javax.swing.*;  
     public class Payment {  
-    public void create() {  
+    public void open() {  
     JFrame Frame=new JFrame();//creating instance of JFrame  
     Frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
