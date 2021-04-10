@@ -3,22 +3,25 @@
     public class Menu{  
     
     public static void main(String[] args) {  
+        CheckMenu cM= new CheckMenu();
+        //cM.open();
+
+        initATM iA= new initATM();
+        iA.open();
+
         accountCreation aC = new accountCreation();
-        aC.open();
+        //aC.open();
 
         accountView aV= new accountView();
-        aV.open();
-
-        CheckMenu cM= new CheckMenu();
-        cM.open();
+        //aV.open();
 
         Payment pM= new Payment();
-        pM.open();
+        //pM.open();
 
         userCreation uC = new userCreation();
-        uC.open();
+        //uC.open();
 
         userView uV= new userView();
-        uV.open();
+        //uV.open();
     }
 }

@@ -1,7 +1,6 @@
     package Menus;
     import javax.swing.*;  
-    public class accountView {  
-    accountCreation something = new accountCreation();
+    public class accountView {
     public void open() {  
     JFrame accountFrame=new JFrame();//creating instance of JFrame  
     accountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit

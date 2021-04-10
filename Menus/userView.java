@@ -3,7 +3,7 @@
     public class userView {  
     public void open() {  
     JFrame Frame=new JFrame();//creating instance of JFrame  
-    Frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JLabel Title=new JLabel("User View");  
     Title.setBounds(150,5,100, 40);//x axis, y axis, width, height 
