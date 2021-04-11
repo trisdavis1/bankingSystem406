@@ -1,4 +1,8 @@
+import Accounts.Account;
 import Accounts.LoanAccount;
+import Menus.Menu;
+import Menus.initATM;
+import Menus.initTeller;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -11,7 +15,7 @@ public class main {
         List<LoanAccount> loanAccounts = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(loanFile))) {
-
+            
             String line;
             while((line = br.readLine()) != null){
 
@@ -23,6 +27,10 @@ public class main {
                         formatter.parse(items[4]), Double.parseDouble(items[5]), items[6],
                         Integer.parseInt(items[7])==1, formatter.parse(items[8])));
             }
+            //open ATM Menu
+            Menu menu= new Menu();
+            menu.openMenu();
+
         } catch (Exception e) {
             e.printStackTrace();
         }

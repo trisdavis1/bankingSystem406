@@ -1,27 +1,81 @@
     package Menus;
-    import javax.swing.*; 
-    public class Menu{  
-    
-    public static void main(String[] args) {  
-        CheckMenu cM= new CheckMenu();
-        //cM.open();
+    import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 
-        initATM iA= new initATM();
-        iA.open();
+import javax.swing.*; 
+    public class Menu implements Action{  
+        JFrame MenuFrame=new JFrame();//creating instance of JFrame
+        JButton ATMButton=new JButton("ATM");//creating instance of JButton
+        JButton tellerButton=new JButton("Teller");//creating instance of JButton
+        JButton managerButton=new JButton("Manager");//creating instance of JButton
 
-        accountCreation aC = new accountCreation();
-        //aC.open();
+    public void openMenu(){ 
+        int sectionTop=60;//where main section starts
+        ATMButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
+        ATMButton.addActionListener(this);
+        MenuFrame.add(ATMButton);//adding button in JFrame
+        MenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
+        
+        tellerButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
+        tellerButton.addActionListener(this);
+        MenuFrame.add(tellerButton);//adding button in JFrame
 
-        accountView aV= new accountView();
-        //aV.open();
+        managerButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
+        managerButton.addActionListener(this);
+        MenuFrame.add(managerButton);//adding button in JFrame
 
-        Payment pM= new Payment();
-        //pM.open();
-
-        userCreation uC = new userCreation();
-        //uC.open();
-
-        userView uV= new userView();
-        //uV.open();
+        MenuFrame.setSize(400,500);//400 width and 500 height  
+        MenuFrame.setLayout(null);//using no layout managers  
+        MenuFrame.setVisible(true);//making the frame visible  
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //decide if a withdraw or deposit
+        System.out.println();
+        if(ATMButton.hasFocus()){
+            initATM a=new initATM();
+            MenuFrame.dispose();
+            a.open();
+        }
+        else if(tellerButton.hasFocus()){
+            initTeller a=new initTeller();
+            MenuFrame.dispose();
+            a.open();
+        }
+        else if(managerButton.hasFocus()){
+            Payment a=new Payment();
+            MenuFrame.dispose();
+            a.open();
+        }
+    }
+    @Override
+    public Object getValue(String key) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+    @Override
+    public void putValue(String key, Object value) {
+        // TODO Auto-generated method stub
+        
+    }
+    @Override
+    public void setEnabled(boolean b) {
+        // TODO Auto-generated method stub
+        
+    }
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        // TODO Auto-generated method stub
+        
+    }
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        // TODO Auto-generated method stub
+        
     }
 }

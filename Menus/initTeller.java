@@ -3,41 +3,51 @@
     import java.beans.PropertyChangeListener;
 
 import javax.swing.*;  
-    public class initATM implements Action{  
-    JFrame initATMFrame=new JFrame();//creating instance of JFrame
+    public class initTeller implements Action{  
+    JFrame initTellerFrame=new JFrame();//creating instance of JFrame
+    String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
+    JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
 
     public void open() {  
-    initATMFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
+    initTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
     int sectionTop=60;//where main section starts
 
-    JLabel Title=new JLabel("Welcome to the ATM");//Title
+    JLabel Title=new JLabel("Welcome Teller");//Title
     Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
-    initATMFrame.add(Title);//adding button in JFrame
+    initTellerFrame.add(Title);//adding button in JFrame
     
     JLabel ssLabel=new JLabel("User SS");  
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
-    initATMFrame.add(ssLabel);//adding button in JFrame
+    initTellerFrame.add(ssLabel);//adding button in JFrame
     
     JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
-    initATMFrame.add(ssTextBox);//adding button in JFrame
+    initTellerFrame.add(ssTextBox);//adding button in JFrame
+
+    JLabel accountTypeLabel=new JLabel("Account Type");  
+    accountTypeLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
+    initTellerFrame.add(accountTypeLabel);//adding button in JFrame
+
+    accountTypeDrop.setSelectedIndex(0);
+    accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
+    initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
 
     JButton doneButton=new JButton("Next");//creating instance of JButton
-    doneButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
+    doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
     doneButton.addActionListener(this);
-    initATMFrame.dispose();
-    initATMFrame.add(doneButton);//adding button in JFrame
+    initTellerFrame.dispose();
+    initTellerFrame.add(doneButton);//adding button in JFrame
 
-    initATMFrame.setSize(400,500);//400 width and 500 height  
-    initATMFrame.setLayout(null);//using no layout managers  
-    initATMFrame.setVisible(true);//making the frame visible  
+    initTellerFrame.setSize(400,500);//400 width and 500 height  
+    initTellerFrame.setLayout(null);//using no layout managers  
+    initTellerFrame.setVisible(true);//making the frame visible  
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
-        accountSelection a=new accountSelection();
-        initATMFrame.dispose();
+        accountTellerView a=new accountTellerView();
+        initTellerFrame.dispose();
         a.open();
     }
 
