@@ -3,9 +3,10 @@
     import java.beans.PropertyChangeListener;
     import javax.swing.*;  
     
+    import Accounts.Account;
+    
     public class accountTellerView implements Action{  
         JFrame TellerViewFrame=new JFrame();//creating instance of JFrame
-
         public void open() {  
         TellerViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts

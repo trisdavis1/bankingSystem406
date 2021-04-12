@@ -1,15 +1,20 @@
     package Menus;
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.util.List;
 
-import javax.swing.*; 
+import javax.swing.*;
+
+import Accounts.Account;
+import Accounts.LoanAccount; 
     public class Menu implements Action{  
         JFrame MenuFrame=new JFrame();//creating instance of JFrame
         JButton ATMButton=new JButton("ATM");//creating instance of JButton
         JButton tellerButton=new JButton("Teller");//creating instance of JButton
         JButton managerButton=new JButton("Manager");//creating instance of JButton
-
-    public void openMenu(){ 
+        List<Account> accountList;
+    public void openMenu(List<Account> aL){ 
+        accountList=aL;
         int sectionTop=60;//where main section starts
         ATMButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
         ATMButton.addActionListener(this);
@@ -35,17 +40,17 @@ import javax.swing.*;
         if(ATMButton.hasFocus()){
             initATM a=new initATM();
             MenuFrame.dispose();
-            a.open();
+            a.open(accountList);
         }
         else if(tellerButton.hasFocus()){
             initTeller a=new initTeller();
             MenuFrame.dispose();
-            a.open();
+            a.open(accountList);
         }
         else if(managerButton.hasFocus()){
-            Payment a=new Payment();
+            initManage a=new initManage();
             MenuFrame.dispose();
-            a.open();
+            a.open(accountList);
         }
     }
     @Override

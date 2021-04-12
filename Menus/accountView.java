@@ -1,7 +1,14 @@
     package Menus;
-    import javax.swing.*;  
+    import java.util.List;
+
+import javax.swing.*;
+
+import Accounts.Account;  
+
     public class accountView {
-    public void open() {  
+        List<Account> accountList;
+    public void open(List<Account> aL) {
+        accountList=aL;
     JFrame accountFrame=new JFrame();//creating instance of JFrame  
     accountFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
     

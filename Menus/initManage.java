@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import Accounts.Account;  
 
-    public class initTeller implements Action{  
+    public class initManage implements Action{  
     List<Account> accountList;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
@@ -18,7 +18,7 @@ import Accounts.Account;
     initTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
     int sectionTop=60;//where main section starts
 
-    JLabel Title=new JLabel("Welcome Teller");//Title
+    JLabel Title=new JLabel("Welcome Manager");//Title
     Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
     initTellerFrame.add(Title);//adding button in JFrame
     

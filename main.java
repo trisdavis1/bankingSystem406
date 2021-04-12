@@ -13,6 +13,7 @@ public class main {
     public static void main(String[] args) throws IOException {
         File loanFile = new File("../bankingSystem406/Database Files/Loans.txt");
         List<LoanAccount> loanAccounts = new ArrayList<>();
+        List<Account> accountList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(loanFile))) {
             
@@ -27,9 +28,9 @@ public class main {
                         formatter.parse(items[4]), Double.parseDouble(items[5]), items[6],
                         Integer.parseInt(items[7])==1, formatter.parse(items[8])));
             }
-            //open ATM Menu
+            //open main Menu
             Menu menu= new Menu();
-            menu.openMenu();
+            menu.openMenu(accountList);
 
         } catch (Exception e) {
             e.printStackTrace();

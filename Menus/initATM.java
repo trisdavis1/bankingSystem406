@@ -1,12 +1,14 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
+    import java.util.List;
+    import Accounts.Account;
 
 import javax.swing.*;  
     public class initATM implements Action{  
     JFrame initATMFrame=new JFrame();//creating instance of JFrame
 
-    public void open() {  
+    public void open(List<Account> accountList) {  
     initATMFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
     int sectionTop=60;//where main section starts
 
