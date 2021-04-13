@@ -30,8 +30,6 @@ public class main {
                         Integer.parseInt(items[7])==1, formatter.parse(items[8])));
             }
             //open main Menu
-            Menu menu= new Menu();
-            menu.openMenu(accountList);
 
         } catch (Exception e) {
             e.printStackTrace();

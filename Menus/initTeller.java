@@ -40,7 +40,7 @@ import Accounts.Account;
     accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
     initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
     
-    userEditButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+    userEditButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
     userEditButton.addActionListener(this);
     initTellerFrame.dispose();
     initTellerFrame.add(userEditButton);//adding button in JFrame
