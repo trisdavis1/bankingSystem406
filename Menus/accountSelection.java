@@ -1,15 +1,19 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
+import java.util.List;
 
-import javax.swing.*;  
+import javax.swing.*;
+
+import Accounts.Account;  
     public class accountSelection implements Action{  
     JFrame accSelectFrame=new JFrame();//creating instance of JFrame
-
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
+    List<Account>accountList;
 
-    public void open() {  
+    public void open(List<Account>aL) {
+        accountList=aL;  
         accSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 
@@ -41,7 +45,7 @@ import javax.swing.*;
         //TODO add in the passing of data for which account
         worDselect a = new worDselect();
         accSelectFrame.dispose();
-        a.open(accountTypeDrop.getSelectedIndex());
+        a.open(accountList,accountTypeDrop.getSelectedIndex());
         
     }
 

@@ -1,15 +1,20 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
+import java.util.List;
 
-import javax.swing.*;  
+import javax.swing.*;
+
+import Accounts.Account;  
     public class worDselect implements Action{  
     JFrame worDSelectFrame=new JFrame();//creating instance of JFrame
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
     JButton viewButton=new JButton("View");//creating instance of JButton
+    List<Account>accountList;
 
-    public void open(int accountType) {  
+    public void open(List<Account>aL, int accountType) {  
+        accountList=aL;
         worDSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 
@@ -50,7 +55,7 @@ import javax.swing.*;
         else if(viewButton.hasFocus()){
             userView a=new userView();
             worDSelectFrame.dispose();
-            a.open();
+            a.open(accountList,123456789);
         }
     }
 

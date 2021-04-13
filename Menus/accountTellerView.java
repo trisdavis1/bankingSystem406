@@ -9,6 +9,8 @@ import Accounts.Account;
 public class accountTellerView implements Action{
     List<Account> accountList;
     JButton transferButton=new JButton("Transfer");//creating instance of JButton
+    JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
+    JButton depositButton=new JButton("Deposit");//creating instance of JButton
     JFrame accountTellerFrame=new JFrame();//creating instance of JFrame
 
     public void open(List<Account> aL) {
@@ -36,9 +38,17 @@ public class accountTellerView implements Action{
         amountTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(amountTextBox);//adding button in JFrame  
 
-        transferButton.setBounds(250,sectionTop+50,100, 40);//x axis, y axis, width, height  
+        transferButton.setBounds(250,sectionTop,100, 40);//x axis, y axis, width, height  
         accountTellerFrame.add(transferButton);//adding button in JFrame
         transferButton.addActionListener(this);
+
+        withdrawButton.setBounds(250,sectionTop+50,100, 40);//x axis, y axis, width, height  
+        accountTellerFrame.add(withdrawButton);//adding button in JFrame
+        withdrawButton.addActionListener(this);
+
+        depositButton.setBounds(250,sectionTop+100,100, 40);//x axis, y axis, width, height  
+        accountTellerFrame.add(depositButton);//adding button in JFrame
+        depositButton.addActionListener(this);
 
         JLabel statusLabel=new JLabel("Status");  
         statusLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
@@ -83,6 +93,16 @@ public class accountTellerView implements Action{
             transferTeller a=new transferTeller();
             accountTellerFrame.dispose();;
             a.open(accountList);
+        }
+        if(withdrawButton.hasFocus()){
+            amountSelect a=new amountSelect();
+            accountTellerFrame.dispose();
+            a.open(0);
+        }
+        if(depositButton.hasFocus()){
+            amountSelect a=new amountSelect();
+            accountTellerFrame.dispose();
+            a.open(1);
         }
         
     }

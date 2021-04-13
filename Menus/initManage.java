@@ -12,6 +12,8 @@ import Accounts.Account;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
+    JButton intSetButton= new JButton("Set interest");//button for setting interest
+    JButton doneButton=new JButton("Next");//creating instance of JButton
 
     public void open(List<Account> aL) { 
     accountList=aL; 
@@ -38,10 +40,12 @@ import Accounts.Account;
     accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
     initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
 
-    JButton doneButton=new JButton("Next");//creating instance of JButton
+    intSetButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
+    intSetButton.addActionListener(this);
+    initTellerFrame.add(intSetButton);//adding button in JFrame
+
     doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
     doneButton.addActionListener(this);
-    initTellerFrame.dispose();
     initTellerFrame.add(doneButton);//adding button in JFrame
 
     initTellerFrame.setSize(400,500);//400 width and 500 height  
@@ -52,9 +56,17 @@ import Accounts.Account;
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
-        accountView a=new accountView();
-        initTellerFrame.dispose();
-        a.open(accountList);
+        if(doneButton.hasFocus()){
+            accountView a=new accountView();
+            initTellerFrame.dispose();
+            a.open(accountList);
+        }
+        if(intSetButton.hasFocus()){
+            interstSet a=new interstSet();
+            initTellerFrame.dispose();
+            a.open(accountList);
+        }
+        
     }
 
     @Override

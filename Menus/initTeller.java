@@ -12,7 +12,9 @@ import Accounts.Account;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-
+    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+    JButton doneButton=new JButton("Next");//creating instance of JButton
+    JButton userEditButton=new JButton("Edit User");//creating instance of JButton
     public void open(List<Account> aL) { 
     accountList=aL; 
     initTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
@@ -26,7 +28,7 @@ import Accounts.Account;
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssLabel);//adding button in JFrame
     
-    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+    
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssTextBox);//adding button in JFrame
 
@@ -37,8 +39,12 @@ import Accounts.Account;
     accountTypeDrop.setSelectedIndex(0);
     accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
     initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
-
-    JButton doneButton=new JButton("Next");//creating instance of JButton
+    
+    userEditButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+    userEditButton.addActionListener(this);
+    initTellerFrame.dispose();
+    initTellerFrame.add(userEditButton);//adding button in JFrame
+    
     doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
     doneButton.addActionListener(this);
     initTellerFrame.dispose();
@@ -52,9 +58,16 @@ import Accounts.Account;
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
-        accountTellerView a=new accountTellerView();
-        initTellerFrame.dispose();
-        a.open(accountList);
+        if(doneButton.hasFocus()){
+            accountTellerView a=new accountTellerView();
+            initTellerFrame.dispose();
+            a.open(accountList);
+        }
+        if(userEditButton.hasFocus()){
+            userView a=new userView();
+            initTellerFrame.dispose();
+            a.open(accountList,(int)ssTextBox.getValue());
+        }
     }
 
     @Override

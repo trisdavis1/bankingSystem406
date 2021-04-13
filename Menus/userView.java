@@ -1,7 +1,11 @@
     package Menus;
-    import javax.swing.*;  
+    import java.util.List;
+
+import javax.swing.*;
+
+import Accounts.Account;  
     public class userView {  
-    public void open() {  
+    public void open(List<Account>aL, int ss) {  
     JFrame Frame=new JFrame();//creating instance of JFrame  
     Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -14,7 +18,7 @@
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     Frame.add(ssLabel);//adding button in JFrame
 
-    JTextField ssTextBox=new JTextField("123-12-1234");  
+    JTextField ssTextBox=new JTextField(ss);  
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
     Frame.add(ssTextBox);//adding button in JFrame  
     

@@ -7,32 +7,33 @@
 import javax.swing.*;  
     public class initATM implements Action{  
     JFrame initATMFrame=new JFrame();//creating instance of JFrame
+    List<Account> accountList;
 
-    public void open(List<Account> accountList) {  
-    initATMFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
-    int sectionTop=60;//where main section starts
+    public void open(List<Account> aL) {  
+        initATMFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
+        int sectionTop=60;//where main section starts
 
-    JLabel Title=new JLabel("Welcome to the ATM");//Title
-    Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
-    initATMFrame.add(Title);//adding button in JFrame
-    
-    JLabel ssLabel=new JLabel("User SS");  
-    ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
-    initATMFrame.add(ssLabel);//adding button in JFrame
-    
-    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
-    ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
-    initATMFrame.add(ssTextBox);//adding button in JFrame
+        JLabel Title=new JLabel("Welcome to the ATM");//Title
+        Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
+        initATMFrame.add(Title);//adding button in JFrame
+        
+        JLabel ssLabel=new JLabel("User SS");  
+        ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
+        initATMFrame.add(ssLabel);//adding button in JFrame
+        
+        JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+        ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
+        initATMFrame.add(ssTextBox);//adding button in JFrame
 
-    JButton doneButton=new JButton("Next");//creating instance of JButton
-    doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
-    doneButton.addActionListener(this);
-    initATMFrame.dispose();
-    initATMFrame.add(doneButton);//adding button in JFrame
+        JButton doneButton=new JButton("Next");//creating instance of JButton
+        doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+        doneButton.addActionListener(this);
+        initATMFrame.dispose();
+        initATMFrame.add(doneButton);//adding button in JFrame
 
-    initATMFrame.setSize(400,500);//400 width and 500 height  
-    initATMFrame.setLayout(null);//using no layout managers  
-    initATMFrame.setVisible(true);//making the frame visible  
+        initATMFrame.setSize(400,500);//400 width and 500 height  
+        initATMFrame.setLayout(null);//using no layout managers  
+        initATMFrame.setVisible(true);//making the frame visible  
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -40,7 +41,7 @@ import javax.swing.*;
         // TODO pass the SS to data getting function
         accountSelection a=new accountSelection();
         initATMFrame.dispose();
-        a.open();
+        a.open(accountList);
     }
 
     @Override
