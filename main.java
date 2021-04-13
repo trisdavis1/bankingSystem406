@@ -2,8 +2,6 @@ import Accounts.Account;
 import Accounts.CheckingAccount;
 import Accounts.LoanAccount;
 import Menus.Menu;
-import Menus.initATM;
-import Menus.initTeller;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -42,29 +40,11 @@ public class main {
         for(var loan : loanAccounts){
             System.out.println(loan.currentBalance); // just to verify its working (can be deleted)
         }
-        /* try (BufferedReader br = new BufferedReader(new FileReader(checkFile))) {
-            //try to get the checks
-            String line;
-            while((line = br.readLine()) != null){
-
-                String[] items = line.split(",");
-
-                checkAccounts.add(new CheckingAccount(
-                    Integer.parseInt(items[0]),
-                    Integer.parseInt(items[1]),
-                    items[2],Double.parseDouble(items[3]), Integer.parseInt(items[4]),
-                    items[5], Integer.parseInt(items[6]), items[7])
-                );
-            }
-            //open main Menu
-        } catch (Exception e) {
-            e.printStackTrace();
-        } */
         Menu menu= new Menu();
         menu.openMenu(accountList);
         for(var loan : loanAccounts){
             accountList.add(loan);
-           // System.out.println(loan.currentBalance); // just to verify its working (can be deleted)
+            System.out.println(loan.currentBalance); // just to verify its working (can be deleted)
         }
         for(var account : checkAccounts){
             accountList.add(account);
