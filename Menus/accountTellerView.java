@@ -15,6 +15,7 @@ public class accountTellerView implements Action{
 
     public void open(List<Account> aL) {
         accountList=aL;
+        String User[]={"233435656","1525 Kioam","Ellwood","KS","56708","Mary","White"};
         accountTellerFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
         JLabel Title=new JLabel("Teller Account View");//Title
         Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
@@ -25,8 +26,8 @@ public class accountTellerView implements Action{
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssLabel);//adding button in JFrame
 
-        System.out.print(aL.get(0).customerId);
-        JFormattedTextField ssTextBox=new JFormattedTextField(aL.get(0).customerId);
+        System.out.print(User[0]);
+        JFormattedTextField ssTextBox=new JFormattedTextField(User[0]);
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssTextBox);//adding button in JFrame
 
@@ -97,12 +98,12 @@ public class accountTellerView implements Action{
         if(withdrawButton.hasFocus()){
             amountSelect a=new amountSelect();
             accountTellerFrame.dispose();
-            a.open(0);
+            a.open(accountList,0);
         }
         if(depositButton.hasFocus()){
             amountSelect a=new amountSelect();
             accountTellerFrame.dispose();
-            a.open(1);
+            a.open(accountList,1);
         }
         
     }

@@ -45,12 +45,12 @@ import Accounts.Account;
         if(withdrawButton.hasFocus()){
             amountSelect a=new amountSelect();
             worDSelectFrame.dispose();
-            a.open(0);
+            a.open(accountList,0);
         }
         else if(depositButton.hasFocus()){
             amountSelect a=new amountSelect();
             worDSelectFrame.dispose();
-            a.open(1);
+            a.open(accountList,1);
         }
         else if(viewButton.hasFocus()){
             userView a=new userView();

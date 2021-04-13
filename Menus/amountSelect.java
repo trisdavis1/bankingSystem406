@@ -1,14 +1,18 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
-    import java.beans.PropertyChangeListener;
-
-import javax.swing.*;  
-    public class amountSelect implements Action{  
+package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.util.List;
+import javax.swing.*;
+import Accounts.Account;  
+public class amountSelect implements Action{  
     JFrame amountFrame=new JFrame();//creating instance of JFrame
     int wr=42;
+    List<Account>accountList;
     JTextField amountTextBox=new JTextField(null);//amount text box
-
-    public void open(int wOr) {  //withdraw or deposit
+    JButton nextButton=new JButton("Next");//creating instance of JButton
+    JButton doneButton=new JButton("Done");//creating instance of JButton
+    public void open(List<Account> aL, int wOr) {  //transfer
+        accountList=aL;
         amountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
         wr=wOr;
@@ -29,7 +33,10 @@ import javax.swing.*;
         amountTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         amountFrame.add(amountTextBox);//adding button in JFrame  
 
-        JButton doneButton=new JButton("Next");//creating instance of JButton
+        nextButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
+        amountFrame.add(nextButton);//adding button in JFrame
+        nextButton.addActionListener(this);
+
         doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
         amountFrame.add(doneButton);//adding button in JFrame
         doneButton.addActionListener(this);
@@ -40,14 +47,28 @@ import javax.swing.*;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        String message="Error: Something is OwO ):";
         //decide what to pass
-        if(wr==0){
+        if(doneButton.hasFocus()){
+            amountFrame.dispose();
+            Menu menu= new Menu();
+            menu.openMenu(accountList);
+        }
+        else if(amountTextBox.getText().isEmpty())message="Amount is empty!";
+
+        else if(wr==0){
             //withdraw stuff
-            System.out.println("try to withdraw $"+amountTextBox.getText()+" from account");
+            message="trying to withdraw $"+amountTextBox.getText();
         }
         else if(wr==1){
             //deposit stuff
-            System.out.println("try to deposit $"+amountTextBox.getText()+" into account");
+            message="trying to deposit $"+amountTextBox.getText();
+        }
+        if(nextButton.hasFocus()){
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            //default title and icon
+            JOptionPane.showMessageDialog(errorFrame,message);
         }
     }
 

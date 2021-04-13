@@ -11,6 +11,7 @@ import Accounts.Account;
     int wr=42;
     JTextField amountTextBox=new JTextField(null);//amount text box
     List<Account> accountList;
+    JButton moveButton=new JButton("Transfer");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
 
     public void open(List<Account> aL, int wOr) {  //withdraw or deposit
@@ -35,12 +36,10 @@ import Accounts.Account;
         amountTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         amountFrame.add(amountTextBox);//adding button in JFrame  
 
-        JButton moveButton=new JButton("Move");//creating instance of JButton
         moveButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
         amountFrame.add(moveButton);//adding button in JFrame
         moveButton.addActionListener(this);
 
-        
         doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
         amountFrame.add(doneButton);//adding button in JFrame
         doneButton.addActionListener(this);
@@ -55,28 +54,25 @@ import Accounts.Account;
         //decide what to pass
         if(doneButton.hasFocus()){
             amountFrame.dispose();
+            Menu menu= new Menu();
+            menu.openMenu(accountList);
         }
-        else if(wr==0){
+        else if(amountTextBox.getText().isEmpty())message="Amount is empty!";
+
+        else if(wr==0 && !amountTextBox.getText().isEmpty()){
             //withdraw stuff
-            message="try to move $"+amountTextBox.getText()+" from checking to saving account";
+            message="trying to move $"+amountTextBox.getText()+" from checking to saving account";
         }
-        else if(wr==1){
+        else if(wr==1 && !amountTextBox.getText().isEmpty()){
             //deposit stuff
-            message="try to move $"+amountTextBox.getText()+" from saving to checking account";
+            message="trying to move $"+amountTextBox.getText()+" from saving to checking account";
         }
         if(!doneButton.hasFocus()){
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-            JLabel errorText=new JLabel(message);//amount text box
-            errorText.setBounds(10,10,200,40);//x axis, y axis, width, height 
-            errorFrame.add(errorText);//adding button in JFrame 
-            errorFrame.setSize(200,100);//200 width and 100 height  
-            errorFrame.setLayout(null);//using no layout managers  
-            errorFrame.setVisible(true);//making the frame visible 
+            JOptionPane.showMessageDialog(errorFrame,message);
         }
-        
     }
-
     @Override
     public Object getValue(String key) {
         // TODO Auto-generated method stub

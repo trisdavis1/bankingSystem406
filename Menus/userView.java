@@ -4,8 +4,9 @@
 import javax.swing.*;
 
 import Accounts.Account;  
-    public class userView {  
+public class userView {  
     public void open(List<Account>aL, int ss) {  
+    String user[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
     JFrame Frame=new JFrame();//creating instance of JFrame  
     Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -18,7 +19,7 @@ import Accounts.Account;
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     Frame.add(ssLabel);//adding button in JFrame
 
-    JTextField ssTextBox=new JTextField(ss);  
+    JTextField ssTextBox=new JTextField(user[0]);  
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
     Frame.add(ssTextBox);//adding button in JFrame  
     
@@ -26,7 +27,7 @@ import Accounts.Account;
     streetLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
     Frame.add(streetLabel);//adding button in JFrame
 
-    JTextField streetTextBox=new JTextField("123 Wherever Lane");  
+    JTextField streetTextBox=new JTextField(user[1]);  
     streetTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
     Frame.add(streetTextBox);//adding button in JFrame  
 
@@ -34,7 +35,7 @@ import Accounts.Account;
     cityLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
     Frame.add(cityLabel);//adding button in JFrame
 
-    JTextField cityTextBox=new JTextField("Anytown");  
+    JTextField cityTextBox=new JTextField(user[2]);  
     cityTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
     Frame.add(cityTextBox);//adding button in JFrame  
 
@@ -42,7 +43,7 @@ import Accounts.Account;
     stateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
     Frame.add(stateLabel);//adding button in JFrame
 
-    JTextField stateTextBox=new JTextField("MO");  
+    JTextField stateTextBox=new JTextField(user[3]);  
     stateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
     Frame.add(stateTextBox);//adding button in JFrame  
 
@@ -50,7 +51,7 @@ import Accounts.Account;
     zipLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
     Frame.add(zipLabel);//adding button in JFrame
 
-    JTextField zipTextBox=new JTextField("12344");  
+    JTextField zipTextBox=new JTextField(user[4]);  
     zipTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
     Frame.add(zipTextBox);//adding button in JFrame  
 
@@ -58,7 +59,7 @@ import Accounts.Account;
     firstLabel.setBounds(30,sectionTop+250,100, 40);//x axis, y axis, width, height 
     Frame.add(firstLabel);//adding button in JFrame
 
-    JTextField firstTextBox=new JTextField("Stan");  
+    JTextField firstTextBox=new JTextField(user[5]);  
     firstTextBox.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height 
     Frame.add(firstTextBox);//adding button in JFrame  
 
@@ -66,7 +67,7 @@ import Accounts.Account;
     lastLabel.setBounds(30,sectionTop+300,100, 40);//x axis, y axis, width, height 
     Frame.add(lastLabel);//adding button in JFrame
 
-    JTextField lastTextBox=new JTextField("Lee");  
+    JTextField lastTextBox=new JTextField(user[6]);  
     lastTextBox.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height 
     Frame.add(lastTextBox);//adding button in JFrame  
 
