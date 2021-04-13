@@ -9,12 +9,12 @@ import Accounts.Account;
     public class interstSet implements Action{  
     JFrame amountFrame=new JFrame();//creating instance of JFrame
     int wr=42;
-    JFormattedTextField amountTextBox=new JFormattedTextField();//amount text box
+    JTextField amountTextBox=new JTextField();//amount text box
     JButton doneButton=new JButton("Set");//creating instance of JButton
     List<Account>accountList;
 
     public void open(List<Account>aL) {
-        amountTextBox.setValue(aL.get(0).interestRate);
+        amountTextBox.setText(Double.toString(aL.get(0).interestRate));
         accountList=aL;
         amountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
@@ -42,8 +42,16 @@ import Accounts.Account;
     public void actionPerformed(ActionEvent e) {
         //decide what to pass
         if(doneButton.hasFocus()){
-            for (Account acc : accountList) {
-                acc.interestRate=(double)amountTextBox.getValue();
+            try {
+                 for (Account acc : accountList) {
+                    acc.interestRate=Double.valueOf(amountTextBox.getText());
+                    System.out.println(acc.customerId+" "+acc.interestRate);
+                }
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Please insert valid value");
             }
         }
     }
