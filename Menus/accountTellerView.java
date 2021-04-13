@@ -15,7 +15,7 @@ public class accountTellerView implements Action{
         accountList=aL;
         accountTellerFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
         JLabel Title=new JLabel("Teller Account View");//Title
-        Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
+        Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         accountTellerFrame.add(Title);//adding button in JFrame
         
         int sectionTop=60;//where main section starts
