@@ -13,7 +13,7 @@ import javax.swing.*;
     int sectionTop=60;//where main section starts
 
     JLabel Title=new JLabel("Welcome to the ATM");//Title
-    Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
+    Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
     initATMFrame.add(Title);//adding button in JFrame
     
     JLabel ssLabel=new JLabel("User SS");  

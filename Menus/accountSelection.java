@@ -14,7 +14,7 @@ import javax.swing.*;
         int sectionTop=60;//where main section starts
 
         JLabel Title=new JLabel("Select an account type");//Title
-        Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
+        Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         accSelectFrame.add(Title);//adding button in JFrame
         
         JLabel accountTypeLabel=new JLabel("Account Type");  

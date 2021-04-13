@@ -14,7 +14,7 @@ import javax.swing.*;
         int sectionTop=60;//where main section starts
 
         JLabel Title=new JLabel("Withdraw or Deposit");//Title
-        Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
+        Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         worDSelectFrame.add(Title);
 
         withdrawButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
