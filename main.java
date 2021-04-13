@@ -19,7 +19,7 @@ public class main {
         List<Account> accountList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(loanFile))) {
-            
+            //try to get the loan accounts
             String line;
             while((line = br.readLine()) != null){
 
@@ -43,7 +43,7 @@ public class main {
             System.out.println(loan.currentBalance); // just to verify its working (can be deleted)
         }
         /* try (BufferedReader br = new BufferedReader(new FileReader(checkFile))) {
-            
+            //try to get the checks
             String line;
             while((line = br.readLine()) != null){
 
@@ -63,9 +63,11 @@ public class main {
         Menu menu= new Menu();
         menu.openMenu(accountList);
         for(var loan : loanAccounts){
+            accountList.add(loan);
            // System.out.println(loan.currentBalance); // just to verify its working (can be deleted)
         }
         for(var account : checkAccounts){
+            accountList.add(account);
             System.out.println(account.currentBalance); // just to verify its working (can be deleted)
         }
 

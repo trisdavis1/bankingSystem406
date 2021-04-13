@@ -47,7 +47,7 @@
     checkFrame.add(accountNumberField);//adding button in JFrame
 
     JButton submitButton=new JButton("Submit");//creating instance of JButton
-    submitButton.setBounds(130,sectionTop+230,100, 40);//x axis, y axis, width, height  
+    submitButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height  
     checkFrame.add(submitButton);//adding button in JFrame
 
     checkFrame.setSize(400,500);//400 width and 500 height  

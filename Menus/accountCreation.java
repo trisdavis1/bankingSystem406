@@ -62,7 +62,7 @@ import javax.swing.*;
 
         //button to submit
         JButton submitButton=new JButton("Submit");//creating instance of JButton
-        submitButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height  
+        submitButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height  
         Frame.add(submitButton);//adding button in JFrame
 
         Frame.setSize(400,500);//400 width and 500 height  

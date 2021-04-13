@@ -19,6 +19,6 @@ public class CheckingAccount extends Account {
 
         this.customerId = customerId;
         this.currentBalance = currentBalance;
-        this.interestRate=interestRate;
+        setStatus(0);
     }
 }

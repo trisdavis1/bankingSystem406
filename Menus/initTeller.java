@@ -52,7 +52,7 @@ import Accounts.Account;
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
-        accountView a=new accountView();
+        accountTellerView a=new accountTellerView();
         initTellerFrame.dispose();
         a.open(accountList);
     }

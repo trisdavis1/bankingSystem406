@@ -30,7 +30,7 @@ import javax.swing.*;
         amountFrame.add(amountTextBox);//adding button in JFrame  
 
         JButton doneButton=new JButton("Next");//creating instance of JButton
-        doneButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
+        doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
         amountFrame.add(doneButton);//adding button in JFrame
         doneButton.addActionListener(this);
 

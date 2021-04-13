@@ -25,7 +25,7 @@ import javax.swing.*;
     initATMFrame.add(ssTextBox);//adding button in JFrame
 
     JButton doneButton=new JButton("Next");//creating instance of JButton
-    doneButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
+    doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
     doneButton.addActionListener(this);
     initATMFrame.dispose();
     initATMFrame.add(doneButton);//adding button in JFrame

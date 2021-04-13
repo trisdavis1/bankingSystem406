@@ -44,11 +44,11 @@ import Accounts.Account;
     accountFrame.add(amountTextBox);//adding button in JFrame  
 
     JButton updateButton=new JButton("Update");//creating instance of JButton
-    updateButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height  
+    updateButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height  
     accountFrame.add(updateButton);//adding button in JFrame
 
     JButton doneButton=new JButton("Done");//creating instance of JButton
-    doneButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
+    doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
     accountFrame.dispose();
     accountFrame.add(doneButton);//adding button in JFrame
 

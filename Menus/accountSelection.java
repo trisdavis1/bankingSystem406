@@ -26,7 +26,7 @@ import javax.swing.*;
         accSelectFrame.add(accountTypeDrop);//adding button in JFrame 
 
         JButton doneButton=new JButton("Next");//creating instance of JButton
-        doneButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
+        doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
         doneButton.addActionListener(this);
         accSelectFrame.dispose();
         accSelectFrame.add(doneButton);//adding button in JFrame
