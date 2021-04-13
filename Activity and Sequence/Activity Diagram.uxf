@@ -5,7 +5,7 @@
     <id>UMLObject</id>
     <coordinates>
       <x>0</x>
-      <y>16</y>
+      <y>8</y>
       <w>336</w>
       <h>1944</h>
     </coordinates>
@@ -17,7 +17,7 @@ valign=top</panel_attributes>
     <id>UMLObject</id>
     <coordinates>
       <x>680</x>
-      <y>0</y>
+      <y>8</y>
       <w>344</w>
       <h>1944</h>
     </coordinates>
