@@ -12,6 +12,8 @@ import Accounts.Account;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
+    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+    JButton userButton=new JButton("Edit User");//creating instance of JButton
     JButton intSetButton= new JButton("Set interest");//button for setting interest
     JButton billButton=new JButton("Send Bills");//creating instance of JButton
     JButton rolloverButton=new JButton("Rollover");//creating instance of JButton
@@ -23,14 +25,13 @@ import Accounts.Account;
     int sectionTop=60;//where main section starts
 
     JLabel Title=new JLabel("Welcome Manager");//Title
-    Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
+    Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
     initTellerFrame.add(Title);//adding button in JFrame
     
     JLabel ssLabel=new JLabel("User SS");  
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssLabel);//adding button in JFrame
     
-    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssTextBox);//adding button in JFrame
 
@@ -41,6 +42,10 @@ import Accounts.Account;
     accountTypeDrop.setSelectedIndex(0);
     accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
     initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
+
+    userButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
+    userButton.addActionListener(this);
+    initTellerFrame.add(userButton);//adding button in JFrame
 
     billButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
     billButton.addActionListener(this);
@@ -86,12 +91,17 @@ import Accounts.Account;
         else if(rolloverButton.hasFocus()){
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-            JOptionPane.showMessageDialog(errorFrame,"Sending Out Roleover Notices Now.");
+            JOptionPane.showMessageDialog(errorFrame,"Sending Out Rollover Notices Now.");
         }
         else if(billButton.hasFocus()){
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Sending Out Bill Notices Now.");
+        }
+        if(userButton.hasFocus()){
+            userView a=new userView();
+            initTellerFrame.dispose();
+            a.open(accountList,(int)ssTextBox.getValue());
         }
         
     }

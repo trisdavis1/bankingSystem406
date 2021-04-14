@@ -2,6 +2,7 @@ import Accounts.Account;
 import Accounts.CheckingAccount;
 import Accounts.LoanAccount;
 import Menus.Menu;
+import Menus.accountCreation;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -48,6 +49,5 @@ public class main {
             accountList.add(account);
             System.out.println(account.currentBalance); // just to verify its working (can be deleted)
         }
-
     }
 }

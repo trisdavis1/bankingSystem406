@@ -32,6 +32,7 @@ public class accountView implements Action {
         JFormattedTextField ssTextBox = new JFormattedTextField(User[0]);
         ssTextBox.setBounds(130, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssTextBox);// adding button in JFrame
+        ssTextBox.setEnabled(false);
 
         JLabel accountTypeLabel = new JLabel("Account Type");
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
@@ -43,6 +44,7 @@ public class accountView implements Action {
         accountTypeDrop.setSelectedIndex(2);
         accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeDrop);// adding button in JFrame
+        accountTypeDrop.setEnabled(false);
 
         JLabel amountLabel = new JLabel("Amount");
         amountLabel.setBounds(30, sectionTop + 100, 100, 40);// x axis, y axis, width, height
@@ -51,6 +53,7 @@ public class accountView implements Action {
         JFormattedTextField amountTextBox = new JFormattedTextField(123673);
         amountTextBox.setBounds(130, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountTextBox);// adding button in JFrame
+        amountTextBox.setEnabled(false);
 
         updateButton.setBounds(130, sectionTop + 250, 100, 40);// x axis, y axis, width, height
         accountFrame.add(updateButton);// adding button in JFrame
