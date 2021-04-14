@@ -1,11 +1,27 @@
     package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.util.List;
+
 import javax.swing.*;
-    public class accountCreation{ 
-    public void create() { 
+
+import Accounts.Account;
+    public class accountCreation implements Action{
         JFrame Frame=new JFrame();//creating instance of JFrame for the window
-        Frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
+        List<Account>a;
+        JTextField cddateTextBox=new JTextField(null);//date when it rollsover
+        JLabel cdDateLabel=new JLabel("Date of Rollover");//label for above
+
+        String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
+        JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
+
+    public void open() { 
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
 
         JLabel Title=new JLabel("Account Creation");//Title
+
+        
+
         Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
         Frame.add(Title);//adding button in JFrame
         
@@ -23,10 +39,9 @@ import javax.swing.*;
         accountTypeLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         Frame.add(accountTypeLabel);//adding button in JFrame
 
-        String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
-        JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes); 
+
         accountTypeDrop.setSelectedIndex(0);     
-        accountTypeDrop.addActionListener(new Listener());
+        accountTypeDrop.addActionListener(this);
         accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
         Frame.add(accountTypeDrop);//adding button in JFrame 
 
@@ -39,22 +54,72 @@ import javax.swing.*;
         amountTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         Frame.add(amountTextBox);//adding button in JFrame  
 
-        JLabel cdDateLabel=new JLabel("Date of Rollover");  
         cdDateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         Frame.add(cdDateLabel);//adding button in JFrame
+        cdDateLabel.setVisible(false);
 
-        JTextField cddateTextBox=new JTextField(null);  
+        
         cddateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         Frame.add(cddateTextBox);//adding button in JFrame 
+        cddateTextBox.setVisible(false);
 
         //button to submit
         JButton submitButton=new JButton("Submit");//creating instance of JButton
-        submitButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height  
+        submitButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height  
         Frame.add(submitButton);//adding button in JFrame
 
         Frame.setSize(400,500);//400 width and 500 height  
         Frame.setLayout(null);//using no layout managers  
         Frame.setVisible(true);//making the frame visible
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        if(accountTypeDrop.getSelectedIndex()==1){
+            cddateTextBox.setVisible(true);
+            cdDateLabel.setVisible(true);
+        }
+        if(accountTypeDrop.getSelectedIndex()!=1){
+            cddateTextBox.setVisible(false);
+            cdDateLabel.setVisible(false);
+        }
+    }
+
+    @Override
+    public Object getValue(String key) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
+    public void putValue(String key, Object value) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setEnabled(boolean b) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public boolean isEnabled() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        // TODO Auto-generated method stub
+        
     }
 }
     
