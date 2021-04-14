@@ -13,6 +13,8 @@ import Accounts.Account;
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     JButton intSetButton= new JButton("Set interest");//button for setting interest
+    JButton billButton=new JButton("Send Bills");//creating instance of JButton
+    JButton rolloverButton=new JButton("Rollover");//creating instance of JButton
     JButton doneButton=new JButton("Next");//creating instance of JButton
 
     public void open(List<Account> aL) { 
@@ -40,6 +42,14 @@ import Accounts.Account;
     accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
     initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
 
+    billButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
+    billButton.addActionListener(this);
+    initTellerFrame.add(billButton);//adding button in JFrame
+
+    rolloverButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
+    rolloverButton.addActionListener(this);
+    initTellerFrame.add(rolloverButton);//adding button in JFrame
+    
     intSetButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
     intSetButton.addActionListener(this);
     initTellerFrame.add(intSetButton);//adding button in JFrame
@@ -64,7 +74,6 @@ import Accounts.Account;
         else if(accountTypeDrop.getSelectedItem()=="Short Term Loan"||
             accountTypeDrop.getSelectedItem()=="Long Term Loan"||
             accountTypeDrop.getSelectedItem()=="Credit Card"){
-                System.out.print(accountTypeDrop.getSelectedItem());
                 loanView a=new loanView();
                 initTellerFrame.dispose();
                 a.open(accountList,accountTypeDrop.getSelectedIndex());
@@ -74,11 +83,18 @@ import Accounts.Account;
             initTellerFrame.dispose();
             a.open(accountList);
         }
-        
-        
+        else if(rolloverButton.hasFocus()){
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            JOptionPane.showMessageDialog(errorFrame,"Sending Out Roleover Notices Now.");
+        }
+        else if(billButton.hasFocus()){
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            JOptionPane.showMessageDialog(errorFrame,"Sending Out Bill Notices Now.");
+        }
         
     }
-
     @Override
     public Object getValue(String key) {
         // TODO Auto-generated method stub

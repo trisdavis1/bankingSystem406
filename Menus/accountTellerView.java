@@ -28,7 +28,6 @@ public class accountTellerView implements Action{
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssLabel);//adding button in JFrame
 
-        System.out.print(User[0]);
         JFormattedTextField ssTextBox=new JFormattedTextField(User[0]);
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssTextBox);//adding button in JFrame

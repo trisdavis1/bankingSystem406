@@ -44,7 +44,6 @@ import Accounts.Account;
             try {
                  for (Account acc : accountList) {
                     acc.interestRate=Double.valueOf(amountTextBox.getText());
-                    System.out.println(acc.customerId+" "+acc.interestRate);
                 }
                 amountFrame.dispose();
                 Menu menu = new Menu();

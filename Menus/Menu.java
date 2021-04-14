@@ -35,7 +35,6 @@ import Accounts.Account;
     @Override
     public void actionPerformed(ActionEvent e) {
         //decide if a withdraw or deposit
-        System.out.println();
         if(ATMButton.hasFocus()){
             initATM a=new initATM();
             MenuFrame.dispose();
