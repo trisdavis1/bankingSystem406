@@ -9,7 +9,7 @@ public class amountSelect implements Action{
     int wr=42;
     List<Account>accountList;
     JTextField amountTextBox=new JTextField(null);//amount text box
-    JButton nextButton=new JButton("Next");//creating instance of JButton
+    JButton nextButton=new JButton("Transfer");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
     public void open(List<Account> aL, int wOr) {  //transfer
         accountList=aL;

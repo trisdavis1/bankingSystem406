@@ -5,22 +5,21 @@ import java.beans.PropertyChangeListener;
 import java.util.List;
 
 import javax.swing.*;
-import javax.swing.plaf.DimensionUIResource;
 
 import Accounts.Account;
 
-public class accountView implements Action {
+public class loanView implements Action {
     List<Account> accountList;
     JButton doneButton = new JButton("Done");// creating instance of JButton
     JButton updateButton = new JButton("Update");// creating instance of JButton
     JFrame accountFrame = new JFrame();// creating instance of JFrame
 
-    public void open(List<Account> aL) {
+    public void open(List<Account> aL,int loanType) {
         accountList = aL;
         String User[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
         accountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// end program on exit
 
-        JLabel Title = new JLabel("Account View");// Title
+        JLabel Title = new JLabel("Loan View");// Title
         Title.setBounds(130, 1, 100, 60);// x axis, y axis, width, height
         accountFrame.add(Title);// adding button in JFrame
 
@@ -37,10 +36,9 @@ public class accountView implements Action {
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeLabel);// adding button in JFrame
 
-        String[] accountTypes = { "None", "Short Term Loan", "Long Term Mortgage Loan", "Credit Card", "Checking",
-                "Savings", "This is My Bank" };
+        String[] accountTypes = {"Short Term Loan", "Long Term Mortgage Loan", "Credit Card"};
         JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
-        accountTypeDrop.setSelectedIndex(2);
+        accountTypeDrop.setSelectedIndex(loanType-2);
         accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeDrop);// adding button in JFrame
 
@@ -59,7 +57,7 @@ public class accountView implements Action {
         doneButton.setBounds(130, sectionTop + 300, 100, 40);// x axis, y axis, width, height
         accountFrame.add(doneButton);// adding button in JFrame
         doneButton.addActionListener(this);
-        
+
         accountFrame.setSize(400, 500);// 400 width and 500 height
         accountFrame.setLayout(null);// using no layout managers
         accountFrame.setVisible(true);// making the frame visible

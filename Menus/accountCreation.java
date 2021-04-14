@@ -1,11 +1,14 @@
     package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.util.List;
 
 import javax.swing.*;
+
+import Accounts.Account;
     public class accountCreation implements Action{
         JFrame Frame=new JFrame();//creating instance of JFrame for the window
-
+        List<Account>a;
         JTextField cddateTextBox=new JTextField(null);//date when it rollsover
         JLabel cdDateLabel=new JLabel("Date of Rollover");//label for above
 
@@ -13,7 +16,7 @@ import javax.swing.*;
         JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
 
     public void open() { 
-        Frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
+        Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
 
         JLabel Title=new JLabel("Account Creation");//Title
 

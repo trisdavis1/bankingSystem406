@@ -56,16 +56,26 @@ import Accounts.Account;
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
-        if(doneButton.hasFocus()){
-            accountView a=new accountView();
-            initTellerFrame.dispose();
-            a.open(accountList);
-        }
         if(intSetButton.hasFocus()){
             interstSet a=new interstSet();
             initTellerFrame.dispose();
             a.open(accountList);
         }
+        else if(accountTypeDrop.getSelectedItem()=="Short Term Loan"||
+            accountTypeDrop.getSelectedItem()=="Long Term Loan"||
+            accountTypeDrop.getSelectedItem()=="Credit Card"){
+                System.out.print(accountTypeDrop.getSelectedItem());
+                loanView a=new loanView();
+                initTellerFrame.dispose();
+                a.open(accountList,accountTypeDrop.getSelectedIndex());
+        }
+        else if(doneButton.hasFocus()){
+            accountView a=new accountView();
+            initTellerFrame.dispose();
+            a.open(accountList);
+        }
+        
+        
         
     }
 

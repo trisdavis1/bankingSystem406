@@ -2,7 +2,6 @@
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
 import java.util.List;
-import Menus.Payment;
 import javax.swing.*;
 
 import Accounts.Account;  
@@ -47,6 +46,9 @@ import Accounts.Account;
                     acc.interestRate=Double.valueOf(amountTextBox.getText());
                     System.out.println(acc.customerId+" "+acc.interestRate);
                 }
+                amountFrame.dispose();
+                Menu menu = new Menu();
+                menu.openMenu(accountList);
             } catch (Exception ee) {
                 //TODO: handle exception
                 JFrame errorFrame=new JFrame();//creating instance of JFrame

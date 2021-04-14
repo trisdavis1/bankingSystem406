@@ -11,12 +11,14 @@ public class accountTellerView implements Action{
     JButton transferButton=new JButton("Transfer");//creating instance of JButton
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
+    JButton updateButton=new JButton("Update");//creating instance of JButton
+    JButton doneButton=new JButton("Done");//creating instance of JButton
     JFrame accountTellerFrame=new JFrame();//creating instance of JFrame
 
     public void open(List<Account> aL) {
         accountList=aL;
         String User[]={"233435656","1525 Kioam","Ellwood","KS","56708","Mary","White"};
-        accountTellerFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);//end program on exit
+        accountTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         JLabel Title=new JLabel("Teller Account View");//Title
         Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         accountTellerFrame.add(Title);//adding button in JFrame
@@ -73,14 +75,13 @@ public class accountTellerView implements Action{
         recentTable.setFillsViewportHeight(true); 
         accountTellerFrame.add(scrollPane);//adding pane in JFrame
 
-        JButton updateButton=new JButton("Update");//creating instance of JButton
         updateButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height  
         accountTellerFrame.add(updateButton);//adding button in JFrame
+        updateButton.addActionListener(this);
 
-        JButton doneButton=new JButton("Done");//creating instance of JButton
         doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
-        accountTellerFrame.dispose();
         accountTellerFrame.add(doneButton);//adding button in JFrame
+        doneButton.addActionListener(this);
 
         accountTellerFrame.setSize(400,500);//400 width and 500 height  
         accountTellerFrame.setLayout(null);//using no layout managers  
@@ -104,6 +105,16 @@ public class accountTellerView implements Action{
             amountSelect a=new amountSelect();
             accountTellerFrame.dispose();
             a.open(accountList,1);
+        }
+        if (doneButton.hasFocus()) {
+            accountTellerFrame.dispose();
+            Menu menu = new Menu();
+            menu.openMenu(accountList);
+        }
+        if (updateButton.hasFocus()) {
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            JOptionPane.showMessageDialog(errorFrame,"Updating");
         }
         
     }

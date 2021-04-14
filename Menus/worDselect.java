@@ -53,9 +53,9 @@ import Accounts.Account;
             a.open(accountList,1);
         }
         else if(viewButton.hasFocus()){
-            userView a=new userView();
+            accountView a=new accountView();
             worDSelectFrame.dispose();
-            a.open(accountList,123456789);
+            a.open(accountList);
         }
     }
 

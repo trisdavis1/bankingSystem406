@@ -7,7 +7,7 @@ import javax.swing.*;
 
 import Accounts.Account;  
 
-    public class initTeller implements Action{  
+public class initTeller implements Action{  
     List<Account> accountList;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
