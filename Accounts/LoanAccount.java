@@ -1,5 +1,6 @@
 package Accounts;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class LoanAccount extends Account{
@@ -15,9 +16,9 @@ public class LoanAccount extends Account{
                        Date lastPaymentDate
                       )
     {
-        this.setCustomerId(customerId);
-        this.setCurrentBalance(currentBalance);
-        this.setInterestRate(interestRate);
+        this.customerId = customerId;
+        this.currentBalance = currentBalance;
+        this.interestRate = interestRate;
         this.paymentDueDate = paymentDueDate;
         this.paymentNotificationDate = paymentNotificationDate;
         this.paymentAmountDue = paymentAmountDue;
@@ -25,6 +26,19 @@ public class LoanAccount extends Account{
         this.missedPayment = missedPayment;
         this.lastPaymentDate = lastPaymentDate;
         setStatus(0);
+    }
+
+    @Override
+    public String[] accountToArray()
+    {
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        return new String[]
+                {
+                        Integer.toString(customerId), Double.toString(currentBalance),
+                        Double.toString(interestRate), formatter.format(paymentDueDate),
+                        formatter.format(paymentNotificationDate), Double.toString(paymentAmountDue),
+                        loanType, Integer.toString(missedPayment ? 1 : 0), formatter.format(lastPaymentDate)
+                };
     }
 
     public Date getPaymentDueDate() {

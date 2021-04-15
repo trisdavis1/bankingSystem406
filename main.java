@@ -7,17 +7,18 @@ import Menus.Menu;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class main {
     public static void main(String[] args) throws IOException {
-        File loanFile = new File("../bankingSystem406/Database Files/Loans.txt");
+        File loanFile = new File("Database Files/loanAccounts.txt");
         File checkingFile = new File("../bankingSystem406/Database Files/checkingAccounts.txt");
         File savingsFile = new File("../bankingSystem406/Database Files/savingsAccounts.txt");
 
-        List<LoanAccount> loanAccounts = GetLoanData(loanFile);
-        List<CheckingAccount> checkingAccounts = GetCheckingData(checkingFile);
-        List<SavingsAccount> savingsAccounts = GetSavingsData(savingsFile);
+        List<Account> loanAccounts = GetLoanData(loanFile);
+        List<Account> checkingAccounts = GetCheckingData(checkingFile);
+        List<Account> savingsAccounts = GetSavingsData(savingsFile);
         List<Account> accountList = new ArrayList<>();
 
         accountList.addAll(loanAccounts);
@@ -31,10 +32,14 @@ public class main {
 
         Menu menu= new Menu();
         menu.openMenu(accountList);
+
+        WriteAccountData(checkingFile, checkingAccounts);
+        WriteAccountData(loanFile, loanAccounts);
+        WriteAccountData(savingsFile, savingsAccounts);
     }
 
-    public static List<CheckingAccount> GetCheckingData(File file){
-        var checkingAccounts = new ArrayList<CheckingAccount>();
+    public static List<Account> GetCheckingData(File file){
+        var checkingAccounts = new ArrayList<Account>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file)))
         {
@@ -56,8 +61,9 @@ public class main {
 
         return checkingAccounts;
     }
-    public static  List<LoanAccount> GetLoanData(File file){
-        var loanAccounts = new ArrayList<LoanAccount>();
+
+    public static  List<Account> GetLoanData(File file){
+        var loanAccounts = new ArrayList<Account>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file)))
         {
@@ -65,7 +71,7 @@ public class main {
             while((line = br.readLine()) != null)
             {
                 String[] items = line.split(",");
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
                 loanAccounts.add(new LoanAccount(Integer.parseInt(items[0]),
                         Double.parseDouble(items[1]), Double.parseDouble(items[2]), formatter.parse(items[3]),
@@ -81,8 +87,8 @@ public class main {
         return loanAccounts;
     }
 
-    public static List<SavingsAccount> GetSavingsData(File file){
-        var savingsAccounts = new ArrayList<SavingsAccount>();
+    public static List<Account> GetSavingsData(File file){
+        var savingsAccounts = new ArrayList<Account>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(file)))
         {
@@ -103,5 +109,24 @@ public class main {
         }
 
         return savingsAccounts;
+    }
+
+    public static void WriteAccountData(File file, List<Account> accounts) throws IOException {
+        FileWriter writer = new FileWriter(file);
+        ArrayList<String[]> records = new ArrayList<String[]>();
+
+        for(var account : accounts)
+        {
+            records.add(account.accountToArray());
+        }
+
+        for(var record : records)
+        {
+            writer.append(String.join(",", record));
+            writer.append("\n");
+        }
+
+        writer.flush();
+        writer.close();
     }
 }
