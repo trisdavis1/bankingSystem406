@@ -36,7 +36,7 @@ public class accountTellerView implements Action{
         amountLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(amountLabel);//adding button in JFrame
 
-        JFormattedTextField amountTextBox=new JFormattedTextField(aL.get(0).currentBalance);  
+        JFormattedTextField amountTextBox=new JFormattedTextField(aL.get(0).getCurrentBalance());
         amountTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(amountTextBox);//adding button in JFrame  
 
@@ -56,7 +56,7 @@ public class accountTellerView implements Action{
         statusLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(statusLabel);//adding button in JFrame
 
-        JFormattedTextField statusTextBox=new JFormattedTextField(aL.get(0).status);  
+        JFormattedTextField statusTextBox=new JFormattedTextField(aL.get(0).getStatus());
         statusTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(statusTextBox);//adding button in JFrame  
 

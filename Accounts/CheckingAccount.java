@@ -1,24 +1,78 @@
 package Accounts;
 
+import java.util.Date;
+
 public class CheckingAccount extends Account {
-    public int customerId;
-    public int accountNumber;
-    public String accountType;
-    public double currentBalance;
-    public int backupAccount;
-    public String backNumber;
-    public int overdrafts;
-    public String dateOpened;
+    private int accountNumber;
+    private String accountType;
+    private int backupAccount;
+    private int backupAccountNumber;
+    private int overdrafts;
+    private Date dateOpened;
 
-    public double interestRate;
+    private double interestRate;
 
-    public CheckingAccount(int customerId,int accountNumber,
-        String accountType, double currentBalance,
-        int backupAccount, String backNumber,
-        int overDrafts, String dateOpened){
+    public CheckingAccount(int customerId, int accountNumber, String accountType, double currentBalance,
+                           int backupAccount, int backupAccountNumber, int overDrafts, Date dateOpened
+                          )
+    {
+        this.setCustomerId(customerId);
+        this.accountNumber = accountNumber;
+        this.accountType = accountType;
+        this.setCurrentBalance(currentBalance);
+        this.backupAccount = backupAccount;
+        this.backupAccountNumber = backupAccountNumber;
+        this.overdrafts = overDrafts;
+        this.dateOpened = dateOpened;
 
-        this.customerId = customerId;
-        this.currentBalance = currentBalance;
         setStatus(0);
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public int getBackupAccount() {
+        return backupAccount;
+    }
+
+    public void setBackupAccount(int backupAccount) {
+        this.backupAccount = backupAccount;
+    }
+
+    public int getBackupAccountNumber() {
+        return backupAccountNumber;
+    }
+
+    public void setBackupAccountNumber(int backupAccountNumber) {
+        this.backupAccountNumber = backupAccountNumber;
+    }
+
+    public int getOverdrafts() {
+        return overdrafts;
+    }
+
+    public void setOverdrafts(int overdrafts) {
+        this.overdrafts = overdrafts;
+    }
+
+    public Date getDateOpened() {
+        return dateOpened;
+    }
+
+    public void setDateOpened(Date dateOpened) {
+        this.dateOpened = dateOpened;
     }
 }
