@@ -2,8 +2,9 @@ package Menus;
 
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.List;
-
+import java.main;
 import javax.swing.*;
 
 import Accounts.Account;
@@ -71,12 +72,12 @@ public class loanView implements Action {
             //default title and icon
             JOptionPane.showMessageDialog(errorFrame,"Updating");
         }
+        main.GetLoanData(new File("Database Files/loanAccounts.txt"));
         if (doneButton.hasFocus()) {
             accountFrame.dispose();
             Menu menu = new Menu();
             menu.openMenu(accountList);
-        }
-
+        } 
     }
 
     @Override
