@@ -13,7 +13,7 @@ import Accounts.Account;
     List<Account>accountList;
 
     public void open(List<Account>aL) {
-        amountTextBox.setText(Double.toString(aL.get(0).interestRate));
+        amountTextBox.setText(Double.toString(aL.get(0).getInterestRate()));
         accountList=aL;
         amountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
@@ -43,7 +43,7 @@ import Accounts.Account;
         if(doneButton.hasFocus()){
             try {
                  for (Account acc : accountList) {
-                    acc.interestRate=Double.valueOf(amountTextBox.getText());
+                    acc.setInterestRate(Double.valueOf(amountTextBox.getText()));
                 }
                 amountFrame.dispose();
                 Menu menu = new Menu();
