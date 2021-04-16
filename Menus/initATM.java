@@ -46,8 +46,38 @@ import javax.swing.*;
         // TODO pass the SS to data getting function
         if(doneButton.hasFocus()){
            accountSelection a=new accountSelection();
-            initATMFrame.dispose();
-            a.open(accountList); 
+            try {
+                int ss=Integer.parseInt(ssTextBox.getValue().toString());
+                if(String.valueOf(ss).length()==9){
+                    System.out.println(ss);
+                    List<Account> CustAccounts;
+                    CustAccounts=accountList;
+                    
+                    for (Account account : accountList) {
+                        if(account.getCustomerId()==ss)
+                            {CustAccounts.add(account);
+                            System.out.println("Balance: $"+account.getCurrentBalance());
+                        }
+                    }  
+                    a.open(ss,CustAccounts); 
+                    initATMFrame.dispose();
+                }
+                else{
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    //default title and icon
+                    JOptionPane.showMessageDialog(errorFrame,"To Few Digits. Re-enter SS");
+                }
+               
+
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                //default title and icon
+                JOptionPane.showMessageDialog(errorFrame,ee);
+            }
+            
         }
         if(userButton.hasFocus()){
             userView a=new userView();
