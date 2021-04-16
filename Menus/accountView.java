@@ -8,7 +8,7 @@ import javax.swing.*;
 import javax.swing.plaf.DimensionUIResource;
 
 import Accounts.Account;
-import test.StartProgram;
+import MainProgram.StartProgram;
 
 public class accountView implements Action {
     List<Account> accountList;

@@ -1,4 +1,4 @@
-package test;
+package MainProgram;
 import Accounts.Account;
 import Accounts.CheckingAccount;
 import Accounts.LoanAccount;

@@ -2,11 +2,11 @@
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
-import test.StartProgram;
 
 import javax.swing.*;
 
 import Accounts.Account;
+import MainProgram.StartProgram;
     public class Menu implements Action{ 
         JFrame MenuFrame=new JFrame();//creating instance of JFrame
         JButton ATMButton=new JButton("ATM");//creating instance of JButton
