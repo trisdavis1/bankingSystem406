@@ -4,10 +4,12 @@ import java.beans.PropertyChangeListener;
 import java.util.List;
 import javax.swing.*;
 import Accounts.Account;
+import Accounts.User;
 import MainProgram.StartProgram;
 
 public class userView implements Action{ 
     List<Account>accountList; 
+    List<User>userList;
     JFrame userViewFrame=new JFrame();//creating instance of JFrame  
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JButton submitButton=new JButton("Submit");//creating instance of JButton
@@ -15,8 +17,12 @@ public class userView implements Action{
     JTextField ssTextBox=new JTextField(423453245);
     public void open(List<Account>aL, String ss) { 
         accountList=StartProgram.getAccountList();
-        String user[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
-        
+        userList=StartProgram.getUserList();
+        User userInfo=userList.get(0);
+        for (User user : userList) {
+            if(Integer.toString(user.getCustomerId())==ss)
+                userInfo=user;
+        }
         userViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel Title=new JLabel("User View");  
@@ -28,7 +34,6 @@ public class userView implements Action{
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssLabel);//adding button in JFrame
 
-          
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssTextBox);//adding button in JFrame  
         
@@ -36,7 +41,7 @@ public class userView implements Action{
         streetLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(streetLabel);//adding button in JFrame
 
-        JTextField streetTextBox=new JTextField(user[1]);  
+        JTextField streetTextBox=new JTextField(userInfo.getAddress());  
         streetTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(streetTextBox);//adding button in JFrame  
 
@@ -44,7 +49,7 @@ public class userView implements Action{
         cityLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(cityLabel);//adding button in JFrame
 
-        JTextField cityTextBox=new JTextField(user[2]);  
+        JTextField cityTextBox=new JTextField(userInfo.getCity());  
         cityTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(cityTextBox);//adding button in JFrame  
 
@@ -52,7 +57,7 @@ public class userView implements Action{
         stateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(stateLabel);//adding button in JFrame
 
-        JTextField stateTextBox=new JTextField(user[3]);  
+        JTextField stateTextBox=new JTextField(userInfo.getState());  
         stateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(stateTextBox);//adding button in JFrame  
 
@@ -60,7 +65,7 @@ public class userView implements Action{
         zipLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipLabel);//adding button in JFrame
 
-        JTextField zipTextBox=new JTextField(user[4]);  
+        JTextField zipTextBox=new JTextField(userInfo.getZip());  
         zipTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipTextBox);//adding button in JFrame  
 
@@ -68,7 +73,7 @@ public class userView implements Action{
         firstLabel.setBounds(30,sectionTop+250,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(firstLabel);//adding button in JFrame
 
-        JTextField firstTextBox=new JTextField(user[5]);  
+        JTextField firstTextBox=new JTextField(userInfo.getFirst());  
         firstTextBox.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(firstTextBox);//adding button in JFrame  
 
@@ -76,7 +81,7 @@ public class userView implements Action{
         lastLabel.setBounds(30,sectionTop+300,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(lastLabel);//adding button in JFrame
 
-        JTextField lastTextBox=new JTextField(user[6]);  
+        JTextField lastTextBox=new JTextField(userInfo.getLast());  
         lastTextBox.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(lastTextBox);//adding button in JFrame  
         
