@@ -17,7 +17,6 @@ public class accountTellerView implements Action{
 
     public void open(List<Account> aL, String ss) {
         accountList=aL;
-        String User[]={"233435656","1525 Kioam","Ellwood","KS","56708","Mary","White"};
         accountTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         JLabel Title=new JLabel("Teller Account View");//Title
         Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 

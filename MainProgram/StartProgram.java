@@ -54,6 +54,8 @@ public class StartProgram {
         return savingsAccounts;
     }public static List<Account> getLoanAccountList(){
         return loanAccounts;
+    }public static List<User> getUserList(){
+        return userList;
     }
     public static String convertToClass(int index){
         if(index==0)return "none";
