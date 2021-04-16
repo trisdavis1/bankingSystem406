@@ -1,10 +1,9 @@
     package Menus;
-    import javax.swing.*;  
+    import javax.swing.*;
     public class Payment {  
     public void open() {  
     JFrame Frame=new JFrame();//creating instance of JFrame  
     Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     JLabel Title=new JLabel("Payment");
     Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
     Frame.add(Title);//adding button in JFrame
