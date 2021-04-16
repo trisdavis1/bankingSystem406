@@ -39,6 +39,7 @@ import javax.swing.*;
         initATMFrame.setSize(400,500);//400 width and 500 height  
         initATMFrame.setLayout(null);//using no layout managers  
         initATMFrame.setVisible(true);//making the frame visible  
+        System.out.println(super.getClass());
     }
     @Override
     public void actionPerformed(ActionEvent e) {

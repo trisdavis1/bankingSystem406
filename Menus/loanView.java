@@ -72,7 +72,6 @@ public class loanView implements Action {
             //default title and icon
             JOptionPane.showMessageDialog(errorFrame,"Updating");
         }
-        main.GetLoanData(new File("Database Files/loanAccounts.txt"));
         if (doneButton.hasFocus()) {
             accountFrame.dispose();
             Menu menu = new Menu();
