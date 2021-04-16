@@ -5,7 +5,7 @@ import Accounts.CheckingAccount;
 import Accounts.LoanAccount;
 import Accounts.SavingsAccount;
 import Accounts.User;
-import Menus.Menu;
+import Menus.mainMenu;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -36,12 +36,12 @@ public class StartProgram {
 
         for(var account : accountList)
         {
-            System.out.println(account.getCurrentBalance());
+            //System.out.println(account.getCurrentBalance());
         }
 
-        Menu menu= new Menu();
+        mainMenu menu= new mainMenu();
         menu.openMenu();
-
+        //use below in interface
         WriteAccountData(checkingFile, checkingAccounts);
         WriteAccountData(loanFile, loanAccounts);
         WriteAccountData(savingsFile, savingsAccounts);
@@ -62,9 +62,10 @@ public class StartProgram {
         if(index==1)return "class Accounts.SavingsAccount";
         if(index==2)return "class Accounts.LoanAccount";
         if(index==3)return "class Accounts.LoanAccount";
-        if(index==4)return "class Accounts.CheckingAccount";
-        if(index==5)return "class Accounts.SavingsAccount";
+        if(index==4)return "class Accounts.LoanAccount";
+        if(index==5)return "class Accounts.CheckingAccount";
         if(index==6)return "class Accounts.SavingsAccount";
+        if(index==7)return "class Accounts.SavingsAccount";
         return "None";
     }
 
@@ -101,7 +102,6 @@ public class StartProgram {
             {
                 String[] items = line.split(",");
                 UserAccounts.add(new ATMuser(Integer.parseInt(items[0]), items[1], items[2], items[3], Integer.parseInt(items[4]), items[5], items[6]));
-                System.out.println(UserAccounts.size());
             }
         }
         catch (Exception e)

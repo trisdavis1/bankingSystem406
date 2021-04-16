@@ -15,12 +15,13 @@ public class userView implements Action{
     JButton submitButton=new JButton("Submit");//creating instance of JButton
     JLabel ssLabel=new JLabel("SS");  
     JTextField ssTextBox=new JTextField(423453245);
+
     public void open(List<Account>aL, String ss) { 
         accountList=StartProgram.getAccountList();
         userList=StartProgram.getUserList();
         User userInfo=userList.get(0);
         for (User user : userList) {
-            if(Integer.toString(user.getCustomerId())==ss)
+            if(Integer.toString(user.getCustomerId()).equals(ss))
                 userInfo=user;
         }
         userViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +34,7 @@ public class userView implements Action{
         
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssLabel);//adding button in JFrame
-
+        ssTextBox.setText(Integer.toString(userInfo.getCustomerId()));
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssTextBox);//adding button in JFrame  
         
@@ -65,7 +66,7 @@ public class userView implements Action{
         zipLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipLabel);//adding button in JFrame
 
-        JTextField zipTextBox=new JTextField(userInfo.getZip());  
+        JTextField zipTextBox=new JTextField(Integer.toString(userInfo.getZip()));  
         zipTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipTextBox);//adding button in JFrame  
 
@@ -107,7 +108,7 @@ public class userView implements Action{
         }
         if(doneButton.hasFocus()){
             userViewFrame.dispose();
-            Menu menu= new Menu();
+            mainMenu menu= new mainMenu();
             menu.openMenu();
         }
         

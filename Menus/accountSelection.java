@@ -1,22 +1,24 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
 import Accounts.Account;
+import MainProgram.StartProgram;
     public class accountSelection implements Action{  
     JFrame accSelectFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     List<Account>accountList;
 
-    public void open(String ID,List<Account> accountList) {
-        for (Account account : accountList) {
-            if(Integer.toString(account.getCustomerId())==ID)
+    public void open(String ID,List<Account> aL) {
+        accountList=aL;
+        /* for (Account account : accountList) {
                 System.out.println("Balance: $"+account.getCurrentBalance());
-        }  
+        }   */
         accSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 
@@ -50,10 +52,20 @@ import Accounts.Account;
     public void actionPerformed(ActionEvent e) {
         // when next is selected get the account infomation and open the withdraw or deposit window
         //TODO add in the passing of data for which account
+        int index=accountTypeDrop.getSelectedIndex();
+        String classboy=StartProgram.convertToClass(index);
+        List<Account> CustAccounts=new ArrayList<Account>();
+        for (Account account : accountList) {
+            if(account.getClass().toString().equals(classboy))
+            {
+                CustAccounts.add(account);
+                //System.out.println(account.getClass().toString());
+            }
+        }
+        System.out.println();
         worDselect a = new worDselect();
         accSelectFrame.dispose();
-        a.open(accountList,accountTypeDrop.getSelectedIndex());
-        
+        a.open(CustAccounts);
     }
 
     @Override

@@ -102,7 +102,7 @@ public class userCreation implements Action{
         }
         if(doneButton.hasFocus()){
             userViewFrame.dispose();
-            Menu menu= new Menu();
+            mainMenu menu= new mainMenu();
             menu.openMenu();
         }
         

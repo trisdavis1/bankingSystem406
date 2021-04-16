@@ -46,7 +46,7 @@ import Accounts.Account;
                     acc.setInterestRate(Double.valueOf(amountTextBox.getText()));
                 }
                 amountFrame.dispose();
-                Menu menu = new Menu();
+                mainMenu menu = new mainMenu();
                 menu.openMenu();
             } catch (Exception ee) {
                 //TODO: handle exception

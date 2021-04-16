@@ -106,7 +106,7 @@ public class accountTellerView implements Action{
         }
         if (doneButton.hasFocus()) {
             accountTellerFrame.dispose();
-            Menu menu = new Menu();
+            mainMenu menu = new mainMenu();
             menu.openMenu();
         }
         if (updateButton.hasFocus()) {

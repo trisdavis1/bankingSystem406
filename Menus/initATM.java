@@ -27,6 +27,7 @@ import javax.swing.*;
         initATMFrame.add(ssLabel);//adding button in JFrame
         
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
+        ssTextBox.setText("423453245");
         initATMFrame.add(ssTextBox);//adding button in JFrame
 
         doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
@@ -50,13 +51,10 @@ import javax.swing.*;
             try {
                 String ss=ssTextBox.getText();
                 if(String.valueOf(ss).length()==9){
-                    System.out.println(ss);
-                    List<Account> CustAccounts;
-                    CustAccounts=new ArrayList<Account>();
+                    List<Account> CustAccounts=new ArrayList<Account>();
                     for (Account account : accountList) {
                         if(account.getCustomerId()==Integer.parseInt(ss))
                             {CustAccounts.add(account);
-                            System.out.println("Type: "+account.getClass().toString());
                         }
                     }  
                     a.open(ss,CustAccounts); 
@@ -66,7 +64,7 @@ import javax.swing.*;
                     JFrame errorFrame=new JFrame();//creating instance of JFrame
                     errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
                     //default title and icon
-                    JOptionPane.showMessageDialog(errorFrame,"To Few Digits. Re-enter SS");
+                    JOptionPane.showMessageDialog(errorFrame,"To Incorrect number of Digits. Re-enter SS");
                 }
                
 
