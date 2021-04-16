@@ -5,15 +5,19 @@ import java.util.List;
 
 import javax.swing.*;
 
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
     public class accountSelection implements Action{  
     JFrame accSelectFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     List<Account>accountList;
 
-    public void open(List<Account>aL) {
-        accountList=aL;  
+    public void open(int ID,List<Account> accountList) {
+        for (Account account : accountList) {
+            if(account.getCustomerId()==ID)
+            System.out.println("Balance: $"+account.getCurrentBalance());
+        }  
         accSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 
@@ -21,6 +25,10 @@ import Accounts.Account;
         Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         accSelectFrame.add(Title);//adding button in JFrame
         
+        JLabel ss = new JLabel("ID:"+Integer.toString(ID%10000));//only show last four
+        ss.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
+        accSelectFrame.add(ss);//adding button in JFrame
+
         JLabel accountTypeLabel=new JLabel("Account Type");  
         accountTypeLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accSelectFrame.add(accountTypeLabel);//adding button in JFrame

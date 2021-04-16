@@ -11,7 +11,8 @@ public class userView implements Action{
     JFrame userViewFrame=new JFrame();//creating instance of JFrame  
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JButton submitButton=new JButton("Submit");//creating instance of JButton
-
+    JLabel ssLabel=new JLabel("SS");  
+    JTextField ssTextBox=new JTextField(123456789);
     public void open(List<Account>aL, int ss) { 
         accountList=aL; 
         String user[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
@@ -23,11 +24,11 @@ public class userView implements Action{
         userViewFrame.add(Title);//adding button in JFrame
 
         int sectionTop=50;
-        JLabel ssLabel=new JLabel("SS");  
+        
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssLabel);//adding button in JFrame
 
-        JTextField ssTextBox=new JTextField(user[0]);  
+          
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssTextBox);//adding button in JFrame  
         
@@ -94,6 +95,7 @@ public class userView implements Action{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(submitButton.hasFocus()){
+            System.out.println(ssTextBox.getText());
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");

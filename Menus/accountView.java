@@ -5,10 +5,7 @@ import java.beans.PropertyChangeListener;
 import java.util.List;
 
 import javax.swing.*;
-import javax.swing.plaf.DimensionUIResource;
-
 import Accounts.Account;
-import MainProgram.StartProgram;
 
 public class accountView implements Action {
     List<Account> accountList;
