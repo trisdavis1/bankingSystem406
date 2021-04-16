@@ -103,7 +103,7 @@ public class userView implements Action{
         if(doneButton.hasFocus()){
             userViewFrame.dispose();
             Menu menu= new Menu();
-            menu.openMenu(accountList);
+            menu.openMenu();
         }
         
     }

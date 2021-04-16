@@ -13,9 +13,9 @@ import MainProgram.StartProgram;
         JButton tellerButton=new JButton("Teller");//creating instance of JButton
         JButton managerButton=new JButton("Manager");//creating instance of JButton
         List<Account> accountList;
-    public void openMenu(List<Account> aL){ 
+    public void openMenu(){ 
         accountList=StartProgram.getAccountList();
-        for (Account account : aL) {
+        for (Account account : accountList) {
             if(account.getClass().toString().equals("class Accounts.CheckingAccount"))
             System.out.println("Balance: $"+account.getCurrentBalance());
         }

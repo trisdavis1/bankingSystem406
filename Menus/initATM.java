@@ -1,7 +1,8 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
-    import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
     import Accounts.Account;
 
 import javax.swing.*;  
@@ -9,7 +10,7 @@ import javax.swing.*;
     JFrame initATMFrame=new JFrame();//creating instance of JFrame
     JButton userButton=new JButton("Edit User");
     JButton doneButton=new JButton("Next");//creating instance of JButton
-    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+    JTextField ssTextBox=new JTextField();
     List<Account> accountList;
 
     public void open(List<Account> aL) { 
@@ -47,16 +48,15 @@ import javax.swing.*;
         if(doneButton.hasFocus()){
            accountSelection a=new accountSelection();
             try {
-                int ss=Integer.parseInt(ssTextBox.getValue().toString());
+                int ss=Integer.parseInt(ssTextBox.getText().toString());
                 if(String.valueOf(ss).length()==9){
                     System.out.println(ss);
                     List<Account> CustAccounts;
-                    CustAccounts=accountList;
-                    
+                    CustAccounts=new ArrayList<Account>();
                     for (Account account : accountList) {
                         if(account.getCustomerId()==ss)
                             {CustAccounts.add(account);
-                            System.out.println("Balance: $"+account.getCurrentBalance());
+                            System.out.println("Type: "+account.getClass().toString());
                         }
                     }  
                     a.open(ss,CustAccounts); 
@@ -80,9 +80,18 @@ import javax.swing.*;
             
         }
         if(userButton.hasFocus()){
-            userView a=new userView();
-            initATMFrame.dispose();
-            a.open(accountList,(int)ssTextBox.getValue());
+            try {
+                userView a=new userView();
+                initATMFrame.dispose();
+                a.open(accountList,Integer.parseInt(ssTextBox.getText()));
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                //default title and icon
+                JOptionPane.showMessageDialog(errorFrame,ee);
+            }
+            
         }
         
     }

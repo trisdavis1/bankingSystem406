@@ -55,7 +55,7 @@ import Accounts.Account;
         if(doneButton.hasFocus()){
             amountFrame.dispose();
             Menu menu= new Menu();
-            menu.openMenu(accountList);
+            menu.openMenu();
         }
         else if(amountTextBox.getText().isEmpty())message="Amount is empty!";
 

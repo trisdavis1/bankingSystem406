@@ -6,7 +6,6 @@ import java.util.List;
 import javax.swing.*;
 
 import Accounts.Account;
-import MainProgram.StartProgram;  
     public class accountSelection implements Action{  
     JFrame accSelectFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};

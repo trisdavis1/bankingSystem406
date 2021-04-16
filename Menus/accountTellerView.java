@@ -108,7 +108,7 @@ public class accountTellerView implements Action{
         if (doneButton.hasFocus()) {
             accountTellerFrame.dispose();
             Menu menu = new Menu();
-            menu.openMenu(accountList);
+            menu.openMenu();
         }
         if (updateButton.hasFocus()) {
             JFrame errorFrame=new JFrame();//creating instance of JFrame

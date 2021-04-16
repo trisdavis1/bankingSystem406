@@ -77,7 +77,7 @@ public class accountView implements Action {
         if (doneButton.hasFocus()) {
             accountFrame.dispose();
             Menu menu = new Menu();
-            menu.openMenu(accountList);
+            menu.openMenu();
         }
 
     }

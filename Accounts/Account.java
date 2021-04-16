@@ -1,11 +1,5 @@
 package Accounts;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Account {
     protected int customerId;
     protected double currentBalance;

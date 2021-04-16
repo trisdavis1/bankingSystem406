@@ -32,7 +32,7 @@ public class StartProgram {
         }
 
         Menu menu= new Menu();
-        menu.openMenu(accountList);
+        menu.openMenu();
 
         WriteAccountData(checkingFile, checkingAccounts);
         WriteAccountData(loanFile, loanAccounts);

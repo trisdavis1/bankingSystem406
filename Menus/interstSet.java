@@ -47,7 +47,7 @@ import Accounts.Account;
                 }
                 amountFrame.dispose();
                 Menu menu = new Menu();
-                menu.openMenu(accountList);
+                menu.openMenu();
             } catch (Exception ee) {
                 //TODO: handle exception
                 JFrame errorFrame=new JFrame();//creating instance of JFrame
