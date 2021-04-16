@@ -1,11 +1,15 @@
 package Accounts;
 
-public class Account {
+public class User {
     protected int customerId;
-    protected double currentBalance;
     protected String status;
-    protected double interestRate;
     protected String type;//subtypes; here so it can be compared
+    protected String address;
+    protected String city;
+    protected String state;
+    protected int zip;
+    protected String first;
+    protected String last;
     
     public void setStatus(int cOb){
         if(cOb==0) status = "current";
@@ -24,33 +28,15 @@ public class Account {
         this.customerId = customerId;
     }
 
-    public double getCurrentBalance() {
-        return currentBalance;
-    }
-
-    public void setCurrentBalance(double currentBalance) {
-        this.currentBalance = currentBalance;
-    }
-
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public double getInterestRate() {
-        return interestRate;
-    }
-
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
     }
 
     public String[] accountToArray() {
         return new String[0];
     }
-    public void setType(int type){
-        //0 my bank
-        //1 gold
-        this.type="";
+    public void setType(int index){
+        if(index==0)this.type="normal";
     }
     public String getType(){
         return type;

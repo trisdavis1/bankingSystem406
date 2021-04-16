@@ -12,7 +12,7 @@ import Accounts.Account;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+    JFormattedTextField ssTextBox=new JFormattedTextField(423453245);
     JButton userButton=new JButton("Edit User");//creating instance of JButton
     JButton intSetButton= new JButton("Set interest");//button for setting interest
     JButton billButton=new JButton("Send Bills");//creating instance of JButton
@@ -101,7 +101,7 @@ import Accounts.Account;
         if(userButton.hasFocus()){
             userView a=new userView();
             initTellerFrame.dispose();
-            a.open(accountList,(int)ssTextBox.getValue());
+            a.open(accountList,(String)ssTextBox.getValue());
         }
         
     }

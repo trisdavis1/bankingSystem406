@@ -16,6 +16,7 @@ public class SavingsAccount extends Account {
         this.currentBalance = currentBalance;
         this.interestRate = interestRate;
         this.dateOpened=dateOpened;
+        this.type="savings";
 
         setStatus(0);
     }
@@ -46,5 +47,10 @@ public class SavingsAccount extends Account {
 
     public void setDateOpened(Date dateOpened) {
         this.dateOpened = dateOpened;
+    }
+    public void setType(int type){
+        //0 my bank
+        //1 gold
+        this.type="savings";
     }
 }

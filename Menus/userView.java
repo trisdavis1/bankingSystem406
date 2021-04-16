@@ -1,20 +1,20 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
+package Menus;
+import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
-
 import javax.swing.*;
-
 import Accounts.Account;
+import MainProgram.StartProgram;
+
 public class userView implements Action{ 
     List<Account>accountList; 
     JFrame userViewFrame=new JFrame();//creating instance of JFrame  
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JButton submitButton=new JButton("Submit");//creating instance of JButton
     JLabel ssLabel=new JLabel("SS");  
-    JTextField ssTextBox=new JTextField(123456789);
-    public void open(List<Account>aL, int ss) { 
-        accountList=aL; 
+    JTextField ssTextBox=new JTextField(423453245);
+    public void open(List<Account>aL, String ss) { 
+        accountList=StartProgram.getAccountList();
         String user[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
         
         userViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

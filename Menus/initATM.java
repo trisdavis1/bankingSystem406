@@ -48,13 +48,13 @@ import javax.swing.*;
         if(doneButton.hasFocus()){
            accountSelection a=new accountSelection();
             try {
-                int ss=Integer.parseInt(ssTextBox.getText().toString());
+                String ss=ssTextBox.getText();
                 if(String.valueOf(ss).length()==9){
                     System.out.println(ss);
                     List<Account> CustAccounts;
                     CustAccounts=new ArrayList<Account>();
                     for (Account account : accountList) {
-                        if(account.getCustomerId()==ss)
+                        if(account.getCustomerId()==Integer.parseInt(ss))
                             {CustAccounts.add(account);
                             System.out.println("Type: "+account.getClass().toString());
                         }
@@ -82,14 +82,14 @@ import javax.swing.*;
         if(userButton.hasFocus()){
             try {
                 userView a=new userView();
+                a.open(accountList,ssTextBox.getText());
                 initATMFrame.dispose();
-                a.open(accountList,Integer.parseInt(ssTextBox.getText()));
             } catch (Exception ee) {
                 //TODO: handle exception
                 JFrame errorFrame=new JFrame();//creating instance of JFrame
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
                 //default title and icon
-                JOptionPane.showMessageDialog(errorFrame,ee);
+                JOptionPane.showMessageDialog(errorFrame,"Error in SS input!");
             }
             
         }

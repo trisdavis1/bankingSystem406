@@ -15,7 +15,7 @@ public class accountTellerView implements Action{
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JFrame accountTellerFrame=new JFrame();//creating instance of JFrame
 
-    public void open(List<Account> aL) {
+    public void open(List<Account> aL, String ss) {
         accountList=aL;
         String User[]={"233435656","1525 Kioam","Ellwood","KS","56708","Mary","White"};
         accountTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
@@ -28,7 +28,7 @@ public class accountTellerView implements Action{
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssLabel);//adding button in JFrame
 
-        JFormattedTextField ssTextBox=new JFormattedTextField(User[0]);
+        JFormattedTextField ssTextBox=new JFormattedTextField(ss);
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssTextBox);//adding button in JFrame
 
