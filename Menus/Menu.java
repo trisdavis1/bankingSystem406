@@ -2,18 +2,23 @@
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
+import test.StartProgram;
 
 import javax.swing.*;
 
 import Accounts.Account;
-    public class Menu implements Action{  
+    public class Menu implements Action{ 
         JFrame MenuFrame=new JFrame();//creating instance of JFrame
         JButton ATMButton=new JButton("ATM");//creating instance of JButton
         JButton tellerButton=new JButton("Teller");//creating instance of JButton
         JButton managerButton=new JButton("Manager");//creating instance of JButton
         List<Account> accountList;
     public void openMenu(List<Account> aL){ 
-        accountList=aL;
+        accountList=StartProgram.getAccountList();
+        for (Account account : aL) {
+            if(account.getClass().toString().equals("class Accounts.CheckingAccount"))
+            System.out.println("Balance: $"+account.getCurrentBalance());
+        }
         int sectionTop=60;//where main section starts
         ATMButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
         ATMButton.addActionListener(this);

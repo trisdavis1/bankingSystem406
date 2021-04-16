@@ -1,3 +1,4 @@
+package test;
 import Accounts.Account;
 import Accounts.CheckingAccount;
 import Accounts.LoanAccount;
@@ -7,10 +8,10 @@ import Menus.Menu;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class main {
+public class StartProgram {
+    static List<Account> accountList = new ArrayList<>();
     public static void main(String[] args) throws IOException {
         File loanFile = new File("Database Files/loanAccounts.txt");
         File checkingFile = new File("../bankingSystem406/Database Files/checkingAccounts.txt");
@@ -19,7 +20,7 @@ public class main {
         List<Account> loanAccounts = GetLoanData(loanFile);
         List<Account> checkingAccounts = GetCheckingData(checkingFile);
         List<Account> savingsAccounts = GetSavingsData(savingsFile);
-        List<Account> accountList = new ArrayList<>();
+        
 
         accountList.addAll(loanAccounts);
         accountList.addAll(checkingAccounts);
@@ -36,6 +37,9 @@ public class main {
         WriteAccountData(checkingFile, checkingAccounts);
         WriteAccountData(loanFile, loanAccounts);
         WriteAccountData(savingsFile, savingsAccounts);
+    }
+    public static List<Account> getAccountList(){
+        return accountList;
     }
 
     public static List<Account> GetCheckingData(File file){
