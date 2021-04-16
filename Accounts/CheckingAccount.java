@@ -14,8 +14,6 @@ public class CheckingAccount extends Account {
     private int overdrafts;
     private Date dateOpened;
 
-    private double interestRate;
-
     public CheckingAccount(int customerId, int accountNumber, String accountType, double currentBalance,
                            int backupAccount, int backupAccountNumber, int overDrafts, Date dateOpened
                           )

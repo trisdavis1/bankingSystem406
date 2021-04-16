@@ -1,0 +1,19 @@
+interface:
+penalty charge
+specify the overdraft
+pay cc bill
+stop payment
+gold account turn into basic account on under 1000
+new account
+add user
+
+checking functions
+checking storage
+checking records
+
+for next week:
+create account
+create user
+put funds in 5 accounts
+withdraw funds
+system shutdown and restore

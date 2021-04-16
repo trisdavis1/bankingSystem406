@@ -2,8 +2,9 @@ package Menus;
 
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.File;
 import java.util.List;
-
+import java.main;
 import javax.swing.*;
 
 import Accounts.Account;
@@ -75,8 +76,7 @@ public class loanView implements Action {
             accountFrame.dispose();
             Menu menu = new Menu();
             menu.openMenu(accountList);
-        }
-
+        } 
     }
 
     @Override
