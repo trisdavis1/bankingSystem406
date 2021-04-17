@@ -18,6 +18,7 @@ public class initTeller implements Action{
     JButton doneButton=new JButton("Next");//creating instance of JButton
     JButton userEditButton=new JButton("Edit User");//creating instance of JButton
     JButton userCreateButton=new JButton("New User");//creating instance of JButton
+    JButton accountCreateButton=new JButton("New \nAccount");//creating instance of JButton
     
     public void open(List<Account> aL) { 
         accountList=aL; 
@@ -43,6 +44,10 @@ public class initTeller implements Action{
         accountTypeDrop.setSelectedIndex(0);
         accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
         initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
+
+        accountCreateButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
+        accountCreateButton.addActionListener(this);
+        initTellerFrame.add(accountCreateButton);//adding button in JFrame
 
         userCreateButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
         userCreateButton.addActionListener(this);
@@ -110,7 +115,7 @@ public class initTeller implements Action{
         else if(userEditButton.hasFocus()){
             try {
                 userView a=new userView();
-                a.open(accountList,ssTextBox.getText());
+                a.open(accountList,ssTextBox.getText(),true);
                 initTellerFrame.dispose();
             }catch (Exception ee) {
                 //exception
@@ -123,6 +128,19 @@ public class initTeller implements Action{
         else if(userCreateButton.hasFocus()){
             try {
                 userCreation a=new userCreation();
+                a.open(ssTextBox.getText());
+                initTellerFrame.dispose();
+            } catch (Exception ee) {
+                //handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                //default title and icon
+                JOptionPane.showMessageDialog(errorFrame,"Can't do anything without a SS number!");
+            }
+        }
+        else if(accountCreateButton.hasFocus()){
+            try {
+                accountCreation a=new accountCreation();
                 a.open(ssTextBox.getText());
                 initTellerFrame.dispose();
             } catch (Exception ee) {

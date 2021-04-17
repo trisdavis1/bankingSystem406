@@ -79,7 +79,7 @@ import javax.swing.*;
         if(userButton.hasFocus()){
             try {
                 userView a=new userView();
-                a.open(accountList,ssTextBox.getText());
+                a.open(accountList,ssTextBox.getText(),false);
                 initATMFrame.dispose();
             } catch (Exception ee) {
                 //TODO: handle exception

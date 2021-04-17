@@ -2,29 +2,23 @@ package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
-import org.jdatepicker.DatePicker;
-import org.jdatepicker.JDatePanel;
-import org.jdatepicker.JDatePicker;
-import org.jdatepicker.UtilDateModel;
-
-
 import Accounts.Account;
 import Accounts.SavingsAccount;
 import MainProgram.StartProgram;
+
 public class accountCreation implements Action{
     JFrame accountCreationFrame=new JFrame();//creating instance of JFrame for the window
-    List<Account>a;
     JTextField cddateTextBox=new JTextField();//date when it rollsover
     JLabel cdDateLabel=new JLabel("Date of Rollover");//label for above
-    String[] accountTypes=StartProgram.getAccountTypes();
+    String[] accountTypes=StartProgram.getAccountTypes();//types of accounts
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-    JTextField ssTextBox=new JTextField();
-    JTextField interestRateTextBox=new JTextField();
-    JTextField accountNumberTextBox=new JTextField();
-    JTextField dateTextBox=new JTextField();
+    JTextField ssTextBox=new JTextField();//ss input
+    JTextField interestRateTextBox=new JTextField();//interest rate
+    JTextField accountNumberTextBox=new JTextField();//account number
+    JTextField dateTextBox=new JTextField();//date opened
     JButton submitButton=new JButton("Submit");//creating instance of JButton
     JTextField amountTextBox=new JTextField(null);  
     public void open(String ss) { 
@@ -62,18 +56,21 @@ public class accountCreation implements Action{
         amountTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(amountTextBox);//adding button in JFrame  
 
+        //cd rollover date label
         cdDateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(cdDateLabel);//adding button in JFrame
         cdDateLabel.setVisible(false);
-        
+        //cd rollover date text box
         cddateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(cddateTextBox);//adding button in JFrame 
         cddateTextBox.setVisible(false);
-
+        
         JLabel accountNumberLabel=new JLabel("Account #");  
         accountNumberLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(accountNumberLabel);//adding button in JFrame
 
+        List<Account>accountList=new ArrayList<Account>();
+        accountNumberTextBox.setText(Integer.toString(accountList.size()+1));
         accountNumberTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(accountNumberTextBox);//adding button in JFrame
 
@@ -81,6 +78,7 @@ public class accountCreation implements Action{
         interestRateLabel.setBounds(30,sectionTop+250,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(interestRateLabel);//adding button in JFrame
 
+        interestRateTextBox.setText(Double.toString(new Account().getInterestRate()));;
         interestRateTextBox.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(interestRateTextBox);//adding button in JFrame
 
@@ -88,6 +86,7 @@ public class accountCreation implements Action{
         dateLabel.setBounds(30,sectionTop+300,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(dateLabel);//adding button in JFrame
 
+        dateTextBox.setText("01/15/2020");//the date covid reached the US
         dateTextBox.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(dateTextBox);//adding button in JFrame
 
@@ -103,11 +102,13 @@ public class accountCreation implements Action{
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        if(accountTypeDrop.getSelectedIndex()==1){
+        boolean isChecking = 
+            accountTypeDrop.getSelectedItem().equals("TMB")||
+            accountTypeDrop.getSelectedItem().equals("Gold/Diamond");
+        if(isChecking){
             cddateTextBox.setVisible(true);
             cdDateLabel.setVisible(true);
-        }
-        if(accountTypeDrop.getSelectedIndex()!=1){
+        }if(!isChecking){
             cddateTextBox.setVisible(false);
             cdDateLabel.setVisible(false);
         }

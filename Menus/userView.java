@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 import javax.swing.*;
+
+import Accounts.ATMuser;
 import Accounts.Account;
 import Accounts.User;
 import MainProgram.StartProgram;
@@ -21,7 +23,7 @@ public class userView implements Action{
     JTextField stateTextBox=new JTextField();  
     JTextField zipTextBox=new JTextField();
 
-    public void open(List<Account>aL, String ss) { 
+    public void open(List<Account>aL, String ss,boolean isWorker) { 
         
         userList=StartProgram.getUserList();
         User userInfo=userList.get(0);
@@ -42,7 +44,8 @@ public class userView implements Action{
         ssTextBox.setText(Integer.toString(userInfo.getCustomerId()));
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssTextBox);//adding button in JFrame  
-        
+        if(!isWorker)ssTextBox.setEnabled(false);
+
         JLabel streetLabel=new JLabel("Address");  
         streetLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(streetLabel);//adding button in JFrame
@@ -63,7 +66,6 @@ public class userView implements Action{
         stateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(stateLabel);//adding button in JFrame
 
-        
         stateTextBox.setText(userInfo.getState());
         stateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(stateTextBox);//adding button in JFrame  
@@ -72,7 +74,6 @@ public class userView implements Action{
         zipLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipLabel);//adding button in JFrame
 
-         
         zipTextBox.setText(Integer.toString(userInfo.getZip())); 
         zipTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipTextBox);//adding button in JFrame  
@@ -113,6 +114,7 @@ public class userView implements Action{
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");
             List<User>userList=StartProgram.getUserList();
+            boolean inList=false;
             try {
                 for (User user : userList) {
                     if(user.getCustomerId()==Integer.parseInt(ssTextBox.getText())){
@@ -120,16 +122,24 @@ public class userView implements Action{
                         user.setCity(cityTextBox.getText());
                         user.setState(stateTextBox.getText());
                         user.setZip(Integer.parseInt(zipTextBox.getText()));
-                        user.setfirst(firstTextBox.getText());;
+                        user.setfirst(firstTextBox.getText());
                         user.setLast(lastTextBox.getText()); 
+                        inList=true;
                     }
+                }
+                if(!inList){
+                    userList.add(new ATMuser(Integer.parseInt(ssTextBox.getText()),
+                    streetTextBox.getText(), cityTextBox.getText(), stateTextBox.getText(),
+                    Integer.parseInt(zipTextBox.getText()), firstTextBox.getText(),
+                    lastTextBox.getText()));
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    JOptionPane.showMessageDialog(errorFrame,"New User Created");
                 }
             } catch (Exception ee) {
             //TODO: handle exception
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Input Error");
-        }
-        
+            }
         }
         if(doneButton.hasFocus()){
             userViewFrame.dispose();

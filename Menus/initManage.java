@@ -143,7 +143,7 @@ import MainProgram.StartProgram;
         if(userButton.hasFocus()){
             userView a=new userView();
             initTellerFrame.dispose();
-            a.open(accountList,ssTextBox.getText());
+            a.open(accountList,ssTextBox.getText(),true);
         }
         
     }
