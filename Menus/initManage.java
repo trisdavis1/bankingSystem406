@@ -103,16 +103,12 @@ import MainProgram.StartProgram;
                     if(classboy.equals("none")){
                         JFrame errorFrame=new JFrame();//creating instance of JFrame
                         errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-                        //default title and icon
                         JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
                     }
                     else{
                         initTellerFrame.dispose();
                         a.open(CustAccounts); 
                     }
-                   
-                    initTellerFrame.dispose();
-                    a.open(CustAccounts);
                 }
                 else{
                     JFrame errorFrame=new JFrame();//creating instance of JFrame
