@@ -1,11 +1,13 @@
     package Menus;
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.*;
 
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
 public class accountTellerView implements Action{
     List<Account> accountList;
     JButton transferButton=new JButton("Transfer");//creating instance of JButton
@@ -117,6 +119,14 @@ public class accountTellerView implements Action{
             a.open(accountList.get(accountComboBox.getSelectedIndex()),1);
         }
         if (doneButton.hasFocus()) {
+            try {
+                StartProgram.WriteToEach();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Save error");
+            }
             mainMenu menu = new mainMenu();
             accountTellerFrame.dispose();
             menu.openMenu();

@@ -39,7 +39,7 @@ public class StartProgram {
         {
             System.out.println(account.getCurrentBalance());
         } */
-
+        StartProgram.WriteToEach();
         mainMenu menu= new mainMenu();
         menu.openMenu();
         //use below in interface
@@ -84,6 +84,34 @@ public class StartProgram {
     }
     public static String[] getAccountTypes(){
         return accountTypes;
+    }
+    public static void WriteToEach() throws IOException{
+        for (Account account : accountList) {
+            if(account.getType().equals("Savings")){
+                if(!savingsAccounts.contains(account))savingsAccounts.add(account);
+            }if(account.getType().equals("CD")){
+                if(!savingsAccounts.contains(account))savingsAccounts.add(account);
+            }if(account.getType().equals("TMB")){
+                if(!checkingAccounts.contains(account))checkingAccounts.add(account);
+            }if(account.getType().equals("Gold/Diamond")){
+                if(!checkingAccounts.contains(account))checkingAccounts.add(account);
+            }if(account.getType().equals("Short Term")){
+                if(!loanAccounts.contains(account))loanAccounts.add(account);
+            }if(account.getType().equals("Long Term")){
+                if(!loanAccounts.contains(account))loanAccounts.add(account);
+            }if(account.getType().equals("Credit Card")){
+                if(!loanAccounts.contains(account))loanAccounts.add(account);
+            }
+        } 
+        File loanFile = new File("Database Files/loanAccountsb.txt");
+        File checkingFile = new File("../bankingSystem406/Database Files/checkingAccountsb.txt");
+        File savingsFile = new File("../bankingSystem406/Database Files/savingsAccountsb.txt");
+        File userFile = new File("../bankingSystem406/Database Files/customerb.txt");
+        WriteAccountData(checkingFile, checkingAccounts);
+        WriteAccountData(loanFile, loanAccounts);
+        WriteAccountData(savingsFile, savingsAccounts);
+        WriteUserData(userFile, userList);
+
     }
     public static List<Account> GetCheckingData(File file){
         var checkingAccounts = new ArrayList<Account>();
@@ -195,4 +223,23 @@ public class StartProgram {
         writer.flush();
         writer.close();
     }
+    public static void WriteUserData(File file, List<User> users) throws IOException {
+        FileWriter writer = new FileWriter(file);
+        ArrayList<String[]> records = new ArrayList<String[]>();
+
+        for(var user : users)
+        {
+            records.add(user.accountToArray());
+        }
+
+        for(var record : records)
+        {
+            writer.append(String.join(",", record));
+            writer.append("\n");
+        }
+
+        writer.flush();
+        writer.close();
+    }
 }
+

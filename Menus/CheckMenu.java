@@ -1,9 +1,11 @@
 package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 
 import javax.swing.*;
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
 public class CheckMenu implements Action{  
     Account account= new Account();
     JCheckBox stopPaymentCheck=new JCheckBox("Stop Payment");  
@@ -57,6 +59,13 @@ public class CheckMenu implements Action{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(submitButton.hasFocus()){
+            try {
+                StartProgram.WriteToEach();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                JOptionPane.showMessageDialog(errorFrame,"Updating");
+            }
             mainMenu menu= new mainMenu();
             checkFrame.dispose();
             menu.openMenu(); 

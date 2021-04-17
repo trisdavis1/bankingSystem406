@@ -1,10 +1,12 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
 
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
     public class interstSet implements Action{  
     JFrame amountFrame=new JFrame();//creating instance of JFrame
     int wr=42;
@@ -44,6 +46,13 @@ import Accounts.Account;
             try {
                  for (Account acc : accountList) {
                     acc.setInterestRate(Double.valueOf(amountTextBox.getText()));
+                }
+                try {
+                    StartProgram.WriteToEach();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    JOptionPane.showMessageDialog(errorFrame,"Updating");
                 }
                 amountFrame.dispose();
                 mainMenu menu = new mainMenu();

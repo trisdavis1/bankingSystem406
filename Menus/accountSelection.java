@@ -1,6 +1,7 @@
 package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
@@ -87,7 +88,21 @@ public class accountSelection implements Action{
                JOptionPane.YES_NO_OPTION,
                JOptionPane.QUESTION_MESSAGE);
             if(result == JOptionPane.YES_OPTION){
-               accSelectFrame.dispose();
+                try {
+                    StartProgram.WriteToEach();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    JOptionPane.showMessageDialog(errorFrame,"Save error");
+                }
+                try {
+                    StartProgram.WriteToEach();
+                } catch (IOException e1) {
+                    // TODO Auto-generated catch block
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    JOptionPane.showMessageDialog(errorFrame,"Save error");
+                }
+                accSelectFrame.dispose();
                 mainMenu menu= new mainMenu();
                 menu.openMenu();
             }else if (result == JOptionPane.NO_OPTION){

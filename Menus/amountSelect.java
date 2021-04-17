@@ -1,9 +1,11 @@
 package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
-import Accounts.Account; 
+import Accounts.Account;
+import MainProgram.StartProgram; 
 public class amountSelect implements Action{  
     JFrame amountFrame=new JFrame();//creating instance of JFrame
     int wr=42;
@@ -51,6 +53,13 @@ public class amountSelect implements Action{
         String message="Error: Something is OwO ):";
         //decide what to pass
         if(doneButton.hasFocus()){
+            try {
+                StartProgram.WriteToEach();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                JOptionPane.showMessageDialog(errorFrame,"Updating");
+            }
             amountFrame.dispose();
             mainMenu menu= new mainMenu();
             menu.openMenu();

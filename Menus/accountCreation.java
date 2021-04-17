@@ -126,6 +126,7 @@ public class accountCreation implements Action{
                         formatter.parse(dateTextBox.getText())
                         )
                     );
+                    StartProgram.WriteToEach();
                     accountCreationFrame.dispose();
                     mainMenu menu= new mainMenu();
                     menu.openMenu();

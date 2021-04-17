@@ -1,6 +1,7 @@
 package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
 import Accounts.Account;
@@ -135,6 +136,13 @@ public class userCreation implements Action{
             }
         }
         if(doneButton.hasFocus()){
+            try {
+                StartProgram.WriteToEach();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                JOptionPane.showMessageDialog(errorFrame,"File Error");
+            }
             userViewFrame.dispose();
             mainMenu menu= new mainMenu();
             menu.openMenu();
