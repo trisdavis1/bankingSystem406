@@ -67,25 +67,39 @@ public class initTeller implements Action{
         if(doneButton.hasFocus()){
             try {
                 String ss=ssTextBox.getText();
-                int type=accountTypeDrop.getSelectedIndex();
-                System.out.println(type);
                 accountTellerView a=new accountTellerView();
-                
+                String classType=StartProgram.convertToClass(accountTypeDrop.getSelectedIndex());
                 if(String.valueOf(ss).length()==9){
                     List<Account> CustAccounts;
                     CustAccounts=new ArrayList<Account>();
+                    
                     for (Account account : accountList) {
                         if(account.getCustomerId()==Integer.parseInt(ss)){
-                            if(StartProgram.convertToClass(accountTypeDrop.getSelectedIndex()).equals(account.getClass().toString())){
+                            System.out.println(classType+" "+account.getType());
+                            if(classType.equals(account.getType())){
                                 CustAccounts.add(account);
-                                System.out.println("Type: "+account.getClass().toString());
+                                System.out.println("Type: "+account.getType());
                             }
                         }
                     }  
-                    a.open(CustAccounts,ssTextBox.getText(),0);
-                    initTellerFrame.dispose();
+                    if(classType.equals("none")){
+                        JFrame errorFrame=new JFrame();//creating instance of JFrame
+                        errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                        //default title and icon
+                        JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
+                    }
+                    else if(CustAccounts.size()==0){
+                        JFrame errorFrame=new JFrame();//creating instance of JFrame
+                        errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                        //default title and icon
+                        JOptionPane.showMessageDialog(errorFrame,"They don't have type of account");}
+                    else{
+                        System.out.println();
+                        a.open(CustAccounts,ssTextBox.getText(),0);
+                        initTellerFrame.dispose();
+                    }
                 }
-            } catch (Exception ee) {
+            }catch (Exception ee) {
                 //TODO: handle exception
                 JFrame errorFrame=new JFrame();//creating instance of JFrame
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit

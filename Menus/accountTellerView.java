@@ -11,11 +11,11 @@ public class accountTellerView implements Action{
     JButton transferButton=new JButton("Transfer");//creating instance of JButton
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
-    JButton updateButton=new JButton("Update");//creating instance of JButton
+    JButton newAccountButton=new JButton("Update");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JFrame accountTellerFrame=new JFrame();//creating instance of JFrame
     JComboBox<String> accountComboBox = new JComboBox<String>();
-
+    JTextField ssTextBox=new JTextField();
     public void open(List<Account> aL, String ss,int index) {
         accountList=aL;
         accountTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
@@ -38,9 +38,10 @@ public class accountTellerView implements Action{
         ssLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssLabel);//adding button in JFrame
 
-        JTextField ssTextBox=new JTextField(ss);
+        ssTextBox.setText(ss);
         ssTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssTextBox);//adding button in JFrame
+        ssTextBox.setEnabled(false);
 
         JLabel amountLabel=new JLabel("Amount");  
         amountLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
@@ -49,6 +50,7 @@ public class accountTellerView implements Action{
         JTextField amountTextBox=new JTextField(Double.toString(aL.get(0).getCurrentBalance()));
         amountTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(amountTextBox);//adding button in JFrame  
+        amountTextBox.setEnabled(false);
 
         transferButton.setBounds(250,sectionTop,100, 40);//x axis, y axis, width, height  
         accountTellerFrame.add(transferButton);//adding button in JFrame
@@ -84,9 +86,9 @@ public class accountTellerView implements Action{
         recentTable.setFillsViewportHeight(true); 
         accountTellerFrame.add(scrollPane);//adding pane in JFrame
 
-        updateButton.setBounds(50,sectionTop+300,100, 40);//x axis, y axis, width, height  
-        accountTellerFrame.add(updateButton);//adding button in JFrame
-        updateButton.addActionListener(this);
+        newAccountButton.setBounds(50,sectionTop+300,100, 40);//x axis, y axis, width, height  
+        accountTellerFrame.add(newAccountButton);//adding button in JFrame
+        newAccountButton.addActionListener(this);
 
         doneButton.setBounds(200,sectionTop+300,100, 40);//x axis, y axis, width, height
         accountTellerFrame.add(doneButton);//adding button in JFrame
@@ -96,7 +98,6 @@ public class accountTellerView implements Action{
         accountTellerFrame.setLayout(null);//using no layout managers  
         accountTellerFrame.setVisible(true);//making the frame visible  
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
@@ -116,14 +117,14 @@ public class accountTellerView implements Action{
             a.open(accountList.get(accountComboBox.getSelectedIndex()),1);
         }
         if (doneButton.hasFocus()) {
-            accountTellerFrame.dispose();
             mainMenu menu = new mainMenu();
+            accountTellerFrame.dispose();
             menu.openMenu();
         }
-        if (updateButton.hasFocus()) {
-            JFrame errorFrame=new JFrame();//creating instance of JFrame
-            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-            JOptionPane.showMessageDialog(errorFrame,"Updating");
+        if (newAccountButton.hasFocus()) {
+            accountCreation a = new accountCreation();
+            a.open(ssTextBox.getText());
+            accountTellerFrame.dispose();
         }
         
     }

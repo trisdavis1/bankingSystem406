@@ -1,10 +1,9 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
-    import java.beans.PropertyChangeListener;
+package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
-    import Accounts.Account;
-import Accounts.User;
+import Accounts.Account;
 
 import javax.swing.*;  
     public class initATM implements Action{  

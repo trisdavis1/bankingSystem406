@@ -1,26 +1,21 @@
-    package Menus;
+package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
-
 import javax.swing.*;
-
 import Accounts.Account;
-    public class accountCreation implements Action{
-        JFrame Frame=new JFrame();//creating instance of JFrame for the window
-        List<Account>a;
-        JTextField cddateTextBox=new JTextField(null);//date when it rollsover
-        JLabel cdDateLabel=new JLabel("Date of Rollover");//label for above
-
-        String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
-        JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-
-    public void open() { 
+public class accountCreation implements Action{
+    JFrame Frame=new JFrame();//creating instance of JFrame for the window
+    List<Account>a;
+    JTextField cddateTextBox=new JTextField(null);//date when it rollsover
+    JLabel cdDateLabel=new JLabel("Date of Rollover");//label for above
+    String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
+    JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
+    JTextField ssTextBox=new JTextField(null);
+    public void open(String ss) { 
         Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
 
         JLabel Title=new JLabel("Account Creation");//Title
-
-        
 
         Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
         Frame.add(Title);//adding button in JFrame
@@ -30,7 +25,7 @@ import Accounts.Account;
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         Frame.add(ssLabel);//adding button in JFrame
         //social security number 
-        JTextField ssTextBox=new JTextField(null);
+        ssTextBox.setText(ss);
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         Frame.add(ssTextBox);//adding button in JFrame
 

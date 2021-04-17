@@ -2,9 +2,7 @@
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
-
 import javax.swing.*;
-
 import Accounts.Account;
 import MainProgram.StartProgram;
     public class mainMenu implements Action{ 
@@ -20,7 +18,6 @@ import MainProgram.StartProgram;
         ATMButton.addActionListener(this);
         MenuFrame.add(ATMButton);//adding button in JFrame
         MenuFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
-        
         tellerButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
         tellerButton.addActionListener(this);
         MenuFrame.add(tellerButton);//adding button in JFrame

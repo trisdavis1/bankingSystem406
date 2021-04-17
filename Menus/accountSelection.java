@@ -1,24 +1,18 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
-    import java.beans.PropertyChangeListener;
+package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.*;
-
 import Accounts.Account;
 import MainProgram.StartProgram;
-    public class accountSelection implements Action{  
+public class accountSelection implements Action{  
     JFrame accSelectFrame=new JFrame();//creating instance of JFrame
-    String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
+    String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank","Gold"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     List<Account>accountList;
-
     public void open(String ID,List<Account> aL) {
         accountList=aL;
-        /* for (Account account : accountList) {
-                System.out.println("Balance: $"+account.getCurrentBalance());
-        }   */
         accSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 
@@ -53,21 +47,27 @@ import MainProgram.StartProgram;
         // when next is selected get the account infomation and open the withdraw or deposit window
         //TODO add in the passing of data for which account
         int index=accountTypeDrop.getSelectedIndex();
-        String classboy=StartProgram.convertToClass(index);
+        String accountClass=StartProgram.convertToClass(index);
         List<Account> CustAccounts=new ArrayList<Account>();
         for (Account account : accountList) {
-            if(account.getClass().toString().equals(classboy))
+            System.out.println(accountClass+" "+account.getType());
+            if(accountClass.equals(account.getType()))
             {
                 CustAccounts.add(account);
                 //System.out.println(account.getClass().toString());
             }
         }
-        if(classboy.equals("none")){
+        if(accountClass.equals("none")){
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             //default title and icon
             JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
         }
+        else if(CustAccounts.size()==0){
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            //default title and icon
+            JOptionPane.showMessageDialog(errorFrame,"You don't have type of account");}
         else{
            System.out.println();
             worDselect a = new worDselect();

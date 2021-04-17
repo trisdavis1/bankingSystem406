@@ -58,25 +58,28 @@ public class StartProgram {
         return userList;
     }
     public static String convertToClass(int index){
-        if(index==0)return "none";
-        if(index==1)return "class Accounts.SavingsAccount";
-        if(index==2)return "class Accounts.LoanAccount";
-        if(index==3)return "class Accounts.LoanAccount";
-        if(index==4)return "class Accounts.LoanAccount";
-        if(index==5)return "class Accounts.CheckingAccount";
-        if(index==6)return "class Accounts.SavingsAccount";
-        if(index==7)return "class Accounts.SavingsAccount";
-        return "None";
+        String classyList="none";
+        if(index==0){classyList="none";}
+        if(index==1){classyList= "CD";}
+        if(index==2){classyList= "Short Term";}
+        if(index==3){classyList= "Long Term";}
+        if(index==4){classyList= "Credit Card";}
+        if(index==5){classyList= "checking";}
+        if(index==6){classyList= "Savings";}
+        if(index==7){classyList= "TMB";}
+        if(index==8){classyList= "Gold/Diamond";}
+        return classyList;
     }
     public static int convertToIndex(String input){
         if(input.equals("none"))return 0;
-        if(input.equals("class Accounts.SavingsAccount"))return 1;
-        if(input.equals("class Accounts.LoanAccount"))return 2;
-        if(input.equals("class Accounts.LoanAccount"))return 3;
-        if(input.equals("class Accounts.LoanAccount"))return 4;
-        if(input.equals("class Accounts.CheckingAccount"))return 5;
-        if(input.equals("class Accounts.SavingsAccount"))return 6;
-        if(input.equals("class Accounts.SavingsAccount"))return 7;
+        if(input.equals("CD"))return 1;
+        if(input.equals("Short Term"))return 2;
+        if(input.equals("Long Term"))return 3;
+        if(input.equals("Credit Card"))return 4;
+        if(input.equals("checking"))return 5;
+        if(input.equals("Savings"))return 6;
+        if(input.equals("TMB"))return 7;
+        if(input.equals("Gold/Diamond"))return 8;
         return 0;
     }
 

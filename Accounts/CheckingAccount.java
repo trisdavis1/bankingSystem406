@@ -85,4 +85,7 @@ public class CheckingAccount extends Account {
     public void setDateOpened(Date dateOpened) {
         this.dateOpened = dateOpened;
     }
+    public String getType(){
+        return accountType;
+    }
 }

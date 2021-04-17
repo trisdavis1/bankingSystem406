@@ -24,9 +24,9 @@ public class ATMuser extends User {
                         state,Integer.toString(zip), first, last
                 };
     }
-    public void setType(int type){
+    public void setType(String type){
         //0 my bank
         //1 gold
-        this.type="savings";
+        this.type="user";
     }
 }

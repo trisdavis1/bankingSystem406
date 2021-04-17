@@ -1,10 +1,8 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
-    import java.beans.PropertyChangeListener;
+package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
-
 import javax.swing.*;
-
 import Accounts.Account;  
     public class amountTransfer implements Action{  
     JFrame amountFrame=new JFrame();//creating instance of JFrame

@@ -95,7 +95,7 @@ import MainProgram.StartProgram;
                     List<Account> CustAccounts=new ArrayList<Account>();
                     for (Account account : accountList) {
                         if(account.getCustomerId()==Integer.parseInt(ss)){
-                            if(account.getClass().toString().equals(classboy)){
+                            if(account.getType().equals(classboy)){
                                 CustAccounts.add(account);
                             }
                         }

@@ -11,6 +11,7 @@ import Accounts.Account;
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
     JButton viewButton=new JButton("View");//creating instance of JButton
+    JButton checkButton=new JButton("Check");//creating instance of JButton
     JComboBox<String> accountComboBox=new JComboBox<>();
     List<Account>accountList;
 
@@ -44,6 +45,11 @@ import Accounts.Account;
         depositButton.addActionListener(this);
         worDSelectFrame.add(depositButton);//adding button in JFrame
 
+        checkButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
+        checkButton.addActionListener(this);
+        if(accountList.get(0).getType().equals("checking"))
+            worDSelectFrame.add(checkButton);//adding button in JFrame
+
         viewButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
         viewButton.addActionListener(this);
         worDSelectFrame.add(viewButton);//adding button in JFrame
@@ -67,6 +73,11 @@ import Accounts.Account;
         }
         else if(viewButton.hasFocus()){
             accountView a=new accountView();
+            worDSelectFrame.dispose();
+            a.open(accountList.get(accountComboBox.getSelectedIndex()),false);
+        }
+        else if(checkButton.hasFocus()){
+            CheckMenu a=new CheckMenu();
             worDSelectFrame.dispose();
             a.open(accountList.get(accountComboBox.getSelectedIndex()));
         }

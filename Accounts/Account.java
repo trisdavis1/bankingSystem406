@@ -60,10 +60,10 @@ public class Account {
     public String[] accountToArray() {
         return new String[0];
     }
-    public void setType(int type){
+    public void setType(String type){
         //0 my bank
         //1 gold
-        this.type="";
+        this.type=type;
     }
     public String getType(){
         return type;
