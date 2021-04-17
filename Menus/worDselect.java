@@ -17,9 +17,6 @@ import Accounts.Account;
 
     public void open(List<Account>aL) {  
         accountList=aL;
-        for (Account account : aL) {
-            System.out.println(account.getCurrentBalance());
-        }
         worDSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 

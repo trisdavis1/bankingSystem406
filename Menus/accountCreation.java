@@ -113,7 +113,7 @@ public class accountCreation implements Action{
             cdDateLabel.setVisible(false);
         }
         if(submitButton.hasFocus()){
-            System.out.println(ssTextBox.getText());
+            //System.out.println(ssTextBox.getText());
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");

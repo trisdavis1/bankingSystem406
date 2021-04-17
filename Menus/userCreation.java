@@ -103,7 +103,7 @@ public class userCreation implements Action{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(submitButton.hasFocus()){
-            System.out.println(ssTextBox.getText());
+           //System.println(ssTextBox.getText());
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");

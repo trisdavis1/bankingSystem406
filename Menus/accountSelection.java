@@ -56,7 +56,7 @@ public class accountSelection implements Action{
             String accountClass=StartProgram.convertToClass(index);
             List<Account> CustAccounts=new ArrayList<Account>();
             for (Account account : accountList) {
-                System.out.println(accountClass+" "+account.getType());
+                //System.out.println(accountClass+" "+account.getType());
                 if(accountClass.equals(account.getType()))
                 {
                     CustAccounts.add(account);
@@ -75,7 +75,6 @@ public class accountSelection implements Action{
                 //default title and icon
                 JOptionPane.showMessageDialog(errorFrame,"You don't have type of account");}
             else{
-                System.out.println();
                 worDselect a = new worDselect();
                 accSelectFrame.dispose();
                 a.open(CustAccounts); 

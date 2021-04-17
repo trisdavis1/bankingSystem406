@@ -80,10 +80,10 @@ public class initTeller implements Action{
                     
                     for (Account account : accountList) {
                         if(account.getCustomerId()==Integer.parseInt(ss)){
-                            System.out.println(classType+" "+account.getType());
+                            //System.out.println(classType+" "+account.getType());
                             if(classType.equals(account.getType())){
                                 CustAccounts.add(account);
-                                System.out.println("Type: "+account.getType());
+                                //System.out.println("Type: "+account.getType());
                             }
                         }
                     }  
@@ -99,7 +99,6 @@ public class initTeller implements Action{
                         //default title and icon
                         JOptionPane.showMessageDialog(errorFrame,"They don't have type of account");}
                     else{
-                        System.out.println();
                         a.open(CustAccounts,ssTextBox.getText(),0);
                         initTellerFrame.dispose();
                     }

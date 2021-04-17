@@ -107,7 +107,6 @@ import MainProgram.StartProgram;
                         JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
                     }
                     else{
-                       System.out.println();
                         initTellerFrame.dispose();
                         a.open(CustAccounts); 
                     }

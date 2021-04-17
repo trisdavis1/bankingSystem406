@@ -103,10 +103,10 @@ public class StartProgram {
                 if(!loanAccounts.contains(account))loanAccounts.add(account);
             }
         } 
-        File loanFile = new File("Database Files/loanAccountsb.txt");
-        File checkingFile = new File("../bankingSystem406/Database Files/checkingAccountsb.txt");
-        File savingsFile = new File("../bankingSystem406/Database Files/savingsAccountsb.txt");
-        File userFile = new File("../bankingSystem406/Database Files/customerb.txt");
+        File loanFile = new File("Database Files/loanAccounts.txt");
+        File checkingFile = new File("../bankingSystem406/Database Files/checkingAccounts.txt");
+        File savingsFile = new File("../bankingSystem406/Database Files/savingsAccounts.txt");
+        File userFile = new File("../bankingSystem406/Database Files/customer.txt");
         WriteAccountData(checkingFile, checkingAccounts);
         WriteAccountData(loanFile, loanAccounts);
         WriteAccountData(savingsFile, savingsAccounts);
