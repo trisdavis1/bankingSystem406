@@ -6,7 +6,8 @@ import java.util.List;
 
 import javax.swing.*;
 
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
 
 public class initTeller implements Action{  
     List<Account> accountList;
@@ -71,16 +72,17 @@ public class initTeller implements Action{
                 accountTellerView a=new accountTellerView();
                 
                 if(String.valueOf(ss).length()==9){
-                    System.out.println(ss);
                     List<Account> CustAccounts;
                     CustAccounts=new ArrayList<Account>();
                     for (Account account : accountList) {
-                        if(account.getCustomerId()==Integer.parseInt(ss))
-                            {CustAccounts.add(account);
-                            System.out.println("Type: "+account.getClass().toString());
+                        if(account.getCustomerId()==Integer.parseInt(ss)){
+                            if(StartProgram.convertToClass(accountTypeDrop.getSelectedIndex()).equals(account.getClass().toString())){
+                                CustAccounts.add(account);
+                                System.out.println("Type: "+account.getClass().toString());
+                            }
                         }
                     }  
-                    a.open(accountList,ssTextBox.getText());
+                    a.open(CustAccounts,ssTextBox.getText(),0);
                     initTellerFrame.dispose();
                 }
             } catch (Exception ee) {
@@ -88,10 +90,10 @@ public class initTeller implements Action{
                 JFrame errorFrame=new JFrame();//creating instance of JFrame
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
                 //default title and icon
-                JOptionPane.showMessageDialog(errorFrame,"Can't do anything without a SS number!");
+                JOptionPane.showMessageDialog(errorFrame,"Incorrect SS or no account of that type");
             }
         }
-        if(userEditButton.hasFocus()){
+        else if(userEditButton.hasFocus()){
             try {
                 userView a=new userView();
                 a.open(accountList,ssTextBox.getText());
@@ -104,7 +106,7 @@ public class initTeller implements Action{
                 JOptionPane.showMessageDialog(errorFrame,"Can't do anything without a SS number!");
             }
         }
-        if(userCreateButton.hasFocus()){
+        else if(userCreateButton.hasFocus()){
             try {
                 userCreation a=new userCreation();
                 a.open(ssTextBox.getText());

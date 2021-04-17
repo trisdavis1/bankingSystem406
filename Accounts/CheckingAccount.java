@@ -3,7 +3,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CheckingAccount extends Account {
-    private int accountNumber;
     private String accountType;
     private int backupAccount;
     private int backupAccountNumber;

@@ -6,16 +6,17 @@ import java.util.List;
 
 import javax.swing.*;
 import Accounts.Account;
+import MainProgram.StartProgram;
 
 public class accountView implements Action {
     List<Account> accountList;
     JButton doneButton = new JButton("Done");// creating instance of JButton
     JButton updateButton = new JButton("Update");// creating instance of JButton
     JFrame accountFrame = new JFrame();// creating instance of JFrame
+    Account account=new Account();
     
-    public void open(List<Account> aL) {
-        accountList = aL;
-        String User[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
+    public void open(Account acc) {
+        account=acc;
         accountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// end program on exit
 
         JLabel Title = new JLabel("Account View");// Title
@@ -23,11 +24,11 @@ public class accountView implements Action {
         accountFrame.add(Title);// adding button in JFrame
 
         int sectionTop = 60;// where main section starts
-        JLabel ssLabel = new JLabel("User SS");
+        JLabel ssLabel = new JLabel("Account Number");
         ssLabel.setBounds(30, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssLabel);// adding button in JFrame
 
-        JFormattedTextField ssTextBox = new JFormattedTextField(User[0]);
+        JTextField ssTextBox = new JTextField(Integer.toString(account.getAccountNumber()));
         ssTextBox.setBounds(130, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssTextBox);// adding button in JFrame
         ssTextBox.setEnabled(false);
@@ -36,10 +37,9 @@ public class accountView implements Action {
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeLabel);// adding button in JFrame
 
-        String[] accountTypes = { "None", "Short Term Loan", "Long Term Mortgage Loan", "Credit Card", "Checking",
-                "Savings", "This is My Bank" };
+        String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
         JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
-        accountTypeDrop.setSelectedIndex(2);
+        accountTypeDrop.setSelectedIndex(StartProgram.convertToIndex(account.getClass().toString()));
         accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeDrop);// adding button in JFrame
         accountTypeDrop.setEnabled(false);
@@ -48,7 +48,7 @@ public class accountView implements Action {
         amountLabel.setBounds(30, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountLabel);// adding button in JFrame
 
-        JFormattedTextField amountTextBox = new JFormattedTextField(123673);
+        JTextField amountTextBox = new JTextField(Double.toString(account.getCurrentBalance()));
         amountTextBox.setBounds(130, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountTextBox);// adding button in JFrame
         amountTextBox.setEnabled(false);

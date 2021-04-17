@@ -4,6 +4,7 @@
 import java.util.ArrayList;
 import java.util.List;
     import Accounts.Account;
+import Accounts.User;
 
 import javax.swing.*;  
     public class initATM implements Action{  
@@ -75,7 +76,6 @@ import javax.swing.*;
                 //default title and icon
                 JOptionPane.showMessageDialog(errorFrame,ee);
             }
-            
         }
         if(userButton.hasFocus()){
             try {
@@ -89,11 +89,8 @@ import javax.swing.*;
                 //default title and icon
                 JOptionPane.showMessageDialog(errorFrame,"Error in SS input!");
             }
-            
         }
-        
     }
-
     @Override
     public Object getValue(String key) {
         // TODO Auto-generated method stub

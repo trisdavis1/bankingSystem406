@@ -1,6 +1,6 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
-    import java.beans.PropertyChangeListener;
+package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
 import java.util.List;
 
 import javax.swing.*;
@@ -11,6 +11,7 @@ import Accounts.Account;
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
     JButton viewButton=new JButton("View");//creating instance of JButton
+    JComboBox<String> accountComboBox=new JComboBox<>();
     List<Account>accountList;
 
     public void open(List<Account>aL) {  
@@ -25,15 +26,25 @@ import Accounts.Account;
         Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         worDSelectFrame.add(Title);
 
-        withdrawButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
+        String[] accDrop= new String[aL.size()];
+        int count=0;
+        for (Account account : aL) {
+            accDrop[count]=Double.toString(account.getCurrentBalance());
+            accountComboBox.addItem(Integer.toString(account.getAccountNumber()));
+        }
+        accountComboBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height
+        accountComboBox.addActionListener(this);
+        worDSelectFrame.add(accountComboBox);//adding box in JFrame
+
+        withdrawButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
         withdrawButton.addActionListener(this);
         worDSelectFrame.add(withdrawButton);//adding button in JFrame
         
-        depositButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
+        depositButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
         depositButton.addActionListener(this);
         worDSelectFrame.add(depositButton);//adding button in JFrame
 
-        viewButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
+        viewButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
         viewButton.addActionListener(this);
         worDSelectFrame.add(viewButton);//adding button in JFrame
 
@@ -47,17 +58,17 @@ import Accounts.Account;
         if(withdrawButton.hasFocus()){
             amountSelect a=new amountSelect();
             worDSelectFrame.dispose();
-            a.open(accountList,0);
+            a.open(accountList.get(accountComboBox.getSelectedIndex()),0);
         }
         else if(depositButton.hasFocus()){
             amountSelect a=new amountSelect();
             worDSelectFrame.dispose();
-            a.open(accountList,1);
+            a.open(accountList.get(accountComboBox.getSelectedIndex()),1);
         }
         else if(viewButton.hasFocus()){
             accountView a=new accountView();
             worDSelectFrame.dispose();
-            a.open(accountList);
+            a.open(accountList.get(accountComboBox.getSelectedIndex()));
         }
     }
 

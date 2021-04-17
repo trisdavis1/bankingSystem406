@@ -6,6 +6,7 @@ public class Account {
     protected String status;
     protected double interestRate;
     protected String type;//subtypes; here so it can be compared
+    protected int accountNumber;
     
     public void setStatus(int cOb){
         if(cOb==0) status = "current";
@@ -15,7 +16,9 @@ public class Account {
     public String getStatus(){
         return status;
     }
-
+    public int getAccountNumber(){
+        return accountNumber;
+    }
     public int getCustomerId() {
         return customerId;
     }
@@ -27,9 +30,19 @@ public class Account {
     public double getCurrentBalance() {
         return currentBalance;
     }
-
-    public void setCurrentBalance(double currentBalance) {
-        this.currentBalance = currentBalance;
+    public double withdraw(double amount){
+        //withdraw money
+        if(currentBalance>=amount)
+            currentBalance-=amount;
+        return currentBalance;
+    }
+    public double deposit(double amount){
+        //give some coins to your witcher
+        currentBalance+=amount;
+        return currentBalance;
+    }
+    public void setCurrentBalance(double newBalance) {
+        this.currentBalance = newBalance;
     }
 
     public void setStatus(String status) {

@@ -1,18 +1,20 @@
     package Menus;
     import java.awt.event.ActionEvent;
     import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.*;
 
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
 
     public class initManage implements Action{  
     List<Account> accountList;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-    JFormattedTextField ssTextBox=new JFormattedTextField(423453245);
+    JTextField ssTextBox=new JTextField(423453245);
     JButton userButton=new JButton("Edit User");//creating instance of JButton
     JButton intSetButton= new JButton("Set interest");//button for setting interest
     JButton billButton=new JButton("Send Bills");//creating instance of JButton
@@ -31,7 +33,7 @@ import Accounts.Account;
     JLabel ssLabel=new JLabel("User SS");  
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssLabel);//adding button in JFrame
-    
+    ssTextBox.setText("423453245");
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssTextBox);//adding button in JFrame
 
@@ -84,9 +86,49 @@ import Accounts.Account;
                 a.open(accountList,accountTypeDrop.getSelectedIndex());
         }
         else if(doneButton.hasFocus()){
-            accountView a=new accountView();
-            initTellerFrame.dispose();
-            a.open(accountList);
+            worDselect a=new worDselect();
+            try {
+                int index=accountTypeDrop.getSelectedIndex();
+                String classboy=StartProgram.convertToClass(index);
+                String ss=ssTextBox.getText();
+                if(String.valueOf(ss).length()==9){
+                    List<Account> CustAccounts=new ArrayList<Account>();
+                    for (Account account : accountList) {
+                        if(account.getCustomerId()==Integer.parseInt(ss)){
+                            if(account.getClass().toString().equals(classboy)){
+                                CustAccounts.add(account);
+                            }
+                        }
+                    }
+                    if(classboy.equals("none")){
+                        JFrame errorFrame=new JFrame();//creating instance of JFrame
+                        errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                        //default title and icon
+                        JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
+                    }
+                    else{
+                       System.out.println();
+                        initTellerFrame.dispose();
+                        a.open(CustAccounts); 
+                    }
+                   
+                    initTellerFrame.dispose();
+                    a.open(CustAccounts);
+                }
+                else{
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    //default title and icon
+                    JOptionPane.showMessageDialog(errorFrame,"To Incorrect number of Digits. Re-enter SS");
+                }
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                //default title and icon
+                JOptionPane.showMessageDialog(errorFrame,ee);
+            }
+            
         }
         else if(rolloverButton.hasFocus()){
             JFrame errorFrame=new JFrame();//creating instance of JFrame
@@ -101,7 +143,7 @@ import Accounts.Account;
         if(userButton.hasFocus()){
             userView a=new userView();
             initTellerFrame.dispose();
-            a.open(accountList,(String)ssTextBox.getValue());
+            a.open(accountList,ssTextBox.getText());
         }
         
     }

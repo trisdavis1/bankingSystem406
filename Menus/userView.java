@@ -8,16 +8,21 @@ import Accounts.User;
 import MainProgram.StartProgram;
 
 public class userView implements Action{ 
-    List<Account>accountList; 
     List<User>userList;
     JFrame userViewFrame=new JFrame();//creating instance of JFrame  
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JButton submitButton=new JButton("Submit");//creating instance of JButton
     JLabel ssLabel=new JLabel("SS");  
     JTextField ssTextBox=new JTextField(423453245);
+    JTextField lastTextBox=new JTextField(); 
+    JTextField streetTextBox=new JTextField();  
+    JTextField cityTextBox=new JTextField();
+    JTextField firstTextBox=new JTextField();
+    JTextField stateTextBox=new JTextField();  
+    JTextField zipTextBox=new JTextField();
 
     public void open(List<Account>aL, String ss) { 
-        accountList=StartProgram.getAccountList();
+        
         userList=StartProgram.getUserList();
         User userInfo=userList.get(0);
         for (User user : userList) {
@@ -38,11 +43,11 @@ public class userView implements Action{
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(ssTextBox);//adding button in JFrame  
         
-        JLabel streetLabel=new JLabel("Street Address");  
+        JLabel streetLabel=new JLabel("Address");  
         streetLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(streetLabel);//adding button in JFrame
 
-        JTextField streetTextBox=new JTextField(userInfo.getAddress());  
+        streetTextBox.setText(userInfo.getAddress());
         streetTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(streetTextBox);//adding button in JFrame  
 
@@ -50,7 +55,7 @@ public class userView implements Action{
         cityLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(cityLabel);//adding button in JFrame
 
-        JTextField cityTextBox=new JTextField(userInfo.getCity());  
+        cityTextBox.setText(userInfo.getCity());
         cityTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(cityTextBox);//adding button in JFrame  
 
@@ -58,7 +63,8 @@ public class userView implements Action{
         stateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(stateLabel);//adding button in JFrame
 
-        JTextField stateTextBox=new JTextField(userInfo.getState());  
+        
+        stateTextBox.setText(userInfo.getState());
         stateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(stateTextBox);//adding button in JFrame  
 
@@ -66,7 +72,8 @@ public class userView implements Action{
         zipLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipLabel);//adding button in JFrame
 
-        JTextField zipTextBox=new JTextField(Integer.toString(userInfo.getZip()));  
+         
+        zipTextBox.setText(Integer.toString(userInfo.getZip())); 
         zipTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(zipTextBox);//adding button in JFrame  
 
@@ -74,15 +81,15 @@ public class userView implements Action{
         firstLabel.setBounds(30,sectionTop+250,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(firstLabel);//adding button in JFrame
 
-        JTextField firstTextBox=new JTextField(userInfo.getFirst());  
+        firstTextBox.setText(userInfo.getFirst());
         firstTextBox.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(firstTextBox);//adding button in JFrame  
 
-        JLabel lastLabel=new JLabel("Last Name");  
+        JLabel lastLabel=new JLabel("Last Name");
         lastLabel.setBounds(30,sectionTop+300,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(lastLabel);//adding button in JFrame
 
-        JTextField lastTextBox=new JTextField(userInfo.getLast());  
+        lastTextBox.setText(userInfo.getLast());
         lastTextBox.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height 
         userViewFrame.add(lastTextBox);//adding button in JFrame  
         
@@ -105,6 +112,17 @@ public class userView implements Action{
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");
+            List<User>userList=StartProgram.getUserList();
+            for (User user : userList) {
+                if(user.getCustomerId()==Integer.parseInt(ssTextBox.getText())){
+                    user.setAddress(streetTextBox.getText());
+                    user.setCity(cityTextBox.getText());
+                    user.setState(stateTextBox.getText());
+                    user.setZip(Integer.parseInt(zipTextBox.getText()));
+                    user.setfirst(firstTextBox.getText());;
+                    user.setLast(lastTextBox.getText()); 
+                }
+            }
         }
         if(doneButton.hasFocus()){
             userViewFrame.dispose();

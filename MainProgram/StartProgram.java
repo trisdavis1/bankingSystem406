@@ -34,10 +34,10 @@ public class StartProgram {
         accountList.addAll(checkingAccounts);
         accountList.addAll(savingsAccounts);
 
-        for(var account : accountList)
+        /* for(var account : accountList)
         {
-            //System.out.println(account.getCurrentBalance());
-        }
+            System.out.println(account.getCurrentBalance());
+        } */
 
         mainMenu menu= new mainMenu();
         menu.openMenu();
@@ -67,6 +67,17 @@ public class StartProgram {
         if(index==6)return "class Accounts.SavingsAccount";
         if(index==7)return "class Accounts.SavingsAccount";
         return "None";
+    }
+    public static int convertToIndex(String input){
+        if(input.equals("none"))return 0;
+        if(input.equals("class Accounts.SavingsAccount"))return 1;
+        if(input.equals("class Accounts.LoanAccount"))return 2;
+        if(input.equals("class Accounts.LoanAccount"))return 3;
+        if(input.equals("class Accounts.LoanAccount"))return 4;
+        if(input.equals("class Accounts.CheckingAccount"))return 5;
+        if(input.equals("class Accounts.SavingsAccount"))return 6;
+        if(input.equals("class Accounts.SavingsAccount"))return 7;
+        return 0;
     }
 
     public static List<Account> GetCheckingData(File file){

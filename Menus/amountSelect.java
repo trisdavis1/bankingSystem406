@@ -3,7 +3,8 @@ import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 import javax.swing.*;
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
 public class amountSelect implements Action{  
     JFrame amountFrame=new JFrame();//creating instance of JFrame
     int wr=42;
@@ -11,8 +12,9 @@ public class amountSelect implements Action{
     JTextField amountTextBox=new JTextField(null);//amount text box
     JButton nextButton=new JButton("Transfer");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
-    public void open(List<Account> aL, int wOr) {  //transfer
-        accountList=aL;
+    Account account;
+    public void open(Account ac, int wOr) {  //transfer
+        account=ac;
         amountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
         wr=wOr;
@@ -58,11 +60,34 @@ public class amountSelect implements Action{
 
         else if(wr==0){
             //withdraw stuff
-            message="trying to withdraw $"+amountTextBox.getText();
+            int amount=Integer.parseInt(amountTextBox.getText());
+            if(amount<account.getCurrentBalance()){
+                try {
+                    account.withdraw(amount);
+                    message="trying to withdraw $"+amountTextBox.getText();
+                } catch (Exception ee) {
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    JOptionPane.showMessageDialog(errorFrame,"Integer Error");
+                }
+            }else{
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Dude, You broke! Current Amount "+account.getCurrentBalance());
+            }
+            
         }
         else if(wr==1){
             //deposit stuff
-            message="trying to deposit $"+amountTextBox.getText();
+             try {
+                account.deposit(Integer.parseInt(amountTextBox.getText()));
+                message="trying to deposit $"+amountTextBox.getText();
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Integer Error");
+            }
         }
         if(nextButton.hasFocus()){
             JFrame errorFrame=new JFrame();//creating instance of JFrame
