@@ -1,16 +1,12 @@
 package Accounts;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Account {
     protected int customerId;
     protected double currentBalance;
     protected String status;
     protected double interestRate;
+    protected String type;//subtypes; here so it can be compared
+    protected int accountNumber;
     
     public void setStatus(int cOb){
         if(cOb==0) status = "current";
@@ -20,7 +16,9 @@ public class Account {
     public String getStatus(){
         return status;
     }
-
+    public int getAccountNumber(){
+        return accountNumber;
+    }
     public int getCustomerId() {
         return customerId;
     }
@@ -32,9 +30,19 @@ public class Account {
     public double getCurrentBalance() {
         return currentBalance;
     }
-
-    public void setCurrentBalance(double currentBalance) {
-        this.currentBalance = currentBalance;
+    public double withdraw(double amount){
+        //withdraw money
+        if(currentBalance>=amount)
+            currentBalance-=amount;
+        return currentBalance;
+    }
+    public double deposit(double amount){
+        //give some coins to your witcher
+        currentBalance+=amount;
+        return currentBalance;
+    }
+    public void setCurrentBalance(double newBalance) {
+        this.currentBalance = newBalance;
     }
 
     public void setStatus(String status) {
@@ -51,5 +59,13 @@ public class Account {
 
     public String[] accountToArray() {
         return new String[0];
+    }
+    public void setType(String type){
+        //0 my bank
+        //1 gold
+        this.type=type;
+    }
+    public String getType(){
+        return type;
     }
 }

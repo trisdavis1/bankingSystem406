@@ -1,15 +1,16 @@
-    package Menus;
-    import java.awt.event.ActionEvent;
-    import java.beans.PropertyChangeListener;
-    import java.util.List;
-    import Accounts.Account;
+package Menus;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
+import Accounts.Account;
 
 import javax.swing.*;  
     public class initATM implements Action{  
     JFrame initATMFrame=new JFrame();//creating instance of JFrame
     JButton userButton=new JButton("Edit User");
     JButton doneButton=new JButton("Next");//creating instance of JButton
-    JFormattedTextField ssTextBox=new JFormattedTextField(123456789);
+    JTextField ssTextBox=new JTextField();
     List<Account> accountList;
 
     public void open(List<Account> aL) { 
@@ -26,6 +27,7 @@ import javax.swing.*;
         initATMFrame.add(ssLabel);//adding button in JFrame
         
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
+        ssTextBox.setText("423453245");
         initATMFrame.add(ssTextBox);//adding button in JFrame
 
         doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
@@ -46,17 +48,48 @@ import javax.swing.*;
         // TODO pass the SS to data getting function
         if(doneButton.hasFocus()){
            accountSelection a=new accountSelection();
-            initATMFrame.dispose();
-            a.open(accountList); 
+            try {
+                String ss=ssTextBox.getText();
+                if(String.valueOf(ss).length()==9){
+                    List<Account> CustAccounts=new ArrayList<Account>();
+                    for (Account account : accountList) {
+                        if(account.getCustomerId()==Integer.parseInt(ss))
+                            {CustAccounts.add(account);
+                        }
+                    }  
+                    a.open(ss,CustAccounts); 
+                    initATMFrame.dispose();
+                }
+                else{
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    //default title and icon
+                    JOptionPane.showMessageDialog(errorFrame,"To Incorrect number of Digits. Re-enter SS");
+                }
+               
+
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                //default title and icon
+                JOptionPane.showMessageDialog(errorFrame,ee);
+            }
         }
         if(userButton.hasFocus()){
-            userView a=new userView();
-            initATMFrame.dispose();
-            a.open(accountList,(int)ssTextBox.getValue());
+            try {
+                userView a=new userView();
+                a.open(accountList,ssTextBox.getText(),false);
+                initATMFrame.dispose();
+            } catch (Exception ee) {
+                //TODO: handle exception
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                //default title and icon
+                JOptionPane.showMessageDialog(errorFrame,"Error in SS input!");
+            }
         }
-        
     }
-
     @Override
     public Object getValue(String key) {
         // TODO Auto-generated method stub

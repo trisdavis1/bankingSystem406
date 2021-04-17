@@ -1,13 +1,8 @@
 package Accounts;
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class CheckingAccount extends Account {
-    private int accountNumber;
     private String accountType;
     private int backupAccount;
     private int backupAccountNumber;
@@ -89,5 +84,8 @@ public class CheckingAccount extends Account {
 
     public void setDateOpened(Date dateOpened) {
         this.dateOpened = dateOpened;
+    }
+    public String getType(){
+        return accountType;
     }
 }

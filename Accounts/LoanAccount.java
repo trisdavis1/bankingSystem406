@@ -10,6 +10,7 @@ public class LoanAccount extends Account{
     private String loanType;
     private boolean missedPayment;
     private Date lastPaymentDate;
+    private static int accountCount=0;
 
     public LoanAccount(int customerId, double currentBalance, double interestRate, Date paymentDueDate,
                        Date paymentNotificationDate, double paymentAmountDue, String loanType, boolean missedPayment,
@@ -25,6 +26,8 @@ public class LoanAccount extends Account{
         this.loanType = loanType;
         this.missedPayment = missedPayment;
         this.lastPaymentDate = lastPaymentDate;
+        this.accountNumber=accountCount;
+        accountCount++;
         setStatus(0);
     }
 
@@ -87,5 +90,8 @@ public class LoanAccount extends Account{
 
     public void setLastPaymentDate(Date lastPaymentDate) {
         this.lastPaymentDate = lastPaymentDate;
+    }
+    public String getType(){
+        return loanType;
     }
 }

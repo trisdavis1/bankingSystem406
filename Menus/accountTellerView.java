@@ -1,44 +1,58 @@
     package Menus;
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.List;
 
 import javax.swing.*;
 
-import Accounts.Account;  
+import Accounts.Account;
+import MainProgram.StartProgram;  
 public class accountTellerView implements Action{
     List<Account> accountList;
     JButton transferButton=new JButton("Transfer");//creating instance of JButton
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
-    JButton updateButton=new JButton("Update");//creating instance of JButton
+    JButton newAccountButton=new JButton("New Account");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JFrame accountTellerFrame=new JFrame();//creating instance of JFrame
-
-    public void open(List<Account> aL) {
+    JComboBox<String> accountComboBox = new JComboBox<String>();
+    JTextField ssTextBox=new JTextField();
+    public void open(List<Account> aL, String ss,int index) {
         accountList=aL;
-        String User[]={"233435656","1525 Kioam","Ellwood","KS","56708","Mary","White"};
         accountTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         JLabel Title=new JLabel("Teller Account View");//Title
         Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
         accountTellerFrame.add(Title);//adding button in JFrame
         
         int sectionTop=60;//where main section starts
+
+        String[] accDrop= new String[aL.size()];
+        int count=0;
+        for (Account account : aL) {
+            accDrop[count]=Double.toString(account.getCurrentBalance());
+            accountComboBox.addItem(Integer.toString(account.getAccountNumber()));
+        }
+        accountComboBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height
+        accountTellerFrame.add(accountComboBox);//adding box in JFrame
+
         JLabel ssLabel=new JLabel("SS");  
-        ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
+        ssLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssLabel);//adding button in JFrame
 
-        JFormattedTextField ssTextBox=new JFormattedTextField(User[0]);
-        ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
+        ssTextBox.setText(ss);
+        ssTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(ssTextBox);//adding button in JFrame
+        ssTextBox.setEnabled(false);
 
         JLabel amountLabel=new JLabel("Amount");  
-        amountLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
+        amountLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(amountLabel);//adding button in JFrame
 
-        JFormattedTextField amountTextBox=new JFormattedTextField(aL.get(0).getCurrentBalance());
-        amountTextBox.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height 
+        JTextField amountTextBox=new JTextField(Double.toString(aL.get(0).getCurrentBalance()));
+        amountTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(amountTextBox);//adding button in JFrame  
+        amountTextBox.setEnabled(false);
 
         transferButton.setBounds(250,sectionTop,100, 40);//x axis, y axis, width, height  
         accountTellerFrame.add(transferButton);//adding button in JFrame
@@ -53,11 +67,11 @@ public class accountTellerView implements Action{
         depositButton.addActionListener(this);
 
         JLabel statusLabel=new JLabel("Status");  
-        statusLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
+        statusLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(statusLabel);//adding button in JFrame
 
-        JFormattedTextField statusTextBox=new JFormattedTextField(aL.get(0).getStatus());
-        statusTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
+        JTextField statusTextBox=new JTextField(aL.get(0).getStatus());
+        statusTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         accountTellerFrame.add(statusTextBox);//adding button in JFrame  
 
         String[] columnNames = {"Date","C/D","Amount", "Honored"};
@@ -70,15 +84,15 @@ public class accountTellerView implements Action{
         };
         JTable recentTable=new JTable(data,columnNames);
         JScrollPane scrollPane = new JScrollPane(recentTable);
-        scrollPane.setBounds(10,sectionTop+150,350, 80);//x axis, y axis, width, height 
+        scrollPane.setBounds(10,sectionTop+200,350, 80);//x axis, y axis, width, height 
         recentTable.setFillsViewportHeight(true); 
         accountTellerFrame.add(scrollPane);//adding pane in JFrame
 
-        updateButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height  
-        accountTellerFrame.add(updateButton);//adding button in JFrame
-        updateButton.addActionListener(this);
+        newAccountButton.setBounds(50,sectionTop+300,100, 40);//x axis, y axis, width, height  
+        accountTellerFrame.add(newAccountButton);//adding button in JFrame
+        newAccountButton.addActionListener(this);
 
-        doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+        doneButton.setBounds(200,sectionTop+300,100, 40);//x axis, y axis, width, height
         accountTellerFrame.add(doneButton);//adding button in JFrame
         doneButton.addActionListener(this);
 
@@ -86,7 +100,6 @@ public class accountTellerView implements Action{
         accountTellerFrame.setLayout(null);//using no layout managers  
         accountTellerFrame.setVisible(true);//making the frame visible  
     }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
@@ -98,22 +111,30 @@ public class accountTellerView implements Action{
         if(withdrawButton.hasFocus()){
             amountSelect a=new amountSelect();
             accountTellerFrame.dispose();
-            a.open(accountList,0);
+            a.open(accountList.get(accountComboBox.getSelectedIndex()),0);
         }
         if(depositButton.hasFocus()){
             amountSelect a=new amountSelect();
             accountTellerFrame.dispose();
-            a.open(accountList,1);
+            a.open(accountList.get(accountComboBox.getSelectedIndex()),1);
         }
         if (doneButton.hasFocus()) {
+            try {
+                StartProgram.WriteToEach();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Save error");
+            }
+            mainMenu menu = new mainMenu();
             accountTellerFrame.dispose();
-            Menu menu = new Menu();
-            menu.openMenu(accountList);
+            menu.openMenu();
         }
-        if (updateButton.hasFocus()) {
-            JFrame errorFrame=new JFrame();//creating instance of JFrame
-            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-            JOptionPane.showMessageDialog(errorFrame,"Updating");
+        if (newAccountButton.hasFocus()) {
+            accountCreation a = new accountCreation();
+            a.open(ssTextBox.getText());
+            accountTellerFrame.dispose();
         }
         
     }

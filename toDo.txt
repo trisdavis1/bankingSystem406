@@ -3,9 +3,9 @@ penalty charge
 specify the overdraft
 pay cc bill
 stop payment
-gold account turn into basic account on under 1000
-new account
-add user
+gold account turn into basic account under 1000
+new account-done
+add user-done
 
 checking functions
 checking storage

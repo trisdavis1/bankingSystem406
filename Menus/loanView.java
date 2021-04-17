@@ -2,10 +2,12 @@ package Menus;
 
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 import java.util.List;
 import javax.swing.*;
 
 import Accounts.Account;
+import MainProgram.StartProgram;
 
 public class loanView implements Action {
     List<Account> accountList;
@@ -27,7 +29,7 @@ public class loanView implements Action {
         ssLabel.setBounds(30, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssLabel);// adding button in JFrame
 
-        JFormattedTextField ssTextBox = new JFormattedTextField(User[0]);
+        JTextField ssTextBox = new JTextField(User[0]);
         ssTextBox.setBounds(130, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssTextBox);// adding button in JFrame
 
@@ -45,7 +47,7 @@ public class loanView implements Action {
         amountLabel.setBounds(30, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountLabel);// adding button in JFrame
 
-        JFormattedTextField amountTextBox = new JFormattedTextField(123673);
+        JTextField amountTextBox = new JTextField(123673);
         amountTextBox.setBounds(130, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountTextBox);// adding button in JFrame
 
@@ -71,9 +73,16 @@ public class loanView implements Action {
             JOptionPane.showMessageDialog(errorFrame,"Updating");
         }
         if (doneButton.hasFocus()) {
+            try {
+                StartProgram.WriteToEach();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                JFrame errorFrame=new JFrame();//creating instance of JFrame
+                JOptionPane.showMessageDialog(errorFrame,"Updating");
+            }
             accountFrame.dispose();
-            Menu menu = new Menu();
-            menu.openMenu(accountList);
+            mainMenu menu = new mainMenu();
+            menu.openMenu();
         } 
     }
 
