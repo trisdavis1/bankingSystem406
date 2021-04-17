@@ -47,7 +47,7 @@ import Accounts.Account;
 
         checkButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
         checkButton.addActionListener(this);
-        if(accountList.get(0).getType().equals("checking"))
+        if(accountList.get(0).getType().equals("Checking"))
             worDSelectFrame.add(checkButton);//adding button in JFrame
 
         viewButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height

@@ -12,7 +12,7 @@ import MainProgram.StartProgram;
     public class initManage implements Action{  
     List<Account> accountList;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
-    String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
+    String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     JTextField ssTextBox=new JTextField(423453245);
     JButton userButton=new JButton("Edit User");//creating instance of JButton

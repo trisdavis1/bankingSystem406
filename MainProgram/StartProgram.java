@@ -18,6 +18,7 @@ public class StartProgram {
     static List<Account> checkingAccounts=new ArrayList<>();
     static List<Account> savingsAccounts=new ArrayList<>();
     static List<User> userList=new ArrayList<>();
+    static String[] accountTypes={"none","Savings","CD","TMB","Gold/Diamond","Short Term","Long Term","Credit Card"};
     public static void main(String[] args) throws IOException {
         File loanFile = new File("Database Files/loanAccounts.txt");
         File checkingFile = new File("../bankingSystem406/Database Files/checkingAccounts.txt");
@@ -59,30 +60,31 @@ public class StartProgram {
     }
     public static String convertToClass(int index){
         String classyList="none";
-        if(index==0){classyList="none";}
-        if(index==1){classyList= "CD";}
-        if(index==2){classyList= "Short Term";}
-        if(index==3){classyList= "Long Term";}
-        if(index==4){classyList= "Credit Card";}
-        if(index==5){classyList= "checking";}
-        if(index==6){classyList= "Savings";}
-        if(index==7){classyList= "TMB";}
-        if(index==8){classyList= "Gold/Diamond";}
+        if(index==1){classyList= "Savings";}
+        if(index==2){classyList= "CD";}
+        if(index==3){classyList= "TMB";}
+        if(index==4){classyList= "Gold/Diamond";}
+        if(index==5){classyList= "Short Term";}
+        if(index==6){classyList= "Long Term";}
+        if(index==7){classyList= "Credit Card";}
+        
+        
         return classyList;
     }
     public static int convertToIndex(String input){
-        if(input.equals("none"))return 0;
-        if(input.equals("CD"))return 1;
-        if(input.equals("Short Term"))return 2;
-        if(input.equals("Long Term"))return 3;
-        if(input.equals("Credit Card"))return 4;
-        if(input.equals("checking"))return 5;
-        if(input.equals("Savings"))return 6;
-        if(input.equals("TMB"))return 7;
-        if(input.equals("Gold/Diamond"))return 8;
-        return 0;
+        int out=0;
+        if(input.equals("Savings"))return 1;
+        if(input.equals("CD"))return 2;
+        if(input.equals("TMB"))return 3;
+        if(input.equals("Gold/Diamond"))return 4;
+        if(input.equals("Short Term"))return 5;
+        if(input.equals("Long Term"))return 6;
+        if(input.equals("Credit Card"))return 7;
+        return out;
     }
-
+    public static String[] getAccountTypes(){
+        return accountTypes;
+    }
     public static List<Account> GetCheckingData(File file){
         var checkingAccounts = new ArrayList<Account>();
 

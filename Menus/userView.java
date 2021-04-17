@@ -113,16 +113,23 @@ public class userView implements Action{
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");
             List<User>userList=StartProgram.getUserList();
-            for (User user : userList) {
-                if(user.getCustomerId()==Integer.parseInt(ssTextBox.getText())){
-                    user.setAddress(streetTextBox.getText());
-                    user.setCity(cityTextBox.getText());
-                    user.setState(stateTextBox.getText());
-                    user.setZip(Integer.parseInt(zipTextBox.getText()));
-                    user.setfirst(firstTextBox.getText());;
-                    user.setLast(lastTextBox.getText()); 
+            try {
+                for (User user : userList) {
+                    if(user.getCustomerId()==Integer.parseInt(ssTextBox.getText())){
+                        user.setAddress(streetTextBox.getText());
+                        user.setCity(cityTextBox.getText());
+                        user.setState(stateTextBox.getText());
+                        user.setZip(Integer.parseInt(zipTextBox.getText()));
+                        user.setfirst(firstTextBox.getText());;
+                        user.setLast(lastTextBox.getText()); 
+                    }
                 }
-            }
+            } catch (Exception ee) {
+            //TODO: handle exception
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            JOptionPane.showMessageDialog(errorFrame,"Input Error");
+        }
+        
         }
         if(doneButton.hasFocus()){
             userViewFrame.dispose();

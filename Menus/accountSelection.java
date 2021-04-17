@@ -8,7 +8,7 @@ import Accounts.Account;
 import MainProgram.StartProgram;
 public class accountSelection implements Action{  
     JFrame accSelectFrame=new JFrame();//creating instance of JFrame
-    String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank","Gold"};
+    String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     List<Account>accountList;
     public void open(String ID,List<Account> aL) {

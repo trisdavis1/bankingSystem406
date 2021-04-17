@@ -11,7 +11,7 @@ public class accountTellerView implements Action{
     JButton transferButton=new JButton("Transfer");//creating instance of JButton
     JButton withdrawButton=new JButton("Withdraw");//creating instance of JButton
     JButton depositButton=new JButton("Deposit");//creating instance of JButton
-    JButton newAccountButton=new JButton("Update");//creating instance of JButton
+    JButton newAccountButton=new JButton("New Account");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JFrame accountTellerFrame=new JFrame();//creating instance of JFrame
     JComboBox<String> accountComboBox = new JComboBox<String>();

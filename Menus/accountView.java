@@ -33,7 +33,7 @@ public class accountView implements Action {
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeLabel);// adding button in JFrame
 
-        String[] accountTypes={"None","Certificate of Deposit","Short Term Loan","Long Term Loan","Credit Card","Checking","Savings","This is My Bank"};
+        String[] accountTypes=StartProgram.getAccountTypes();
         JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
         accountTypeDrop.setSelectedIndex(StartProgram.convertToIndex(account.getType()));
         accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height

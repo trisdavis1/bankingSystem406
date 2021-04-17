@@ -1,5 +1,7 @@
     package Menus;
     import javax.swing.*;
+
+import MainProgram.StartProgram;
     public class Payment {  
     public void open() {  
     JFrame Frame=new JFrame();//creating instance of JFrame  
@@ -21,7 +23,7 @@
     accountTypeLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
     Frame.add(accountTypeLabel);//adding button in JFrame
 
-    String[] accountTypes={"None","Short Term Loan","Long Term Mortgage Loan","Credit Card"};
+    String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes); 
     accountTypeDrop.setSelectedIndex(0);     
     accountTypeDrop.setBounds(130,sectionTop+50,160, 40);//x axis, y axis, width, height 
