@@ -88,4 +88,27 @@ public class CheckingAccount extends Account {
     public String getType(){
         return accountType;
     }
+    public double withdraw(double amount){
+        //withdraw money
+        double total=amount+.5;
+        if(currentBalance>=total)
+            currentBalance-=total;
+        return currentBalance;
+    }
+    public double deposit(double amount){
+        //give some coins to your witcher
+        double total=amount;
+        if(type.equals("TMB"));total=-0.5;
+        currentBalance+=total;
+        return currentBalance;
+    }
+    public double monthlyTransfer(double amount, Account account){
+        //withdraw money
+        double total=amount+.75;
+        if(currentBalance>=total){
+            currentBalance-=total;
+            account.currentBalance+=amount;
+        }
+        return currentBalance;
+    }
 }

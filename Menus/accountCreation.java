@@ -103,8 +103,7 @@ public class accountCreation implements Action{
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
         boolean isChecking = 
-            accountTypeDrop.getSelectedItem().equals("TMB")||
-            accountTypeDrop.getSelectedItem().equals("Gold/Diamond");
+            accountTypeDrop.getSelectedItem().equals("CD");
         if(isChecking){
             cddateTextBox.setVisible(true);
             cdDateLabel.setVisible(true);

@@ -2,6 +2,7 @@ interface:
 penalty charge
 specify the overdraft
 pay cc bill
+daily interest compost
 stop payment
 gold account turn into basic account under 1000
 new account-done
