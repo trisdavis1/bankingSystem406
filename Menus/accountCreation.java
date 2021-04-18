@@ -11,16 +11,37 @@ import MainProgram.StartProgram;
 
 public class accountCreation implements Action{
     JFrame accountCreationFrame=new JFrame();//creating instance of JFrame for the window
+    JLabel cdDateLabel=new JLabel("Date of Rollover");//label
     JTextField cddateTextBox=new JTextField();//date when it rollsover
-    JLabel cdDateLabel=new JLabel("Date of Rollover");//label for above
+    
+    JLabel dueDateLabel=new JLabel("Next Due Date");//label
+    JTextField duedateTextBox=new JTextField();//date when payment due
+
+    JLabel noteDateLabel=new JLabel("Notify Date");//label
+    JTextField notedateTextBox=new JTextField();//date when notify
+
+    JLabel accountNumberLabel=new JLabel("Account Number");//label for above
+    JTextField accNumberTextBox=new JTextField();//account number
+
     String[] accountTypes=StartProgram.getAccountTypes();//types of accounts
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
+
     JTextField ssTextBox=new JTextField();//ss input
+
     JTextField interestRateTextBox=new JTextField();//interest rate
-    JTextField accountNumberTextBox=new JTextField();//account number
+
+    JCheckBox isBackup=new JCheckBox("Backup");
+    JLabel backupLabel=new JLabel("Backup Account"); 
+    JTextField backupTextField=new JTextField();//interest rate
+
+    JTextField accountNumberTextBox=new JTextField();//this account number
+
     JTextField dateTextBox=new JTextField();//date opened
+     
     JButton submitButton=new JButton("Submit");//creating instance of JButton
-    JTextField amountTextBox=new JTextField(null);  
+
+    JTextField amountTextBox=new JTextField();  
+
     public void open(String ss) { 
         accountCreationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
 
@@ -33,6 +54,7 @@ public class accountCreation implements Action{
         JLabel ssLabel=new JLabel("User SS");  
         ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(ssLabel);//adding button in JFrame
+
         //social security number 
         ssTextBox.setText(ss);
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
@@ -53,18 +75,65 @@ public class accountCreation implements Action{
         amountLabel.setBounds(30,sectionTop+100,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(amountLabel);//adding button in JFrame
 
+        //amount
         amountTextBox.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height 
-        accountCreationFrame.add(amountTextBox);//adding button in JFrame  
+        accountCreationFrame.add(amountTextBox);//adding button in JFrame 
+
+        isBackup.setBounds(280,sectionTop+45,100, 40);
+        accountCreationFrame.add(isBackup);//add in JFrame
+        isBackup.setVisible(false);
+
+        //backup account label
+        backupLabel.setBounds(280,sectionTop+70,100, 40);//x axis, y axis, width, height 
+        accountCreationFrame.add(backupLabel);//adding in JFrame
+        backupLabel.setVisible(false);
+
+        //backup account input
+        backupTextField.setBounds(280,sectionTop+100,100, 40);
+        accountCreationFrame.add(backupTextField);
+        backupTextField.setVisible(false);
+
+        //account number label
+        accountNumberLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
+        accountCreationFrame.add(accountNumberLabel);//adding button in JFrame
+        accountNumberLabel.setVisible(false);
+
+        //account number input
+        accNumberTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
+        accNumberTextBox.setText(Integer.toString(StartProgram.getAccountList().size()));
+        accountCreationFrame.add(accNumberTextBox);//adding button in JFrame 
+        accNumberTextBox.setVisible(false);
 
         //cd rollover date label
         cdDateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(cdDateLabel);//adding button in JFrame
         cdDateLabel.setVisible(false);
+
         //cd rollover date text box
         cddateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(cddateTextBox);//adding button in JFrame 
         cddateTextBox.setVisible(false);
         
+        //due date label
+        noteDateLabel.setBounds(280,sectionTop+70,100, 40);//x axis, y axis, width, height 
+        accountCreationFrame.add(noteDateLabel);//adding button in JFrame
+        noteDateLabel.setVisible(false);
+
+        //due date text box
+        notedateTextBox.setBounds(280,sectionTop+100,100, 40);//x axis, y axis, width, height 
+        accountCreationFrame.add(notedateTextBox);//adding button in JFrame 
+        notedateTextBox.setVisible(false);
+
+        //due date label
+        dueDateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
+        accountCreationFrame.add(dueDateLabel);//adding button in JFrame
+        dueDateLabel.setVisible(false);
+
+        //due date text box
+        duedateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
+        accountCreationFrame.add(duedateTextBox);//adding button in JFrame 
+        duedateTextBox.setVisible(false);
+
         JLabel accountNumberLabel=new JLabel("Account #");  
         accountNumberLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(accountNumberLabel);//adding button in JFrame
@@ -102,14 +171,42 @@ public class accountCreation implements Action{
     @Override
     public void actionPerformed(ActionEvent e) {
         // TODO Auto-generated method stub
-        boolean isChecking = 
-            accountTypeDrop.getSelectedItem().equals("CD");
-        if(isChecking){
+        boolean isCD = accountTypeDrop.getSelectedItem().equals("CD");
+        boolean isChecking = accountTypeDrop.getSelectedItem().equals("TMB")||accountTypeDrop.getSelectedItem().equals("Gold/Diamond");
+        boolean isloan=accountTypeDrop.getSelectedItem().equals("Short Term")||accountTypeDrop.getSelectedItem().equals("Long Term")||accountTypeDrop.getSelectedItem().equals("Credit Card");       
+        if(isCD){
             cddateTextBox.setVisible(true);
             cdDateLabel.setVisible(true);
-        }if(!isChecking){
+        }
+        else if(isChecking){
+            accNumberTextBox.setVisible(true);
+            accountNumberLabel.setVisible(true);
+            backupTextField.setVisible(true);
+            backupLabel.setVisible(true);
+            isBackup.setVisible(true);
+        }
+        else if(isloan){
+            dueDateLabel.setVisible(true);
+            duedateTextBox.setVisible(true);
+            noteDateLabel.setVisible(true);
+            notedateTextBox.setVisible(true);
+        }
+        if(!isCD){
             cddateTextBox.setVisible(false);
             cdDateLabel.setVisible(false);
+        }
+        if(!isChecking){
+            accNumberTextBox.setVisible(false);
+            accountNumberLabel.setVisible(false);
+            backupTextField.setVisible(false);
+            backupLabel.setVisible(false);
+            isBackup.setVisible(false);
+        }
+        if(!isloan){
+            dueDateLabel.setVisible(false);
+            duedateTextBox.setVisible(false);
+            noteDateLabel.setVisible(false);
+            notedateTextBox.setVisible(false);
         }
         if(submitButton.hasFocus()){
             //System.out.println(ssTextBox.getText());
@@ -117,25 +214,85 @@ public class accountCreation implements Action{
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");
             List<Account>accountList=StartProgram.getAccountList();
-            try {
-                    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-                    accountList.add(new SavingsAccount(
-                        Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
-                        Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
-                        formatter.parse(dateTextBox.getText())
-                        )
-                    );
-                    StartProgram.WriteToEach();
-                    accountCreationFrame.dispose();
-                    mainMenu menu= new mainMenu();
-                    menu.openMenu();
-                    
-            }catch (Exception ee) {
+            if(accountTypeDrop.getSelectedItem().equals("Saving")){
+                try {
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                        accountList.add(new SavingsAccount(
+                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
+                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
+                            formatter.parse(dateTextBox.getText())
+                            )
+                        );
+                        StartProgram.WriteToEach();
+                        accountCreationFrame.dispose();
+                        mainMenu menu= new mainMenu();
+                        menu.openMenu();                   
+                }catch (Exception ee) {
                 //TODO: handle exception
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-                JOptionPane.showMessageDialog(errorFrame,"Input Error");
+                JOptionPane.showMessageDialog(errorFrame,"Input Error for Saving account");
             }
+            }
+            if(isCD){
+                try {
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                        accountList.add(new SavingsAccount(
+                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
+                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
+                            formatter.parse(dateTextBox.getText())
+                            )
+                        );
+                        StartProgram.WriteToEach();
+                        accountCreationFrame.dispose();
+                        mainMenu menu= new mainMenu();
+                        menu.openMenu();                   
+                }catch (Exception ee) {
+                //TODO: handle exception
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Input Error for CD account");
+            }
+            }
+            if(isChecking){
+                try {
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                        accountList.add(new SavingsAccount(
+                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
+                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
+                            formatter.parse(dateTextBox.getText())
+                            )
+                        );
+                        StartProgram.WriteToEach();
+                        accountCreationFrame.dispose();
+                        mainMenu menu= new mainMenu();
+                        menu.openMenu();                   
+                }catch (Exception ee) {
+                //TODO: handle exception
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Input Error for Checking account");
+                }
+            }
+            if(isloan){
+                try {
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                        accountList.add(new SavingsAccount(
+                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
+                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
+                            formatter.parse(dateTextBox.getText())
+                            )
+                        );
+                        StartProgram.WriteToEach();
+                        accountCreationFrame.dispose();
+                        mainMenu menu= new mainMenu();
+                        menu.openMenu();                   
+                }catch (Exception ee) {
+                //TODO: handle exception
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Input Error for a new loan account");
+            }
+            }
+
         }
+
     }
 
     @Override
