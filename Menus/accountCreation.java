@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import Accounts.Account;
+import Accounts.CD;
 import Accounts.SavingsAccount;
 import MainProgram.StartProgram;
 
@@ -214,7 +215,7 @@ public class accountCreation implements Action{
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");
             List<Account>accountList=StartProgram.getAccountList();
-            if(accountTypeDrop.getSelectedItem().equals("Saving")){
+            if(accountTypeDrop.getSelectedItem().equals("Savings")){
                 try {
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
                         accountList.add(new SavingsAccount(
@@ -231,16 +232,15 @@ public class accountCreation implements Action{
                 //TODO: handle exception
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
                 JOptionPane.showMessageDialog(errorFrame,"Input Error for Saving account");
-            }
+                }
             }
             if(isCD){
                 try {
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-                        accountList.add(new SavingsAccount(
-                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
-                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
-                            formatter.parse(dateTextBox.getText())
-                            )
+                        accountList.add(new CD(Integer.parseInt(ssTextBox.getText()),
+                        Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
+                        formatter.parse(dateTextBox.getText()),
+                        formatter.parse(cddateTextBox.getText()))
                         );
                         StartProgram.WriteToEach();
                         accountCreationFrame.dispose();
@@ -249,7 +249,7 @@ public class accountCreation implements Action{
                 }catch (Exception ee) {
                 //TODO: handle exception
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-                JOptionPane.showMessageDialog(errorFrame,"Input Error for CD account");
+                JOptionPane.showMessageDialog(errorFrame,ee.getStackTrace());
             }
             }
             if(isChecking){

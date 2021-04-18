@@ -1,7 +1,6 @@
     package Menus;
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
-import java.util.List;
 
 import javax.swing.*;
 
@@ -12,8 +11,8 @@ import Accounts.Account;
         JButton StoCButton=new JButton("Saving to Checking");//creating instance of JButton
         JButton doneButton=new JButton("Done");//creating instance of JButton
         Account account;
-    public void open(Account account){ 
-        account=account;
+    public void open(Account ac){ 
+        account=ac;
         int sectionTop=60;//where main section starts
         transferFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         CtoSButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height

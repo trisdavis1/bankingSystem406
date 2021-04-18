@@ -215,7 +215,7 @@ public class StartProgram {
             while((line = br.readLine()) != null)
             {
                 String[] items = line.split(",");
-                SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
                 CDAccounts.add(new CD(Integer.parseInt(items[0]),Double.parseDouble(items[1]),
                 Double.parseDouble(items[2]),formatter.parse(items[3]), formatter.parse(items[4])));

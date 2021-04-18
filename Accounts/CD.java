@@ -25,7 +25,7 @@ public class CD extends Account {
     @Override
     public String[] accountToArray()
     {
-        SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         return new String[]
                 {
                         Integer.toString(customerId), Double.toString(currentBalance), Double.toString(interestRate),
