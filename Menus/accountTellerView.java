@@ -105,8 +105,12 @@ public class accountTellerView implements Action{
         // TODO Auto-generated method stub
         if(transferButton.hasFocus()){
             transferTeller a=new transferTeller();
-            accountTellerFrame.dispose();;
-            a.open(accountList);
+            accountTellerFrame.dispose();
+            for (Account account : accountList) {
+               if(accountComboBox.getSelectedItem().toString().equals(Integer.toString(account.getAccountNumber()))){
+                   a.open(account);
+               }
+            } 
         }
         if(withdrawButton.hasFocus()){
             amountSelect a=new amountSelect();

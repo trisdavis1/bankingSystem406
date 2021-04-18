@@ -14,7 +14,7 @@ import MainProgram.StartProgram;
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-    JTextField ssTextBox=new JTextField(423453245);
+    JTextField ssTextBox=new JTextField(000000000);
     JButton userButton=new JButton("Edit User");//creating instance of JButton
     JButton intSetButton= new JButton("Set interest");//button for setting interest
     JButton billButton=new JButton("Send Bills");//creating instance of JButton
@@ -33,7 +33,7 @@ import MainProgram.StartProgram;
     JLabel ssLabel=new JLabel("User SS");  
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssLabel);//adding button in JFrame
-    ssTextBox.setText("423453245");
+    ssTextBox.setText("000000000");
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
     initTellerFrame.add(ssTextBox);//adding button in JFrame
 

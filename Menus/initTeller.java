@@ -14,11 +14,11 @@ public class initTeller implements Action{
     JFrame initTellerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-    JTextField ssTextBox=new JTextField(423453245);
+    JTextField ssTextBox=new JTextField();
     JButton doneButton=new JButton("Next");//creating instance of JButton
     JButton userEditButton=new JButton("Edit User");//creating instance of JButton
     JButton userCreateButton=new JButton("New User");//creating instance of JButton
-    JButton accountCreateButton=new JButton("New \nAccount");//creating instance of JButton
+    JButton accountCreateButton=new JButton("New Account");//creating instance of JButton
     
     public void open(List<Account> aL) { 
         accountList=aL; 
@@ -34,7 +34,7 @@ public class initTeller implements Action{
         initTellerFrame.add(ssLabel);//adding button in JFrame
         
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height
-        ssTextBox.setText("423453245");
+        ssTextBox.setText("000000000");
         initTellerFrame.add(ssTextBox);//adding button in JFrame
 
         JLabel accountTypeLabel=new JLabel("Account Type");  

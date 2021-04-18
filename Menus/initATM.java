@@ -27,7 +27,7 @@ import javax.swing.*;
         initATMFrame.add(ssLabel);//adding button in JFrame
         
         ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
-        ssTextBox.setText("423453245");
+        ssTextBox.setText("000000000");
         initATMFrame.add(ssTextBox);//adding button in JFrame
 
         doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
