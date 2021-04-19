@@ -2,7 +2,6 @@ package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import Accounts.Account;
@@ -49,7 +48,6 @@ public class accountCreation implements Action{
         accountCreationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
 
         JLabel Title=new JLabel("Account Creation");//Title
-
         Title.setBounds(130,1,100, 60);//x axis, y axis, width, height 
         accountCreationFrame.add(Title);//adding button in JFrame
         
@@ -141,8 +139,7 @@ public class accountCreation implements Action{
         accountNumberLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(accountNumberLabel);//adding button in JFrame
 
-        List<Account>accountList=new ArrayList<Account>();
-        accountNumberTextBox.setText(Integer.toString(accountList.size()+1));
+        accountNumberTextBox.setText(Integer.toString(StartProgram.getAccountList().size()+1));
         accountNumberTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
         accountCreationFrame.add(accountNumberTextBox);//adding button in JFrame
 
@@ -242,7 +239,7 @@ public class accountCreation implements Action{
                         accountList.add(new CD(Integer.parseInt(ssTextBox.getText()),
                         Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
                         formatter.parse(dateTextBox.getText()),
-                        formatter.parse(cddateTextBox.getText()))
+                        formatter.parse(cddateTextBox.getText()),Integer.parseInt("100"))
                         );
                         StartProgram.WriteToEach();
                         accountCreationFrame.dispose();
@@ -253,7 +250,7 @@ public class accountCreation implements Action{
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
                 JOptionPane.showMessageDialog(errorFrame,"Imput Error for a CD account");
             }
-            }
+        }
             if(isChecking){
                 try {
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");

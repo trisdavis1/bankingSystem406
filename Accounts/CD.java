@@ -6,18 +6,19 @@ import java.util.Date;
 public class CD extends Account {
     private int accountNumber;
     private Date dateOpened;
-    private Date dateDue;
+    private Date rolloverDate;
 
     public CD(int customerId, double currentBalance,
-        double interestRate, Date dateOpened, Date dueDate
-                         )
+        double interestRate, Date dateOpened,
+        Date rolloverDate, int accountNumber)
     {
         this.customerId = customerId;
         this.currentBalance = currentBalance;
         this.interestRate = interestRate;
         this.dateOpened=dateOpened;
-        this.dateDue=dueDate;
+        this.rolloverDate=rolloverDate;
         this.type="CD";
+        this.accountNumber=accountNumber;
 
         setStatus(0);
     }
@@ -29,11 +30,11 @@ public class CD extends Account {
         return new String[]
                 {
                         Integer.toString(customerId), Double.toString(currentBalance), Double.toString(interestRate),
-                        formatter.format(dateOpened), formatter.format(dateDue)
+                        formatter.format(dateOpened), formatter.format(rolloverDate), Integer.toString(accountNumber)
                 };
     }
-    public Date getDateDue(){
-        return dateDue;
+    public Date getRolloverDate(){
+        return rolloverDate;
     }
     public int getAccountNumber() {
         return accountNumber;

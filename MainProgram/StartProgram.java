@@ -2,10 +2,12 @@ package MainProgram;
 import Accounts.ATMuser;
 import Accounts.Account;
 import Accounts.CD;
+import Accounts.Check;
 import Accounts.CheckingAccount;
 import Accounts.LoanAccount;
 import Accounts.SavingsAccount;
 import Accounts.User;
+import Menus.Payment;
 import Menus.mainMenu;
 
 import java.io.*;
@@ -218,7 +220,8 @@ public class StartProgram {
                 SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
                 CDAccounts.add(new CD(Integer.parseInt(items[0]),Double.parseDouble(items[1]),
-                Double.parseDouble(items[2]),formatter.parse(items[3]), formatter.parse(items[4])));
+                Double.parseDouble(items[2]),formatter.parse(items[3]),
+                formatter.parse(items[4]),Integer.parseInt(items[5])));
             }
         }
         catch (Exception e)
@@ -227,6 +230,33 @@ public class StartProgram {
         }
 
         return CDAccounts;
+    }
+    public static List<Check> GetCheckData(File file){
+        //get data on CD accounts
+        var Checks = new ArrayList<Check>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file)))
+        {
+            String line;
+            while((line = br.readLine()) != null)
+            {
+                String[] items = line.split(",");
+                SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+                Checks.add(new Check(Integer.parseInt(items[0]),Integer.parseInt(items[1]),
+                    Double.parseDouble(items[2]), Boolean.parseBoolean(items[3]),
+                    formatter.parse(items[4]), Boolean.parseBoolean(items[5]),
+                    Boolean.parseBoolean(items[6])
+                    )
+                );
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        return Checks;
     }
     public static List<Account> GetSavingsData(File file){
         //get data on saving accounts

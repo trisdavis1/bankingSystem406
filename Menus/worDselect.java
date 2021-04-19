@@ -70,8 +70,8 @@ import Accounts.Account;
         }
         else if(viewButton.hasFocus()){
             accountView a=new accountView();
-            worDSelectFrame.dispose();
             a.open(accountList.get(accountComboBox.getSelectedIndex()),false);
+            worDSelectFrame.dispose();
         }
         else if(checkButton.hasFocus()){
             CheckMenu a=new CheckMenu();

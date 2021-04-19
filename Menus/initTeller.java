@@ -15,7 +15,8 @@ public class initTeller implements Action{
     String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     JTextField ssTextBox=new JTextField();
-    JButton doneButton=new JButton("Next");//creating instance of JButton
+    JButton nextButton=new JButton("Next");//creating instance of JButton
+    JButton menuButton=new JButton("Menu");//creating instance of JButton
     JButton userEditButton=new JButton("Edit User");//creating instance of JButton
     JButton userCreateButton=new JButton("New User");//creating instance of JButton
     JButton accountCreateButton=new JButton("New Account");//creating instance of JButton
@@ -57,9 +58,13 @@ public class initTeller implements Action{
         userEditButton.addActionListener(this);
         initTellerFrame.add(userEditButton);//adding button in JFrame
         
-        doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
-        doneButton.addActionListener(this);
-        initTellerFrame.add(doneButton);//adding button in JFrame
+        nextButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+        nextButton.addActionListener(this);
+        initTellerFrame.add(nextButton);//adding button in JFrame
+
+        menuButton.setBounds(130,sectionTop+350,100, 40);//x axis, y axis, width, height
+        menuButton.addActionListener(this);
+        initTellerFrame.add(menuButton);//adding button in JFrame
 
         initTellerFrame.setSize(400,500);//400 width and 500 height  
         initTellerFrame.setLayout(null);//using no layout managers  
@@ -69,7 +74,11 @@ public class initTeller implements Action{
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
-        if(doneButton.hasFocus()){
+        if(menuButton.hasFocus()){
+            mainMenu menu= new mainMenu();
+            menu.openMenu();
+        }
+        if(nextButton.hasFocus()){
             try {
                 String ss=ssTextBox.getText();
                 accountTellerView a=new accountTellerView();

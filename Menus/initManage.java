@@ -19,8 +19,8 @@ import MainProgram.StartProgram;
     JButton intSetButton= new JButton("Set interest");//button for setting interest
     JButton billButton=new JButton("Send Bills");//creating instance of JButton
     JButton rolloverButton=new JButton("Rollover");//creating instance of JButton
-    JButton doneButton=new JButton("Next");//creating instance of JButton
-
+    JButton nextButton=new JButton("Next");//creating instance of JButton
+    JButton menuButton=new JButton("Menu");//creating instance of JButton
     public void open(List<Account> aL) { 
     accountList=aL; 
     initTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
@@ -61,9 +61,13 @@ import MainProgram.StartProgram;
     intSetButton.addActionListener(this);
     initTellerFrame.add(intSetButton);//adding button in JFrame
 
-    doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
-    doneButton.addActionListener(this);
-    initTellerFrame.add(doneButton);//adding button in JFrame
+    nextButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+    nextButton.addActionListener(this);
+    initTellerFrame.add(nextButton);//adding button in JFrame
+
+    menuButton.setBounds(130,sectionTop+350,100, 40);//x axis, y axis, width, height
+    menuButton.addActionListener(this);
+    initTellerFrame.add(menuButton);//adding button in JFrame
 
     initTellerFrame.setSize(400,500);//400 width and 500 height  
     initTellerFrame.setLayout(null);//using no layout managers  
@@ -73,19 +77,23 @@ import MainProgram.StartProgram;
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
+        if(menuButton.hasFocus()){
+            mainMenu menu= new mainMenu();
+            menu.openMenu();
+        }
         if(intSetButton.hasFocus()){
             interstSet a=new interstSet();
             initTellerFrame.dispose();
             a.open(accountList);
         }
-        else if(accountTypeDrop.getSelectedItem()=="Short Term Loan"||
-            accountTypeDrop.getSelectedItem()=="Long Term Loan"||
+        else if(accountTypeDrop.getSelectedItem()=="Short Term"||
+            accountTypeDrop.getSelectedItem()=="Long Term"||
             accountTypeDrop.getSelectedItem()=="Credit Card"){
                 loanView a=new loanView();
                 initTellerFrame.dispose();
                 a.open(accountList,accountTypeDrop.getSelectedIndex());
         }
-        else if(doneButton.hasFocus()){
+        else if(nextButton.hasFocus()){
             worDselect a=new worDselect();
             try {
                 int index=accountTypeDrop.getSelectedIndex();

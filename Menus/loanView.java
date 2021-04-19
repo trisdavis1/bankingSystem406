@@ -3,6 +3,7 @@ package Menus;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.*;
 
@@ -11,13 +12,14 @@ import MainProgram.StartProgram;
 
 public class loanView implements Action {
     List<Account> accountList;
+    JTextField amountTextBox = new JTextField();
     JButton doneButton = new JButton("Done");// creating instance of JButton
     JButton updateButton = new JButton("Update");// creating instance of JButton
     JFrame accountFrame = new JFrame();// creating instance of JFrame
+    JTextField ssTextBox = new JTextField();
 
     public void open(List<Account> aL,int loanType) {
         accountList = aL;
-        String User[] = { "233435656", "1525 Kioam", "Ellwood", "KS", "56708", "Mary", "White" };
         accountFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// end program on exit
 
         JLabel Title = new JLabel("Loan View");// Title
@@ -29,7 +31,7 @@ public class loanView implements Action {
         ssLabel.setBounds(30, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssLabel);// adding button in JFrame
 
-        JTextField ssTextBox = new JTextField(User[0]);
+        ssTextBox.setText(Integer.toString(accountList.get(0).getCustomerId()));
         ssTextBox.setBounds(130, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssTextBox);// adding button in JFrame
 
@@ -37,9 +39,9 @@ public class loanView implements Action {
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeLabel);// adding button in JFrame
 
-        String[] accountTypes = {"Short Term Loan", "Long Term Mortgage Loan", "Credit Card"};
+        String[] accountTypes = StartProgram.getAccountTypes();
         JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
-        accountTypeDrop.setSelectedIndex(loanType-2);
+        accountTypeDrop.setSelectedIndex(loanType);
         accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeDrop);// adding button in JFrame
 
@@ -47,7 +49,7 @@ public class loanView implements Action {
         amountLabel.setBounds(30, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountLabel);// adding button in JFrame
 
-        JTextField amountTextBox = new JTextField(123673);
+        amountTextBox.setText(Double.toString(aL.get(0).getCurrentBalance()));
         amountTextBox.setBounds(130, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountTextBox);// adding button in JFrame
 
@@ -70,7 +72,33 @@ public class loanView implements Action {
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             //default title and icon
+
             JOptionPane.showMessageDialog(errorFrame,"Updating");
+            try {
+                try {
+                        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                        accountList.add(
+                            new LoanAccount(Integer.parseInt(ssTextBox.getText()), Double.parseDouble(amountTextBox.getText()),
+                                Double.parseDouble(interestRateTextBox.getText()), formatter.parse(duedateTextBox.getText()),
+                                formatter.parse(notedateTextBox.getText()),Double.parseDouble(amountTextBox.getText())/780,
+                                accountTypeDrop.getSelectedItem().toString(),false, 
+                                ((isBackup.isSelected())?formatter.parse(duedateTextBox.getText()):formatter.parse(duedateTextBox.getText())
+                                )
+                            )
+                        );
+                        StartProgram.WriteToEach();
+                        accountCreationFrame.dispose();
+                        mainMenu menu= new mainMenu();
+                        menu.openMenu();                   
+                }catch (Exception ee) {
+                //TODO: handle exception
+                errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                JOptionPane.showMessageDialog(errorFrame,"Input Error for a new loan account");
+                }
+            } catch (Exception ee) {
+                //TODO: handle exception
+            }
+            
         }
         if (doneButton.hasFocus()) {
             try {
