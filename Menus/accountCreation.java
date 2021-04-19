@@ -7,6 +7,8 @@ import java.util.List;
 import javax.swing.*;
 import Accounts.Account;
 import Accounts.CD;
+import Accounts.CheckingAccount;
+import Accounts.LoanAccount;
 import Accounts.SavingsAccount;
 import MainProgram.StartProgram;
 
@@ -249,17 +251,16 @@ public class accountCreation implements Action{
                 }catch (Exception ee) {
                 //TODO: handle exception
                 errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-                JOptionPane.showMessageDialog(errorFrame,ee.getStackTrace());
+                JOptionPane.showMessageDialog(errorFrame,"Imput Error for a CD account");
             }
             }
             if(isChecking){
                 try {
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-                        accountList.add(new SavingsAccount(
-                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
-                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
-                            formatter.parse(dateTextBox.getText())
-                            )
+                        accountList.add(new CheckingAccount(Integer.parseInt(ssTextBox.getText()),
+                        Integer.parseInt(accountNumberTextBox.getText()), accountTypeDrop.getSelectedItem().toString(),
+                        Double.parseDouble(amountTextBox.getText()),((isBackup.isSelected()) ? 0 : 1),
+                        Integer.parseInt(backupTextField.getText()),0,formatter.parse(dateTextBox.getText()))
                         );
                         StartProgram.WriteToEach();
                         accountCreationFrame.dispose();
@@ -274,10 +275,13 @@ public class accountCreation implements Action{
             if(isloan){
                 try {
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-                        accountList.add(new SavingsAccount(
-                            Integer.parseInt(ssTextBox.getText()), Integer.parseInt(accountNumberTextBox.getText()),
-                            Double.parseDouble(amountTextBox.getText()),Double.parseDouble(interestRateTextBox.getText()),
-                            formatter.parse(dateTextBox.getText())
+                        accountList.add(
+                            new LoanAccount(Integer.parseInt(ssTextBox.getText()), Double.parseDouble(amountTextBox.getText()),
+                                Double.parseDouble(interestRateTextBox.getText()), formatter.parse(duedateTextBox.getText()),
+                                formatter.parse(notedateTextBox.getText()),Double.parseDouble(amountTextBox.getText())/780,
+                                accountTypeDrop.getSelectedItem().toString(),false, 
+                                ((isBackup.isSelected())?formatter.parse(duedateTextBox.getText()):formatter.parse(duedateTextBox.getText())
+                                )
                             )
                         );
                         StartProgram.WriteToEach();
