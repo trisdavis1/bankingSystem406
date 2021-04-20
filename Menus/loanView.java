@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.*;
 
 import Accounts.Account;
+import Accounts.LoanAccount;
 import MainProgram.StartProgram;
 
 public class loanView implements Action {
@@ -15,8 +16,16 @@ public class loanView implements Action {
     JTextField amountTextBox = new JTextField();
     JButton doneButton = new JButton("Done");// creating instance of JButton
     JButton updateButton = new JButton("Update");// creating instance of JButton
+    JButton backupButton = new JButton("Backup");// creating instance of JButton
     JFrame accountFrame = new JFrame();// creating instance of JFrame
     JTextField ssTextBox = new JTextField();
+    JTextField interestRateTextBox=new JTextField();//interest rate
+    JTextField duedateTextBox=new JTextField();//interest rate
+    JTextField notedateTextBox=new JTextField();//interest rate
+    String[] accountTypes = StartProgram.getAccountTypes();
+    JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
+   // JTextField accountTypeDrop=new JTextField();//interest rate
+
 
     public void open(List<Account> aL,int loanType) {
         accountList = aL;
@@ -39,8 +48,7 @@ public class loanView implements Action {
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeLabel);// adding button in JFrame
 
-        String[] accountTypes = StartProgram.getAccountTypes();
-        JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
+
         accountTypeDrop.setSelectedIndex(loanType);
         accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeDrop);// adding button in JFrame
@@ -53,15 +61,45 @@ public class loanView implements Action {
         amountTextBox.setBounds(130, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountTextBox);// adding button in JFrame
 
-        updateButton.setBounds(130, sectionTop + 250, 100, 40);// x axis, y axis, width, height
+        //interest rate
+        JLabel interestRateLabel=new JLabel("interest Rate");
+        interestRateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height
+        accountFrame.add(interestRateLabel);//adding button in JFrame
+
+        interestRateTextBox.setText(Double.toString(new Account().getInterestRate()));
+        interestRateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
+        accountFrame.add(interestRateTextBox);//adding button in JFrame
+        // due date
+        JLabel duedateLabel=new JLabel("Due Date");
+        duedateLabel.setBounds(30,sectionTop+200,100, 40);//x axis, y axis, width, height
+        accountFrame.add(duedateLabel);//adding button in JFrame
+
+        duedateTextBox.setText("03/05/2021");//sample date
+        duedateTextBox.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
+        accountFrame.add(duedateTextBox);//adding button in JFrame
+
+        //notedate
+        JLabel notedateLabel=new JLabel("Note Date");
+        notedateLabel.setBounds(30,sectionTop+250,100, 40);//x axis, y axis, width, height
+        accountFrame.add(notedateLabel);//adding button in JFrame
+
+        notedateTextBox.setText("06/05/2021");//sample date
+        notedateTextBox.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
+        accountFrame.add(notedateTextBox);//adding button in JFrame
+
+        backupButton.setBounds(130, sectionTop + 300, 100, 40);// x axis, y axis, width, height
+        accountFrame.add(backupButton);// adding button in JFrame
+        backupButton.addActionListener(this);
+
+        updateButton.setBounds(130, sectionTop + 350, 100, 40);// x axis, y axis, width, height
         accountFrame.add(updateButton);// adding button in JFrame
         updateButton.addActionListener(this);
 
-        doneButton.setBounds(130, sectionTop + 300, 100, 40);// x axis, y axis, width, height
+        doneButton.setBounds(130, sectionTop + 400, 100, 40);// x axis, y axis, width, height
         accountFrame.add(doneButton);// adding button in JFrame
         doneButton.addActionListener(this);
 
-        accountFrame.setSize(400, 500);// 400 width and 500 height
+        accountFrame.setSize(500, 500);// 500 width and 500 height
         accountFrame.setLayout(null);// using no layout managers
         accountFrame.setVisible(true);// making the frame visible
     }
@@ -82,12 +120,12 @@ public class loanView implements Action {
                                 Double.parseDouble(interestRateTextBox.getText()), formatter.parse(duedateTextBox.getText()),
                                 formatter.parse(notedateTextBox.getText()),Double.parseDouble(amountTextBox.getText())/780,
                                 accountTypeDrop.getSelectedItem().toString(),false, 
-                                ((isBackup.isSelected())?formatter.parse(duedateTextBox.getText()):formatter.parse(duedateTextBox.getText())
+                                ((backupButton.isSelected())?formatter.parse(duedateTextBox.getText()):formatter.parse(duedateTextBox.getText())
                                 )
                             )
                         );
                         StartProgram.WriteToEach();
-                        accountCreationFrame.dispose();
+                        accountFrame.dispose();
                         mainMenu menu= new mainMenu();
                         menu.openMenu();                   
                 }catch (Exception ee) {

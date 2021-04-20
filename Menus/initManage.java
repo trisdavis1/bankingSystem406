@@ -80,6 +80,7 @@ import MainProgram.StartProgram;
         if(menuButton.hasFocus()){
             mainMenu menu= new mainMenu();
             menu.openMenu();
+            initTellerFrame.dispose();
         }
         if(intSetButton.hasFocus()){
             interstSet a=new interstSet();
@@ -113,9 +114,15 @@ import MainProgram.StartProgram;
                         errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
                         JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
                     }
+                    else if(CustAccounts.size()==0){
+                        JFrame errorFrame=new JFrame();//creating instance of JFrame
+                        errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                        //default title and icon
+                        JOptionPane.showMessageDialog(errorFrame,"They don't have type of account");}
                     else{
+                        System.out.println();
                         initTellerFrame.dispose();
-                        a.open(CustAccounts); 
+                        a.open(CustAccounts);
                     }
                 }
                 else{
