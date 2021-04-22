@@ -16,7 +16,7 @@ public class userView implements Action{
     JButton doneButton=new JButton("Done");//creating instance of JButton
     JButton submitButton=new JButton("Submit");//creating instance of JButton
     JLabel ssLabel=new JLabel("SS");  
-    JTextField ssTextBox=new JTextField(423453245);
+    JTextField ssTextBox=new JTextField(000000000);
     JTextField lastTextBox=new JTextField(); 
     JTextField streetTextBox=new JTextField();  
     JTextField cityTextBox=new JTextField();
@@ -110,7 +110,7 @@ public class userView implements Action{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(submitButton.hasFocus()){
-            System.out.println(ssTextBox.getText());
+            //System.out.println(ssTextBox.getText());
             JFrame errorFrame=new JFrame();//creating instance of JFrame
             errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
             JOptionPane.showMessageDialog(errorFrame,"Updating User Info");

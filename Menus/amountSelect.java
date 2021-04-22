@@ -11,7 +11,7 @@ public class amountSelect implements Action{
     int wr=42;
     List<Account>accountList;
     JTextField amountTextBox=new JTextField(null);//amount text box
-    JButton nextButton=new JButton("Transfer");//creating instance of JButton
+    JButton nextButton=new JButton("Submit");//creating instance of JButton
     JButton doneButton=new JButton("Done");//creating instance of JButton
     Account account;
     public void open(Account ac, int wOr) {  //transfer
@@ -22,9 +22,11 @@ public class amountSelect implements Action{
         JLabel Title;
         if(wOr==0){
             Title=new JLabel("Withdraw");//Title
+            nextButton.setText("Withdraw");
         }
         else{
             Title=new JLabel("Deposit");//Title
+            nextButton.setText("Deposit");
         }
         Title.setBounds(150,1,200, 60);//x axis, y axis, width, height 
         amountFrame.add(Title);

@@ -11,81 +11,116 @@ import MainProgram.StartProgram;
 
     public class initManage implements Action{  
     List<Account> accountList;
-    JFrame initTellerFrame=new JFrame();//creating instance of JFrame
+    JFrame initManagerFrame=new JFrame();//creating instance of JFrame
     String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
-    JTextField ssTextBox=new JTextField(423453245);
+    JTextField ssTextBox=new JTextField(000000000);
     JButton userButton=new JButton("Edit User");//creating instance of JButton
     JButton intSetButton= new JButton("Set interest");//button for setting interest
     JButton billButton=new JButton("Send Bills");//creating instance of JButton
     JButton rolloverButton=new JButton("Rollover");//creating instance of JButton
-    JButton doneButton=new JButton("Next");//creating instance of JButton
-
+    JButton nextButton=new JButton("Next");//creating instance of JButton
+    JButton menuButton=new JButton("Menu");//creating instance of JButton
     public void open(List<Account> aL) { 
     accountList=aL; 
-    initTellerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
+    initManagerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
     int sectionTop=60;//where main section starts
 
     JLabel Title=new JLabel("Welcome Manager");//Title
     Title.setBounds(130,1,200, 60);//x axis, y axis, width, height 
-    initTellerFrame.add(Title);//adding button in JFrame
+    initManagerFrame.add(Title);//adding button in JFrame
     
     JLabel ssLabel=new JLabel("User SS");  
     ssLabel.setBounds(30,sectionTop,100, 40);//x axis, y axis, width, height 
-    initTellerFrame.add(ssLabel);//adding button in JFrame
-    ssTextBox.setText("423453245");
+    initManagerFrame.add(ssLabel);//adding button in JFrame
+    ssTextBox.setText("000000000");
     ssTextBox.setBounds(130,sectionTop,100, 40);//x axis, y axis, width, height 
-    initTellerFrame.add(ssTextBox);//adding button in JFrame
+    initManagerFrame.add(ssTextBox);//adding button in JFrame
 
     JLabel accountTypeLabel=new JLabel("Account Type");  
     accountTypeLabel.setBounds(30,sectionTop+50,100, 40);//x axis, y axis, width, height 
-    initTellerFrame.add(accountTypeLabel);//adding button in JFrame
+    initManagerFrame.add(accountTypeLabel);//adding button in JFrame
 
     accountTypeDrop.setSelectedIndex(0);
     accountTypeDrop.setBounds(130,sectionTop+50,140, 40);//x axis, y axis, width, height 
-    initTellerFrame.add(accountTypeDrop);//adding button in JFrame 
+    initManagerFrame.add(accountTypeDrop);//adding button in JFrame 
 
     userButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
     userButton.addActionListener(this);
-    initTellerFrame.add(userButton);//adding button in JFrame
+    initManagerFrame.add(userButton);//adding button in JFrame
 
     billButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
     billButton.addActionListener(this);
-    initTellerFrame.add(billButton);//adding button in JFrame
+    initManagerFrame.add(billButton);//adding button in JFrame
 
     rolloverButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
     rolloverButton.addActionListener(this);
-    initTellerFrame.add(rolloverButton);//adding button in JFrame
+    initManagerFrame.add(rolloverButton);//adding button in JFrame
     
     intSetButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
     intSetButton.addActionListener(this);
-    initTellerFrame.add(intSetButton);//adding button in JFrame
+    initManagerFrame.add(intSetButton);//adding button in JFrame
 
-    doneButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
-    doneButton.addActionListener(this);
-    initTellerFrame.add(doneButton);//adding button in JFrame
+    nextButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
+    nextButton.addActionListener(this);
+    initManagerFrame.add(nextButton);//adding button in JFrame
 
-    initTellerFrame.setSize(400,500);//400 width and 500 height  
-    initTellerFrame.setLayout(null);//using no layout managers  
-    initTellerFrame.setVisible(true);//making the frame visible  
+    menuButton.setBounds(130,sectionTop+350,100, 40);//x axis, y axis, width, height
+    menuButton.addActionListener(this);
+    initManagerFrame.add(menuButton);//adding button in JFrame
+
+    initManagerFrame.setSize(400,500);//400 width and 500 height  
+    initManagerFrame.setLayout(null);//using no layout managers  
+    initManagerFrame.setVisible(true);//making the frame visible  
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         //when Next is clicked get the user data
         // TODO pass the SS to data getting function
+        if(menuButton.hasFocus()){
+            mainMenu menu= new mainMenu();
+            menu.openMenu();
+            initManagerFrame.dispose();
+        }
         if(intSetButton.hasFocus()){
             interstSet a=new interstSet();
-            initTellerFrame.dispose();
+            initManagerFrame.dispose();
             a.open(accountList);
         }
-        else if(accountTypeDrop.getSelectedItem()=="Short Term Loan"||
-            accountTypeDrop.getSelectedItem()=="Long Term Loan"||
+        else if(accountTypeDrop.getSelectedItem()=="Short Term"||
+            accountTypeDrop.getSelectedItem()=="Long Term"||
             accountTypeDrop.getSelectedItem()=="Credit Card"){
                 loanView a=new loanView();
-                initTellerFrame.dispose();
+                initManagerFrame.dispose();
                 a.open(accountList,accountTypeDrop.getSelectedIndex());
+                int index=accountTypeDrop.getSelectedIndex();
+                String accountClass=StartProgram.convertToClass(index);
+                List<Account> CustAccounts=new ArrayList<Account>();
+                for (Account account : accountList){
+                    //System.out.println(accountClass+" "+account.getType());
+                    if(accountClass.equals(account.getType()))
+                    {
+                        CustAccounts.add(account);
+                        //System.out.println(account.getClass().toString());
+                    }
+                }
+                if(accountClass.equals("none")){
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    //default title and icon
+                    JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
+                }
+                else if(CustAccounts.size()==0){
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    //default title and icon
+                    JOptionPane.showMessageDialog(errorFrame,"You don't have type of account");}
+                else{
+                    initManagerFrame.dispose();
+                    a.open(CustAccounts,index); 
+                }  
         }
-        else if(doneButton.hasFocus()){
+        else if(nextButton.hasFocus()){
             worDselect a=new worDselect();
             try {
                 int index=accountTypeDrop.getSelectedIndex();
@@ -103,17 +138,18 @@ import MainProgram.StartProgram;
                     if(classboy.equals("none")){
                         JFrame errorFrame=new JFrame();//creating instance of JFrame
                         errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
-                        //default title and icon
                         JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
                     }
+                    else if(CustAccounts.size()==0){
+                        JFrame errorFrame=new JFrame();//creating instance of JFrame
+                        errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                        //default title and icon
+                        JOptionPane.showMessageDialog(errorFrame,"They don't have type of account");}
                     else{
-                       System.out.println();
-                        initTellerFrame.dispose();
-                        a.open(CustAccounts); 
+                        System.out.println();
+                        initManagerFrame.dispose();
+                        a.open(CustAccounts,true);
                     }
-                   
-                    initTellerFrame.dispose();
-                    a.open(CustAccounts);
                 }
                 else{
                     JFrame errorFrame=new JFrame();//creating instance of JFrame
@@ -142,7 +178,7 @@ import MainProgram.StartProgram;
         }
         if(userButton.hasFocus()){
             userView a=new userView();
-            initTellerFrame.dispose();
+            initManagerFrame.dispose();
             a.open(accountList,ssTextBox.getText(),true);
         }
         

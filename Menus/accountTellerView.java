@@ -76,11 +76,11 @@ public class accountTellerView implements Action{
 
         String[] columnNames = {"Date","C/D","Amount", "Honored"};
         Object[][] data = {
-            {"1-30-2021", "C",34565, false},
-            {"1-25-2021", "C",343256, true},
-            {"1-24-2021", "D",32453, false},
-            {"1-21-2021", "C",20, true},
-            {"1-17-2021", "D",45410, false}
+            {"1/30/2021", "C",34565, false},
+            {"1/25/2021", "C",343256, true},
+            {"1/24/2021", "D",32453, false},
+            {"1/22/2021", "C",20, true},
+            {"1/17/2021", "D",45410, false}
         };
         JTable recentTable=new JTable(data,columnNames);
         JScrollPane scrollPane = new JScrollPane(recentTable);
@@ -105,8 +105,12 @@ public class accountTellerView implements Action{
         // TODO Auto-generated method stub
         if(transferButton.hasFocus()){
             transferTeller a=new transferTeller();
-            accountTellerFrame.dispose();;
-            a.open(accountList);
+            accountTellerFrame.dispose();
+            for (Account account : accountList) {
+               if(accountComboBox.getSelectedItem().toString().equals(Integer.toString(account.getAccountNumber()))){
+                   a.open(account);
+               }
+            } 
         }
         if(withdrawButton.hasFocus()){
             amountSelect a=new amountSelect();

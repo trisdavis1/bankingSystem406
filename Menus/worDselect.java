@@ -14,12 +14,11 @@ import Accounts.Account;
     JButton checkButton=new JButton("Check");//creating instance of JButton
     JComboBox<String> accountComboBox=new JComboBox<>();
     List<Account>accountList;
+    boolean employeet;
 
-    public void open(List<Account>aL) {  
+    public void open(List<Account>aL, boolean emp) { 
+        employeet=emp; 
         accountList=aL;
-        for (Account account : aL) {
-            System.out.println(account.getCurrentBalance());
-        }
         worDSelectFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         int sectionTop=60;//where main section starts
 
@@ -47,7 +46,7 @@ import Accounts.Account;
 
         checkButton.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height
         checkButton.addActionListener(this);
-        if(accountList.get(0).getType().equals("Checking"))
+        if(accountList.get(0).getType().equals("TMB")||accountList.get(0).getType().equals("Gold/Diamond"))
             worDSelectFrame.add(checkButton);//adding button in JFrame
 
         viewButton.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height
@@ -73,8 +72,8 @@ import Accounts.Account;
         }
         else if(viewButton.hasFocus()){
             accountView a=new accountView();
+            a.open(accountList.get(accountComboBox.getSelectedIndex()),employeet);
             worDSelectFrame.dispose();
-            a.open(accountList.get(accountComboBox.getSelectedIndex()),false);
         }
         else if(checkButton.hasFocus()){
             CheckMenu a=new CheckMenu();

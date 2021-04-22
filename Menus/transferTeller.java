@@ -1,7 +1,6 @@
     package Menus;
     import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
-import java.util.List;
 
 import javax.swing.*;
 
@@ -11,18 +10,21 @@ import Accounts.Account;
         JButton CtoSButton=new JButton("Checking to Saving");//creating instance of JButton
         JButton StoCButton=new JButton("Saving to Checking");//creating instance of JButton
         JButton doneButton=new JButton("Done");//creating instance of JButton
-        List<Account> accountList;
-    public void open(List<Account> aL){ 
-        accountList=aL;
+        Account account;
+    public void open(Account ac){ 
+        account=ac;
         int sectionTop=60;//where main section starts
+        transferFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         CtoSButton.setBounds(130,sectionTop+50,100, 40);//x axis, y axis, width, height
         CtoSButton.addActionListener(this);
-        transferFrame.add(CtoSButton);//adding button in JFrame
-        transferFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//end program on exit
         
+        if(account.getType().equals("Checking"))
+            transferFrame.add(CtoSButton);//adding button in JFrame
+
         StoCButton.setBounds(130,sectionTop+100,100, 40);//x axis, y axis, width, height
         StoCButton.addActionListener(this);
-        transferFrame.add(StoCButton);//adding button in JFrame
+        if(account.getType().equals("Saving"))
+            transferFrame.add(StoCButton);//adding button in JFrame
 
         doneButton.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height
         doneButton.addActionListener(this);
@@ -38,17 +40,17 @@ import Accounts.Account;
         if(CtoSButton.hasFocus()){
             amountTransfer a=new amountTransfer();
             transferFrame.dispose();
-            a.open(accountList,0);
+            a.open(account,0);
         }
         else if(StoCButton.hasFocus()){
             amountTransfer a=new amountTransfer();
             transferFrame.dispose();
-            a.open(accountList,1);
+            a.open(account,1);
         }
         else if(doneButton.hasFocus()){
-            initManage a=new initManage();
+            mainMenu a=new mainMenu();
             transferFrame.dispose();
-            a.open(accountList);
+            a.openMenu();
         }
     }
     @Override
