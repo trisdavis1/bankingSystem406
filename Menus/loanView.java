@@ -16,6 +16,7 @@ public class loanView implements Action {
     JTextField amountTextBox = new JTextField();
     JButton doneButton = new JButton("Done");// creating instance of JButton
     JButton updateButton = new JButton("Update");// creating instance of JButton
+    JButton backupButton = new JButton("Backup");// creating instance of JButton
     JFrame accountFrame = new JFrame();// creating instance of JFrame
     JTextField ssTextBox = new JTextField();
     JLabel dueDateLabel=new JLabel("Next Due Date");//label
@@ -109,10 +110,10 @@ public class loanView implements Action {
         updateButton.setBounds(130, sectionTop + 250, 100, 40);// x axis, y axis, width, height
         accountFrame.add(updateButton);// adding button in JFrame
 
-        doneButton.setBounds(130, sectionTop + 300, 100, 40);// x axis, y axis, width, height
+        doneButton.setBounds(130, sectionTop + 400, 100, 40);// x axis, y axis, width, height
         accountFrame.add(doneButton);// adding button in JFrame
 
-        accountFrame.setSize(400, 500);// 400 width and 500 height
+        accountFrame.setSize(500, 500);// 500 width and 500 height
         accountFrame.setLayout(null);// using no layout managers
         accountFrame.setVisible(true);// making the frame visible
     }

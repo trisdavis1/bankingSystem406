@@ -82,6 +82,7 @@ public class initTeller implements Action{
         if(menuButton.hasFocus()){
             mainMenu menu= new mainMenu();
             menu.openMenu();
+            initTellerFrame.dispose();
         }
         if(overviewButton.hasFocus()){
             if(detailButton.hasFocus()){
