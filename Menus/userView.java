@@ -27,10 +27,13 @@ public class userView implements Action{
     public void open(List<Account>aL, String ss,boolean isWorker) { 
         
         userList=StartProgram.getUserList();
-        User userInfo=userList.get(0);
+        User userInfo=new User();
+        boolean inList=false;
         for (User user : userList) {
-            if(Integer.toString(user.getCustomerId()).equals(ss))
+            if(user.getCustomerId()==Integer.parseInt(ss)){
                 userInfo=user;
+                inList=true;
+            }
         }
         userViewFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -105,7 +108,26 @@ public class userView implements Action{
 
         userViewFrame.setSize(400,500);//400 width and 500 height  
         userViewFrame.setLayout(null);//using no layout managers  
-        userViewFrame.setVisible(true);//making the frame visible  
+        userViewFrame.setVisible(true);//making the frame visible
+        if(!inList && !isWorker){
+            //if user inputed a bad SS
+            userViewFrame.dispose();
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            JOptionPane.showMessageDialog(errorFrame,"Wrong SS number");
+            mainMenu a = new mainMenu();
+            a.openMenu();
+            
+        }
+        else if(!inList){
+            //if a worker inputed a bad SS
+            JFrame errorFrame=new JFrame();//creating instance of JFrame
+            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+            JOptionPane.showMessageDialog(errorFrame,"No user by that SS");
+            userCreation a = new userCreation();
+            a.open(ss);
+            userViewFrame.dispose();
+        }  
     }
     @Override
     public void actionPerformed(ActionEvent e) {
