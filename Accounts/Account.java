@@ -1,5 +1,9 @@
 package Accounts;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Account {
     protected int customerId;
     protected double currentBalance;
@@ -7,6 +11,7 @@ public class Account {
     protected double interestRate;
     protected String type;//subtypes; here so it can be compared
     protected int accountNumber;
+    protected Date openDate;
     
     public void setStatus(int cOb){
         if(cOb==0) status = "current";
@@ -67,5 +72,10 @@ public class Account {
     }
     public String getType(){
         return type;
+    }
+    public Date getDateOpened() throws ParseException{
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        openDate=formatter.parse("01/15/2020");
+        return openDate;
     }
 }

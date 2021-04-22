@@ -256,7 +256,7 @@ public class accountCreation implements Action{
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
                         accountList.add(new CheckingAccount(Integer.parseInt(ssTextBox.getText()),
                         Integer.parseInt(accountNumberTextBox.getText()), accountTypeDrop.getSelectedItem().toString(),
-                        Double.parseDouble(amountTextBox.getText()),((isBackup.isSelected()) ? 0 : 1),
+                        Double.parseDouble(amountTextBox.getText()),((isBackup.isSelected()) ? false : true),
                         Integer.parseInt(backupTextField.getText()),0,formatter.parse(dateTextBox.getText()))
                         );
                         StartProgram.WriteToEach();

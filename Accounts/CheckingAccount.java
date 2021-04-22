@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class CheckingAccount extends Account {
     private String accountType;
-    private int backupAccount;
+    private boolean isBackedUp;
     private int backupAccountNumber;
     private int overdrafts;
     private Date dateOpened;
 
     public CheckingAccount(int customerId, int accountNumber, String accountType, double currentBalance,
-                           int backupAccount, int backupAccountNumber, int overDrafts, Date dateOpened
+                           boolean backupAccount, int backupAccountNumber, int overDrafts, Date dateOpened
                           )
     {
         this.customerId = customerId;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
         this.currentBalance = currentBalance;
-        this.backupAccount = backupAccount;
+        this.isBackedUp = backupAccount;
         this.backupAccountNumber = backupAccountNumber;
         this.overdrafts = overDrafts;
         this.dateOpened = dateOpened;
@@ -32,7 +32,7 @@ public class CheckingAccount extends Account {
                             {
                                  Integer.toString(customerId), Integer.toString(accountNumber),
                                  accountType, Double.toString(currentBalance),
-                                 Integer.toString(backupAccount), Integer.toString(backupAccountNumber),
+                                 Boolean.toString(isBackedUp), Integer.toString(backupAccountNumber),
                                  Integer.toString(overdrafts), formatter.format(dateOpened)
                             };
 
@@ -54,12 +54,15 @@ public class CheckingAccount extends Account {
         this.accountType = accountType;
     }
 
-    public int getBackupAccount() {
-        return backupAccount;
+    public boolean getisBackedUp() {
+        return isBackedUp;
+    }
+    public void setisBackup(boolean isIt){
+        isBackedUp=isIt;
     }
 
     public void setBackupAccount(int backupAccount) {
-        this.backupAccount = backupAccount;
+        this.backupAccountNumber = backupAccount;
     }
 
     public int getBackupAccountNumber() {

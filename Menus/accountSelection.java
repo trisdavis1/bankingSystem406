@@ -77,7 +77,7 @@ public class accountSelection implements Action{
             else{
                 worDselect a = new worDselect();
                 accSelectFrame.dispose();
-                a.open(CustAccounts); 
+                a.open(CustAccounts, false); 
             }  
         }
         if(doneButton.hasFocus()){ 

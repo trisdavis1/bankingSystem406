@@ -8,6 +8,7 @@ import java.util.List;
 import javax.swing.*;
 
 import Accounts.Account;
+import Accounts.LoanAccount;
 import MainProgram.StartProgram;
 
 public class loanView implements Action {
@@ -17,6 +18,14 @@ public class loanView implements Action {
     JButton updateButton = new JButton("Update");// creating instance of JButton
     JFrame accountFrame = new JFrame();// creating instance of JFrame
     JTextField ssTextBox = new JTextField();
+    JLabel dueDateLabel=new JLabel("Next Due Date");//label
+    JTextField duedateTextBox=new JTextField();//date when payment due
+    JLabel lastpayDateLabel=new JLabel("Last Payment Date");//label
+    JTextField lastpayDate=new JTextField();//date when payment due
+    JTextField interestRateTextBox=new JTextField();//interest rate
+    JLabel noteDateLabel=new JLabel("Notify Date");//label
+    JTextField notedateTextBox=new JTextField();//date when notify
+    JComboBox<String> accountComboBox=new JComboBox<>();
 
     public void open(List<Account> aL,int loanType) {
         accountList = aL;
@@ -34,16 +43,28 @@ public class loanView implements Action {
         ssTextBox.setText(Integer.toString(accountList.get(0).getCustomerId()));
         ssTextBox.setBounds(130, sectionTop, 100, 40);// x axis, y axis, width, height
         accountFrame.add(ssTextBox);// adding button in JFrame
+        ssTextBox.setEnabled(false);
 
         JLabel accountTypeLabel = new JLabel("Account Type");
         accountTypeLabel.setBounds(30, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeLabel);// adding button in JFrame
 
+        String[] accDrop= new String[aL.size()];
+        int count=0;
+        for (Account account : aL) {
+            accDrop[count]=Double.toString(account.getCurrentBalance());
+            accountComboBox.addItem(Integer.toString(account.getAccountNumber()));
+        }
+        accountComboBox.setBounds(280,sectionTop,100, 40);//x axis, y axis, width, height
+        accountComboBox.addActionListener(this);
+        accountFrame.add(accountComboBox);//adding box in JFrame
+
         String[] accountTypes = StartProgram.getAccountTypes();
         JComboBox<String> accountTypeDrop = new JComboBox<>(accountTypes);
         accountTypeDrop.setSelectedIndex(loanType);
-        accountTypeDrop.setBounds(130, sectionTop + 50, 160, 40);// x axis, y axis, width, height
+        accountTypeDrop.setBounds(130, sectionTop + 50, 100, 40);// x axis, y axis, width, height
         accountFrame.add(accountTypeDrop);// adding button in JFrame
+        accountTypeDrop.setEnabled(false);
 
         JLabel amountLabel = new JLabel("Amount");
         amountLabel.setBounds(30, sectionTop + 100, 100, 40);// x axis, y axis, width, height
@@ -53,13 +74,43 @@ public class loanView implements Action {
         amountTextBox.setBounds(130, sectionTop + 100, 100, 40);// x axis, y axis, width, height
         accountFrame.add(amountTextBox);// adding button in JFrame
 
+        JLabel interestRateLabel=new JLabel("interest Rate");  
+        interestRateLabel.setBounds(30,sectionTop+250,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(interestRateLabel);//adding button in JFrame
+
+        interestRateTextBox.setText(Double.toString(new Account().getInterestRate()));;
+        interestRateTextBox.setBounds(130,sectionTop+250,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(interestRateTextBox);//adding button in JFrame
+
+        //notifaction date label
+        noteDateLabel.setBounds(280,sectionTop+70,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(noteDateLabel);//adding button in JFrame
+
+        //notifaction date text box
+        notedateTextBox.setBounds(280,sectionTop+100,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(notedateTextBox);
+        
+        //due date label
+        dueDateLabel.setBounds(30,sectionTop+150,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(dueDateLabel);//adding button in JFrame
+
+        //due date text box
+        duedateTextBox.setBounds(130,sectionTop+150,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(duedateTextBox);//adding button in JFrame 
+
+        //last payment date label
+        lastpayDateLabel.setBounds(1,sectionTop+200,150, 40);//x axis, y axis, width, height 
+        accountFrame.add(lastpayDateLabel);//adding button in JFrame
+        
+        //last payment
+        lastpayDate.setBounds(130,sectionTop+200,100, 40);//x axis, y axis, width, height 
+        accountFrame.add(lastpayDate);//adding button in JFrame 
+
         updateButton.setBounds(130, sectionTop + 250, 100, 40);// x axis, y axis, width, height
         accountFrame.add(updateButton);// adding button in JFrame
-        updateButton.addActionListener(this);
 
         doneButton.setBounds(130, sectionTop + 300, 100, 40);// x axis, y axis, width, height
         accountFrame.add(doneButton);// adding button in JFrame
-        doneButton.addActionListener(this);
 
         accountFrame.setSize(400, 500);// 400 width and 500 height
         accountFrame.setLayout(null);// using no layout managers
@@ -77,17 +128,16 @@ public class loanView implements Action {
             try {
                 try {
                         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+                        String endDateString = lastpayDate.getText();
                         accountList.add(
                             new LoanAccount(Integer.parseInt(ssTextBox.getText()), Double.parseDouble(amountTextBox.getText()),
                                 Double.parseDouble(interestRateTextBox.getText()), formatter.parse(duedateTextBox.getText()),
                                 formatter.parse(notedateTextBox.getText()),Double.parseDouble(amountTextBox.getText())/780,
-                                accountTypeDrop.getSelectedItem().toString(),false, 
-                                ((isBackup.isSelected())?formatter.parse(duedateTextBox.getText()):formatter.parse(duedateTextBox.getText())
-                                )
+                                accountList.get(0).getType(),false, formatter.parse(endDateString)
                             )
                         );
                         StartProgram.WriteToEach();
-                        accountCreationFrame.dispose();
+                        accountFrame.dispose();
                         mainMenu menu= new mainMenu();
                         menu.openMenu();                   
                 }catch (Exception ee) {

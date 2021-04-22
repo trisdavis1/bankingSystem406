@@ -54,4 +54,7 @@ public class CD extends Account {
     public void setType(String type){
         this.type="Savings";
     }
+    public void setrolloverDate(Date date) {
+        this.rolloverDate = date;
+    }
 }

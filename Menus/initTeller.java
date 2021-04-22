@@ -15,7 +15,8 @@ public class initTeller implements Action{
     String[] accountTypes=StartProgram.getAccountTypes();
     JComboBox<String> accountTypeDrop=new JComboBox<>(accountTypes);//type of account
     JTextField ssTextBox=new JTextField();
-    JButton nextButton=new JButton("Next");//creating instance of JButton
+    JButton overviewButton=new JButton("Overview");//creating instance of JButton
+    JButton detailButton=new JButton("Detailed");//creating instance of JButton
     JButton menuButton=new JButton("Menu");//creating instance of JButton
     JButton userEditButton=new JButton("Edit User");//creating instance of JButton
     JButton userCreateButton=new JButton("New User");//creating instance of JButton
@@ -58,9 +59,13 @@ public class initTeller implements Action{
         userEditButton.addActionListener(this);
         initTellerFrame.add(userEditButton);//adding button in JFrame
         
-        nextButton.setBounds(130,sectionTop+300,100, 40);//x axis, y axis, width, height
-        nextButton.addActionListener(this);
-        initTellerFrame.add(nextButton);//adding button in JFrame
+        overviewButton.setBounds(70,sectionTop+300,100, 40);//x axis, y axis, width, height
+        overviewButton.addActionListener(this);
+        initTellerFrame.add(overviewButton);//adding button in JFrame
+
+        detailButton.setBounds(180,sectionTop+300,100, 40);//x axis, y axis, width, height
+        detailButton.addActionListener(this);
+        initTellerFrame.add(detailButton);//adding button in JFrame
 
         menuButton.setBounds(130,sectionTop+350,100, 40);//x axis, y axis, width, height
         menuButton.addActionListener(this);
@@ -78,10 +83,54 @@ public class initTeller implements Action{
             mainMenu menu= new mainMenu();
             menu.openMenu();
         }
-        if(nextButton.hasFocus()){
+        if(overviewButton.hasFocus()){
+            if(detailButton.hasFocus()){
+                try {
+                    String ss=ssTextBox.getText();
+                    accountTellerView a=new accountTellerView();
+                    String classType=StartProgram.convertToClass(accountTypeDrop.getSelectedIndex());
+                    if(String.valueOf(ss).length()==9){
+                        List<Account> CustAccounts;
+                        CustAccounts=new ArrayList<Account>();
+                        
+                        for (Account account : accountList) {
+                            if(account.getCustomerId()==Integer.parseInt(ss)){
+                                //System.out.println(classType+" "+account.getType());
+                                if(classType.equals(account.getType())){
+                                    CustAccounts.add(account);
+                                    //System.out.println("Type: "+account.getType());
+                                }
+                            }
+                        }  
+                        if(classType.equals("none")){
+                            JFrame errorFrame=new JFrame();//creating instance of JFrame
+                            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                            //default title and icon
+                            JOptionPane.showMessageDialog(errorFrame,"Choose an account type");
+                        }
+                        else if(CustAccounts.size()==0){
+                            JFrame errorFrame=new JFrame();//creating instance of JFrame
+                            errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                            //default title and icon
+                            JOptionPane.showMessageDialog(errorFrame,"They don't have type of account");}
+                        else{
+                            a.open(CustAccounts,ssTextBox.getText(),0);
+                            initTellerFrame.dispose();
+                        }
+                    }
+                }catch (Exception ee) {
+                    //TODO: handle exception
+                    JFrame errorFrame=new JFrame();//creating instance of JFrame
+                    errorFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//end program on exit
+                    //default title and icon
+                    JOptionPane.showMessageDialog(errorFrame,"Incorrect SS or no account of that type");
+                }
+            }
+        }
+        if(detailButton.hasFocus()){
             try {
                 String ss=ssTextBox.getText();
-                accountTellerView a=new accountTellerView();
+                worDselect a=new worDselect();
                 String classType=StartProgram.convertToClass(accountTypeDrop.getSelectedIndex());
                 if(String.valueOf(ss).length()==9){
                     List<Account> CustAccounts;
@@ -108,7 +157,7 @@ public class initTeller implements Action{
                         //default title and icon
                         JOptionPane.showMessageDialog(errorFrame,"They don't have type of account");}
                     else{
-                        a.open(CustAccounts,ssTextBox.getText(),0);
+                        a.open(CustAccounts,true);
                         initTellerFrame.dispose();
                     }
                 }

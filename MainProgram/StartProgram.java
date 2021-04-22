@@ -7,7 +7,6 @@ import Accounts.CheckingAccount;
 import Accounts.LoanAccount;
 import Accounts.SavingsAccount;
 import Accounts.User;
-import Menus.Payment;
 import Menus.mainMenu;
 
 import java.io.*;
@@ -152,7 +151,7 @@ public class StartProgram {
                 SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");//for formatting
 
                 checkingAccounts.add(new CheckingAccount(Integer.parseInt(items[0]), Integer.parseInt(items[1]),
-                        items[2], Double.parseDouble(items[3]), Integer.parseInt(items[4]), Integer.parseInt(items[5]),
+                        items[2], Double.parseDouble(items[3]), Boolean.parseBoolean(items[4]), Integer.parseInt(items[5]),
                         Integer.parseInt(items[6]),formatter.parse(items[7])));
             }
         }
